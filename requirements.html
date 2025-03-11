@@ -1,32 +1,28 @@
 <!-- degree requirements page -->
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Requirements</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Requirements</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Academic Requirements</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="planner.html">Build Semester Plan</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="nav-btn" onclick="window.location.href='index.html'">Home</button>
+      <button class="nav-btn" onclick="window.location.href='planner.html'">Build Semester Plan</button>
+      <button class="nav-btn active" onclick="window.location.href='requirements.html'">Academic Requirements</button>
+    </div>
 
-    <main>
-        <h2>Degree Requirements</h2>
-        <ul>
-            <li>✔ COMP 101 - Intro to Programming</li>
-            <li>✔ MATH 201 - Calculus I</li>
-            <li>❌ COMP 202 - Data Structures</li>
-            <li>❌ COMP 301 - Databases</li>
-        </ul>
-    </main>
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Academic Requirements</h1>
+      <p>This page will display the academic requirements for the BSc in Computer Science program.</p>
+    </div>
+  </div>
 </body>
 </html>

@@ -1,37 +1,27 @@
 <!-- build a semester plan -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Build Semester Plan</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Semester Plan</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Build Your Semester Plan</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="requirements.html">Academic Requirements</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="nav-btn" onclick="window.location.href='index.html'">Home</button>
+      <button class="nav-btn active" onclick="window.location.href='planner.html'">Build Semester Plan</button>
+      <button class="nav-btn" onclick="window.location.href='requirements.html'">Academic Requirements</button>
+    </div>
 
-    <main>
-        <h2>Select Your Courses</h2>
-        <form>
-            <label>
-                <input type="checkbox"> COMP 202 - Data Structures
-            </label><br>
-            <label>
-                <input type="checkbox"> COMP 301 - Databases
-            </label><br>
-            <label>
-                <input type="checkbox"> MATH 302 - Linear Algebra
-            </label><br>
-            <button type="submit">Save Plan</button>
-        </form>
-    </main>
+    <!-- Main Content -->
+    <div class="main-content">
+      <h1>Build Semester Plan</h1>
+      <p>This page will allow you to build your semester plan.</p>
+    </div>
+  </div>
 </body>
 </html>

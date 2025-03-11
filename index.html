@@ -1,31 +1,92 @@
 <!-- main degree homepage -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Degree Dashboard</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Degree Planning Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Degree Dashboard</h1>
-        <nav>
-            <ul>
-                <li><a href="requirements.html">Academic Requirements</a></li>
-                <li><a href="planner.html">Build Semester Plan</a></li>
-            </ul>
-        </nav>
-    </header>
+  <div class="dashboard">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <button class="nav-btn active" onclick="window.location.href='index.html'">Home</button>
+      <button class="nav-btn" onclick="window.location.href='planner.html'">Build Semester Plan</button>
+      <button class="nav-btn" onclick="window.location.href='requirements.html'">Academic Requirements</button>
+    </div>
 
-    <main>
-        <h2>Your Degree Progress</h2>
-        <div class="progress-bar">
-            <div class="progress" style="width: 60%;">60% Complete</div>
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Top Bar -->
+      <div class="top-bar">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <button class="logout-btn">Logout</button>
+      </div>
+
+      <!-- Section 1: Profile and Degree Progress -->
+      <div class="section-1">
+        <!-- User Profile -->
+        <div class="profile">
+          <img src="https://via.placeholder.com/100" alt="Profile Photo" class="profile-photo">
+          <h2>John Doe</h2>
+          <p>BSc in Computer Science</p>
+          <button class="gpa-btn" onclick="showGPA()">View GPA</button>
         </div>
-        <p>Track your completed and remaining courses.</p>
-    </main>
+
+        <!-- Degree Progress -->
+        <div class="degree-progress">
+          <h3>Degree Progress</h3>
+          <div class="pie-chart"></div>
+          <div class="progress-labels">
+            <p>Completed: 15</p>
+            <p>In Progress: 5</p>
+            <p>Incomplete: 10</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2: Completed Courses -->
+      <div class="section-2">
+        <h3>Completed Courses</h3>
+        <div class="dropdown">
+          <button class="dropdown-btn">Year 1</button>
+          <div class="dropdown-content">
+            <p>Course 101 - Introduction to Programming - Grade: A</p>
+            <p>Course 102 - Discrete Mathematics - Grade: B+</p>
+            <!-- Add more courses here -->
+          </div>
+        </div>
+        <div class="dropdown">
+          <button class="dropdown-btn">Year 2</button>
+          <div class="dropdown-content">
+            <p>Course 201 - Data Structures - Grade: A-</p>
+            <p>Course 202 - Algorithms - Grade: B</p>
+            <!-- Add more courses here -->
+          </div>
+        </div>
+        <!-- Add more years here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- GPA Popup -->
+  <div id="gpa-popup" class="popup">
+    <div class="popup-content">
+      <span class="close-btn" onclick="hideGPA()">&times;</span>
+      <h2>Your GPA</h2>
+      <p>3.75</p>
+    </div>
+  </div>
+
+  <script>
+    function showGPA() {
+      document.getElementById('gpa-popup').style.display = 'block';
+    }
+
+    function hideGPA() {
+      document.getElementById('gpa-popup').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
-
