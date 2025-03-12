@@ -24,24 +24,31 @@
         <button class="logout-btn">Logout</button>
       </div>
 
-      <!-- Section 1: Profile and Degree Progress -->
-      <div class="section-1">
+      <!-- Combined Section: Profile and Degree Progress -->
+      <div class="combined-section">
         <!-- User Profile -->
         <div class="profile">
           <img src="https://via.placeholder.com/100" alt="Profile Photo" class="profile-photo">
-          <h2>John Doe</h2>
-          <p>BSc in Computer Science</p>
-          <button class="gpa-btn" onclick="showGPA()">View GPA</button>
+          <div class="profile-info">
+            <h2>John Doe</h2>
+            <p>BSc in Computer Science</p>
+            <button class="gpa-btn" onclick="showGPA()">View GPA</button>
+          </div>
         </div>
+
+        <!-- Divider -->
+        <div class="divider"></div>
 
         <!-- Degree Progress -->
         <div class="degree-progress">
           <h3>Degree Progress</h3>
-          <div class="pie-chart"></div>
-          <div class="progress-labels">
-            <p>Completed: 15</p>
-            <p>In Progress: 5</p>
-            <p>Incomplete: 10</p>
+          <div class="progress-container">
+            <div class="pie-chart"></div>
+            <div class="progress-key">
+              <p><span class="color-box completed"></span> Completed: 15</p>
+              <p><span class="color-box in-progress"></span> In Progress: 5</p>
+              <p><span class="color-box incomplete"></span> Incomplete: 10</p>
+            </div>
           </div>
         </div>
       </div>
@@ -49,17 +56,19 @@
       <!-- Section 2: Completed Courses -->
       <div class="section-2">
         <h3>Completed Courses</h3>
+        <!-- Year 1 Dropdown -->
         <div class="dropdown">
-          <button class="dropdown-btn">Year 1</button>
-          <div class="dropdown-content">
+          <button class="dropdown-btn" onclick="toggleDropdown('year1')">Year 1</button>
+          <div id="year1" class="dropdown-content">
             <p>Course 101 - Introduction to Programming - Grade: A</p>
             <p>Course 102 - Discrete Mathematics - Grade: B+</p>
             <!-- Add more courses here -->
           </div>
         </div>
+        <!-- Year 2 Dropdown -->
         <div class="dropdown">
-          <button class="dropdown-btn">Year 2</button>
-          <div class="dropdown-content">
+          <button class="dropdown-btn" onclick="toggleDropdown('year2')">Year 2</button>
+          <div id="year2" class="dropdown-content">
             <p>Course 201 - Data Structures - Grade: A-</p>
             <p>Course 202 - Algorithms - Grade: B</p>
             <!-- Add more courses here -->
@@ -80,12 +89,23 @@
   </div>
 
   <script>
+    // Function to show/hide GPA popup
     function showGPA() {
-      document.getElementById('gpa-popup').style.display = 'block';
+      document.getElementById('gpa-popup').style.display = 'flex';
     }
 
     function hideGPA() {
       document.getElementById('gpa-popup').style.display = 'none';
+    }
+
+    // Function to toggle dropdowns
+    function toggleDropdown(id) {
+      const dropdown = document.getElementById(id);
+      if (dropdown.style.display === 'block') {
+        dropdown.style.display = 'none';
+      } else {
+        dropdown.style.display = 'block';
+      }
     }
   </script>
 </body>
