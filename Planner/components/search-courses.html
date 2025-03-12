@@ -1,0 +1,115 @@
+<div class="mt-4">
+    <style>
+        .search-input {
+            width: 100%;
+            padding: 8px 10px 8px 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+            color: #666;
+        }
+    </style>
+    
+    <h4>Search Courses</h4>
+    
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" placeholder="Search courses...">
+    </div>
+    
+    <div class="form-check mb-3">
+        <input class="form-check-input" type="checkbox" id="prereqCheck">
+        <label class="form-check-label" for="prereqCheck">
+            Only with cleared prerequisites
+        </label>
+    </div>
+    
+    <div class="mb-3">
+        <button class="btn btn-sm btn-outline-secondary me-2" id="filtersBtn">
+            <i class="fas fa-filter"></i> Filters
+        </button>
+        <button class="btn btn-sm btn-outline-secondary" id="semestersBtn">Semesters</button>
+    </div>
+    
+    <div class="mb-3">
+        <span class="badge bg-light text-dark p-2 location-filter">
+            at Hill (UT) [HILL]
+            <i class="fas fa-times ms-1"></i>
+        </span>
+    </div>
+    
+    <div class="list-group" id="coursesList">
+        <div class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <div class="fw-bold">HST 204</div>
+                <div>03 credits</div>
+            </div>
+            <div>Canadian History</div>
+            <span class="badge bg-success mt-1">Added</span>
+        </div>
+        
+        <div class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <div class="fw-bold">CPSC 500</div>
+                <div>03 credits</div>
+            </div>
+            <div>Computer Systems Analysis and Design</div>
+            <span class="badge bg-warning text-dark mt-1">Prerequisites pending</span>
+        </div>
+        
+        <div class="list-group-item">
+            <div class="d-flex justify-content-between">
+                <div class="fw-bold">ENTI 300</div>
+                <div>03 credits</div>
+            </div>
+            <div>Business Applications</div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            // Remove filter tag
+            $('.location-filter .fa-times').click(function() {
+                $(this).parent().remove();
+            });
+            
+            // Search functionality
+            $('.search-input').on('keyup', function() {
+                let searchTerm = $(this).val().toLowerCase();
+                $('#coursesList .list-group-item').each(function() {
+                    let text = $(this).text().toLowerCase();
+                    if(text.indexOf(searchTerm) > -1) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            });
+            
+            // Filter button functionality
+            $('#filtersBtn').click(function() {
+                alert("Filters functionality will be implemented here");
+            });
+            
+            // Semesters button functionality
+            $('#semestersBtn').click(function() {
+                alert("Semesters functionality will be implemented here");
+            });
+            
+            // Course click functionality
+            $('#coursesList .list-group-item').click(function() {
+                $(this).toggleClass('active');
+            });
+        });
+    </script>
+</div>

@@ -1,0 +1,114 @@
+<div class="degree-progress-card">
+    <style>
+        .degree-progress-card {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+        
+        .degree-progress-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+        
+        .progress-bar-container {
+            height: 10px;
+            background: #ddd;
+            border-radius: 5px;
+            overflow: hidden;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .progress-segment {
+            height: 100%;
+            float: left;
+            transition: width 0.5s;
+        }
+
+        .progress-taken { background: #2ecc71; }
+        .progress-planned { background: #3498db; }
+        .progress-unplanned { background: #bbb; }
+
+        .progress-tooltip {
+            position: absolute;
+            background: #333;
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 12px;
+            top: -25px;
+            opacity: 0;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+
+        .progress-stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 10px;
+        }
+
+        .progress-stat-item {
+            text-align: center;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .progress-stat-item:hover {
+            background: #f0f0f0;
+        }
+    </style>
+
+    <div>Degree Completion Progress</div>
+    <div class="progress-bar-container">
+        <div class="progress-segment progress-taken" style="width: 15%;" data-tooltip="Completed: 15%"></div>
+        <div class="progress-segment progress-planned" style="width: 45%;" data-tooltip="Planned: 45%"></div>
+        <div class="progress-segment progress-unplanned" style="width: 40%;" data-tooltip="Remaining: 40%"></div>
+        <div class="progress-tooltip"></div>
+    </div>
+
+    <div class="progress-stats">
+        <div class="progress-stat-item" id="stat-taken">
+            <div>Completed</div>
+            <div>14 courses</div>
+            <div>42 credits</div>
+        </div>
+        <div class="progress-stat-item" id="stat-planned">
+            <div>Planned</div>
+            <div>24 courses</div>
+            <div>72 credits</div>
+        </div>
+        <div class="progress-stat-item" id="stat-unplanned">
+            <div>Remaining</div>
+            <div>23 courses</div>
+            <div>69 credits</div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            const tooltip = $(".progress-tooltip");
+
+            $(".progress-segment").hover(function() {
+                tooltip.text($(this).data("tooltip"));
+                tooltip.css({
+                    left: $(this).position().left + ($(this).width() / 2),
+                    opacity: 1
+                });
+            }, function() {
+                tooltip.css("opacity", 0);
+            });
+
+            $(".progress-stat-item").hover(function() {
+                const type = $(this).attr("id").split('-')[1];
+                $(".progress-segment").css("opacity", 0.5);
+                $(".progress-" + type).css("opacity", 1);
+            }, function() {
+                $(".progress-segment").css("opacity", 1);
+            });
+        });
+    </script>
+</div>

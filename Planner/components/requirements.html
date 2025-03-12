@@ -1,0 +1,68 @@
+<div class="card">
+    <style>
+        .requirement-item {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: white;
+        }
+    </style>
+    
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h4>Remaining Requirements</h4>
+        <span class="badge bg-secondary">10</span>
+    </div>
+    <div class="card-body">
+        <div class="alert alert-warning">
+            <button type="button" class="btn-close float-end" aria-label="Close"></button>
+            <strong>Tip:</strong> Drag requirements to your plan.
+        </div>
+
+        <div class="requirement-item">
+            <div class="d-flex">
+                <span class="badge bg-secondary me-2">PHIL 314</span>
+                <div>
+                    <div class="fw-bold">Name of Course</div>
+                    <div class="text-secondary">Something Something</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="requirement-item">
+            <div class="d-flex">
+                <span class="badge bg-secondary me-2"></span>
+                <div>
+                    <div class="fw-bold">300 lvl Non - Major Requirement</div>
+                    <div class="text-secondary">Choose a course - Need to make it link</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="requirement-item">
+            <div class="d-flex">
+                <span class="badge bg-secondary me-2">CPSC 449</span>
+                <div>
+                    <div class="fw-bold">Name of course</div>
+                    <div class="text-secondary">XYZ</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            // Close alerts
+            $('.btn-close').click(function() {
+                $(this).parent().fadeOut();
+            });
+            
+            // Make requirements draggable (placeholder for future implementation)
+            $('.requirement-item').on('mousedown', function() {
+                $(this).css('cursor', 'grabbing');
+            }).on('mouseup mouseleave', function() {
+                $(this).css('cursor', 'grab');
+            });
+        });
+    </script>
+</div>

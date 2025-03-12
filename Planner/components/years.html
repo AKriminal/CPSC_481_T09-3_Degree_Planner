@@ -1,0 +1,183 @@
+<div class="years-content">
+    <style>
+        .year-container {
+            margin-bottom: 20px;
+        }
+        
+        .year-header {
+            display: flex;
+            align-items: center;
+            background-color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .semester-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        
+        .semester-card {
+            flex: 1;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .semester-card.active {
+            border: 1px solid #ccc;
+        }
+        
+        .course-item {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #f8f9fa;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        .add-course-btn {
+            width: 100%;
+            padding: 8px;
+            margin-top: 10px;
+            border: 1px dashed #ccc;
+            background-color: white;
+            color: #666;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .add-semester-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            border: 1px dashed #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            cursor: pointer;
+            height: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .semester-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+    
+    
+
+    <!-- Year 1 -->
+    <div class="year-container">
+        <div class="year-header">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <h5 class="mb-0">2022 - 2023</h5>
+            <span class="ms-3">4 Courses, 9 Credits</span>
+            <span class="ms-auto text-secondary remove-year">remove year</span>
+        </div>
+    </div>
+
+    <!-- Year 2 -->
+    <div class="year-container">
+        <div class="year-header">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <h5 class="mb-0">2023 - 2024</h5>
+            <span class="ms-3">3 Courses, 9 Credits</span>
+            <span class="ms-auto text-secondary remove-year">remove year</span>
+        </div>
+
+        <div class="semester-container">
+            <div class="semester-card active">
+                <h6>Fall 2023</h6>
+                <div>Total Credits: 3 </div>
+                
+                <div class="course-item">
+                    <div class="fw-bold">CPSC 355</div>
+                    <div>Computer Machinery</div>
+                    <div>
+                        <span class="badge bg-secondary">Registered</span>
+                        <span class="badge bg-light text-dark">DL</span>
+                    </div>
+                </div>
+                
+                <button class="add-course-btn">
+                    <i class="fas fa-plus"></i> Add Course
+                </button>
+            </div>
+
+            <div class="semester-card active">
+                <h6>Winter 2024</h6>
+                <div>Total Credits: 3</div>
+                
+                <div class="course-item">
+                    <div class="fw-bold">CPSC 481</div>
+                    <div>Human-Computer Interaction</div>
+                    <div>
+                        <span class="badge bg-secondary">Registered</span>
+                        <span class="badge bg-light text-dark">DL</span>
+                    </div>
+                </div>
+                
+                <button class="add-course-btn">
+                    <i class="fas fa-plus"></i> Add Course
+                </button>
+            </div>
+
+            <div class="add-semester-btn">
+                <i class="fas fa-plus mb-2"></i>
+                <div>Spring 2024</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Year 3 -->
+    <div class="year-container">
+        <div class="year-header">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <h5 class="mb-0">Year 3</h5>
+            <span class="ms-3">0 Courses, 0 Credits</span>
+            <span class="ms-auto text-secondary remove-year">remove year</span>
+        </div>
+    </div>
+
+    <!-- Year 4 -->
+    <div class="year-container">
+        <div class="year-header">
+            <i class="fas fa-check-circle text-success me-2"></i>
+            <h5 class="mb-0">Year 4</h5>
+            <span class="ms-3">0 Courses, 0 Credits</span>
+            <span class="ms-auto text-secondary remove-year">remove year</span>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            // Toggle year container
+            $('.year-header').click(function() {
+                $(this).next('.semester-container').slideToggle();
+            });
+            
+            // Handle add course button
+            $('.add-course-btn').click(function() {
+                alert("Add course functionality will be implemented here");
+            });
+            
+            // Handle add semester button
+            $('.add-semester-btn').click(function() {
+                alert("Add semester functionality will be implemented here");
+            });
+            
+            // Handle remove year
+            $('.remove-year').click(function(e) {
+                e.stopPropagation();
+                if (confirm("Are you sure you want to remove this year?")) {
+                    $(this).closest('.year-container').remove();
+                }
+            });
+        });
+    </script>
+</div>
