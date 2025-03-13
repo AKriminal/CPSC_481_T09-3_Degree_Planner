@@ -6,6 +6,63 @@ body {
   background-color: #f4f4f4;
 }
 
+/* Header Bar Styling */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  border-bottom: 2px solid #ddd;
+}
+
+.logo {
+  height: 50px;
+  border-radius: 10px;
+}
+
+/* Center Section (Alerts Icon) */
+.header-center {
+  flex: 1;
+  /* Pushes search/logout to the right */
+  text-align: center;
+}
+
+/* Alert Button Styling */
+.alert-btn {
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Right Section (Search + Logout) */
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+/* Search Bar */
+.search-bar {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+/* Logout Button */
+.logout-btn {
+  padding: 8px 12px;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #c0392b;
+}
+
 .dashboard {
   display: flex;
 }
@@ -47,8 +104,7 @@ body {
 /* Top Bar */
 .top-bar {
   display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .search-bar {
