@@ -1,4 +1,5 @@
 <!-- main degree homepage -->
+<!-- main degree homepage -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,7 +21,7 @@
     <div class="main-content">
       <!-- Top Bar -->
       <div class="top-bar">
-        <img src="uofc-logo.png" alt="University of Calgary Logo" class="uofc-logo">
+        <img src="images/ucalgary logo.png" alt="University of Calgary Logo" class="uofc-logo">
         <input type="text" placeholder="Search..." class="search-bar">
         <button class="logout-btn">Logout</button>
       </div>
@@ -29,7 +30,7 @@
       <div class="combined-section">
         <!-- User Profile -->
         <div class="profile">
-          <img src="https://via.placeholder.com/100" alt="Profile Photo" class="profile-photo">
+          <img src="images/user image.png" alt="Profile Photo" class="profile-photo">
           <div class="profile-info">
             <h2>John Doe</h2>
             <p>BSc in Computer Science</p>
@@ -58,21 +59,67 @@
       <div class="section-2">
         <h3>Completed Courses</h3>
         <!-- Year 1 Dropdown -->
-        <div class="dropdown">
-          <button class="dropdown-btn" onclick="toggleDropdown('year1')">Year 1</button>
-          <div id="year1" class="dropdown-content">
-            <p>Course 101 - Introduction to Programming - Grade: A</p>
-            <p>Course 102 - Discrete Mathematics - Grade: B+</p>
-            <!-- Add more courses here -->
+        <div class="requirements-section">
+          <h2 onclick="toggleDropdown('year1')">
+            <span class="arrow">▶</span> Year 1
+          </h2>
+          <div id="year1" class="section-content">
+            <table class="requirements-table">
+              <tr>
+                <th>Course</th>
+                <th>Units</th>
+                <th>Period</th>
+                <th>Grade</th>
+                <th>Status</th>
+              </tr>
+              <tr>
+                <td>CPSC 101</td>
+                <td>3.00</td>
+                <td>Fall 2021</td>
+                <td>A</td>
+                <td class="completed">Complete</td>
+              </tr>
+              <tr>
+                <td>MATH 101</td>
+                <td>3.00</td>
+                <td>Fall 2021</td>
+                <td>A-</td>
+                <td class="completed">Complete</td>
+              </tr>
+              <!-- Add more courses here -->
+            </table>
           </div>
         </div>
         <!-- Year 2 Dropdown -->
-        <div class="dropdown">
-          <button class="dropdown-btn" onclick="toggleDropdown('year2')">Year 2</button>
-          <div id="year2" class="dropdown-content">
-            <p>Course 201 - Data Structures - Grade: A-</p>
-            <p>Course 202 - Algorithms - Grade: B</p>
-            <!-- Add more courses here -->
+        <div class="requirements-section">
+          <h2 onclick="toggleDropdown('year2')">
+            <span class="arrow">▶</span> Year 2
+          </h2>
+          <div id="year2" class="section-content">
+            <table class="requirements-table">
+              <tr>
+                <th>Course</th>
+                <th>Units</th>
+                <th>Period</th>
+                <th>Grade</th>
+                <th>Status</th>
+              </tr>
+              <tr>
+                <td>CPSC 201</td>
+                <td>3.00</td>
+                <td>Fall 2022</td>
+                <td>A</td>
+                <td class="completed">Complete</td>
+              </tr>
+              <tr>
+                <td>MATH 211</td>
+                <td>3.00</td>
+                <td>Winter 2022</td>
+                <td>B+</td>
+                <td class="completed">Complete</td>
+              </tr>
+              <!-- Add more courses here -->
+            </table>
           </div>
         </div>
         <!-- Add more years here -->
@@ -108,6 +155,18 @@
         dropdown.style.display = 'block';
       }
     }
+
+    // Collapse all sections on page load
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll(".requirements-section").forEach((section) => {
+        const content = section.querySelector(".section-content");
+        const arrow = section.querySelector(".arrow");
+
+        content.style.display = "none"; // Collapse all sections
+        section.classList.remove("expanded");
+        arrow.innerHTML = "▶"; // Reset arrows
+      });
+    });
   </script>
 </body>
 </html>
