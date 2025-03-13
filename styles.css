@@ -12,26 +12,40 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #f4f4f4;
+  height: 30px;
+  padding-bottom: 15px;
   border-bottom: 2px solid #ddd;
 }
 
 .logo {
-  height: 50px;
-  border-radius: 10px;
+  height: 45px;
+  border-radius: 5px;
 }
 
 /* Center Section (Alerts Icon) */
 .header-center {
   flex: 1;
-  /* Pushes search/logout to the right */
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Alert Button Styling */
 .alert-btn {
   font-size: 18px;
-  border: none;
+  background-color: #ffffff;
+  border: 1px solid #ffffff;
+  padding: 8px 12px;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Alert Button Hover Effect */
+.alert-btn:hover {
+  background-color: #eda1a1;
+  color: white;
+  transform: scale(1.1);
 }
 
 /* Right Section (Search + Logout) */
@@ -51,7 +65,7 @@ body {
 
 /* Logout Button */
 .logout-btn {
-  padding: 8px 12px;
+  padding: 6px 12px;
   background-color: #e74c3c;
   color: white;
   border: none;
@@ -60,7 +74,7 @@ body {
 }
 
 .logout-btn:hover {
-  background-color: #c0392b;
+  background-color: #eda1a1;
 }
 
 .dashboard {
@@ -102,7 +116,7 @@ body {
 }
 
 /* Top Bar */
-.top-bar {
+.header {
   display: flex;
   margin-bottom: 10px;
 }
@@ -156,12 +170,6 @@ body {
 
 .profile-info p {
   margin: 5px 0;
-}
-
-.uofc-logo {
-  height: 50px;  /* Adjust height as needed */
-  width: auto;   /* Maintain aspect ratio */
-  margin-left: 10px; /* Add spacing if needed */
 }
 
 .gpa-btn {
