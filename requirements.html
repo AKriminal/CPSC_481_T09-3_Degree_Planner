@@ -21,9 +21,18 @@
     <!-- Main Content -->
     <div class="main-content">
       <h1>Academic Report</h1>
-      <p><strong>GPA: 3.40</strong></p>
-      <p><strong>Completed: 48 | In-progress: 9 | Incomplete: 63</strong></p>
-
+      <p><strong>GPA: 3.40 | Min: 2.00</strong></p>
+      <p class="progress-label">
+        Completed: <span id="completed-units">48</span> |
+        In-progress: <span id="in-progress-units">9</span> |
+        Incomplete: <span id="incomplete-units">63</span>
+      </p>
+      <div class="progress-container">
+        <div class="progress-bar">
+          <div class="progress-completed"></div>
+          <div class="progress-in-progress"></div>
+        </div>
+      </div>
       <!-- Required courses section -->
       <div class="requirements-section">
         <h2 onclick="toggleSection(this)">
@@ -229,7 +238,7 @@
       <!-- 500 Level Required courses section -->
       <div class="requirements-section">
         <h2 onclick="toggleSection(this)">
-          <span class="arrow">▶</span> Min 3 Units at 500+ Level
+          <span class="arrow">▶</span> Min 9 Units at 500+ Level
         </h2>
         <div class="section-content">
           <table class="requirements-table">
@@ -460,6 +469,23 @@
           arrow.innerHTML = "▶"; // Reset arrows
         });
       });
+      document.addEventListener("DOMContentLoaded", function () {
+          // Total units (adjust as needed)
+          const totalUnits = 48 + 9 + 63; // Completed + In-progress + Incomplete
+
+          // Get unit values
+          const completedUnits = 48;
+          const inProgressUnits = 9;
+
+          // Calculate width percentages
+          const completedWidth = (completedUnits / totalUnits) * 100;
+          const inProgressWidth = (inProgressUnits / totalUnits) * 100;
+
+          // Update bar widths
+          document.querySelector(".progress-completed").style.width = completedWidth + "%";
+          document.querySelector(".progress-in-progress").style.width = inProgressWidth + "%";
+          document.querySelector(".progress-in-progress").style.left = completedWidth + "%"; // Start after completed
+        });
 </script>
 </body>
 

@@ -281,3 +281,66 @@ body {
 .incomplete-row {
   background-color: #ffebeb;
 }
+
+/* Reduce Section Tab Height */
+.requirements-section h2 {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+  padding: 8px 12px;
+  background-color: #f8f8f8;
+  color: #222;
+  border-radius: 5px;
+  margin: 5px 0;
+  transition: background 0.3s ease;
+}
+
+.arrow {
+  font-size: 15px;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+
+/* Progress Bar Container */
+.progress-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px 0;
+  text-align: left;
+}
+
+/* Move Labels Above the Bar */
+.progress-label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  text-align: left;
+}
+
+/* Main Bar Background */
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background-color: #ddd;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Completed Courses (Green) */
+.progress-completed {
+  height: 100%;
+  background-color: #2ecc71;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+/* In-progress Courses (Yellow) */
+.progress-in-progress {
+  height: 100%;
+  background-color: #f1c40f;
+  position: absolute;
+  top: 0;
+}
