@@ -21,9 +21,15 @@
     <div class="main-content">
       <!-- Top Bar -->
       <div class="top-bar">
-        <img src="images/ucalgary logo.png" alt="University of Calgary Logo" class="uofc-logo">
-        <input type="text" placeholder="Search..." class="search-bar">
-        <button class="logout-btn">Logout</button>
+        <img src="images/ucalgary logo.png" alt="University of Calgary Logo" class="logo">
+        <div class="header-center">
+          <button class="alert-btn" onclick="showAlerts()">❗</button>
+        </div>
+        
+        <div class="header-right">
+          <input type="text" class="search-bar" placeholder="Search...">
+          <button class="logout-btn">Logout</button>
+        </div>
       </div>
 
       <!-- Combined Section: Profile and Degree Progress -->
@@ -136,37 +142,6 @@
     </div>
   </div>
 
-  <script>
-    // Function to show/hide GPA popup
-    function showGPA() {
-      document.getElementById('gpa-popup').style.display = 'flex';
-    }
-
-    function hideGPA() {
-      document.getElementById('gpa-popup').style.display = 'none';
-    }
-
-    // Function to toggle dropdowns
-    function toggleDropdown(id) {
-      const dropdown = document.getElementById(id);
-      if (dropdown.style.display === 'block') {
-        dropdown.style.display = 'none';
-      } else {
-        dropdown.style.display = 'block';
-      }
-    }
-
-    // Collapse all sections on page load
-    document.addEventListener("DOMContentLoaded", function () {
-      document.querySelectorAll(".requirements-section").forEach((section) => {
-        const content = section.querySelector(".section-content");
-        const arrow = section.querySelector(".arrow");
-
-        content.style.display = "none"; // Collapse all sections
-        section.classList.remove("expanded");
-        arrow.innerHTML = "▶"; // Reset arrows
-      });
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
