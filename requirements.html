@@ -1,15 +1,15 @@
-<!-- degree requirements page -->
-
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Academic Requirements</title>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
+
   <div class="dashboard">
     <!-- Sidebar -->
     <div class="sidebar">
@@ -20,9 +20,447 @@
 
     <!-- Main Content -->
     <div class="main-content">
-      <h1>Academic Requirements</h1>
-      <p>This page will display the academic requirements for the BSc in Computer Science program.</p>
+      <h1>Academic Report</h1>
+      <p><strong>GPA: 3.40</strong></p>
+      <p><strong>Completed: 48 | In-progress: 9 | Incomplete: 63</strong></p>
+
+      <!-- Required courses section -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Required Courses
+        </h2>
+        <div class="section-content">
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>CPSC 231</td>
+              <td>3.00</td>
+              <td>Fall 2022</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>CPSC 233</td>
+              <td>3.00</td>
+              <td>Fall 2022</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>CPSC 251</td>
+              <td>3.00</td>
+              <td>Fall 2022</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>MATH 211</td>
+              <td>3.00</td>
+              <td>Winter 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>MATH 249</td>
+              <td>3.00</td>
+              <td>Winter 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>PHIL 279</td>
+              <td>3.00</td>
+              <td>Winter 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>CPSC 331</td>
+              <td>3.00</td>
+              <td>Fall 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>CPSC 351</td>
+              <td>3.00</td>
+              <td>Fall 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>CPSC 355</td>
+              <td>3.00</td>
+              <td>Fall 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>SENG 300</td>
+              <td>3.00</td>
+              <td>Winter 2024</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>PHIL 314</td>
+              <td>3.00</td>
+              <td>Winter 2024</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr>
+              <td>CPSC 413</td>
+              <td>3.00</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr>
+              <td>CPSC 449</td>
+              <td>3.00</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr>
+              <td>CPSC 457</td>
+              <td>3.00</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- 300 Level Required courses section -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Min 9 Units at 300+ Level
+        </h2>
+        <div class="section-content">
+        <p>(6 Complete, 3 Remaining)</p>
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>CPSC 329</td>
+              <td>3.00</td>
+              <td>Spring 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>CPSC 393</td>
+              <td>3.00</td>
+              <td>Summer 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      
+      <!-- 400 Level Required courses section -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Min 12 Units at 400+ Level
+        </h2>
+        <div class="section-content">
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>CPSC 471</td>
+              <td>3.00</td>
+              <td>Winter 2025</td>
+              <td>-</td>
+              <td class="in-progress">In-Progress</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>CPSC 481</td>
+              <td>3.00</td>
+              <td>Winter 2025</td>
+              <td>-</td>
+              <td class="in-progress">In-Progress</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>CPSC 411</td>
+              <td>3.00</td>
+              <td>Winter 2025</td>
+              <td>-</td>
+              <td class="in-progress">In-Progress</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- 500 Level Required courses section -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Min 3 Units at 500+ Level
+        </h2>
+        <div class="section-content">
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Non-Science Options -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Non-Science Options
+        </h2>
+        <div class="section-content">
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr>
+              <td>LWSO 201</td>
+              <td>3.00</td>
+              <td>Spring 2023</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>GEOG 204</td>
+              <td>3.00</td>
+              <td>Spring 2024</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>HTST 202</td>
+              <td>3.00</td>
+              <td>Winter 2024</td>
+              <td>A</td>
+              <td class="completed">Complete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Non-Major Field Options -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Non-Major Field Options
+        </h2>
+        <div class="section-content">
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+      <!-- Open Option -->
+      <div class="requirements-section">
+        <h2 onclick="toggleSection(this)">
+          <span class="arrow">▶</span> Open Options
+        </h2>
+        <div class="section-content">
+          <table class="requirements-table">
+            <tr>
+              <th>Course</th>
+              <th>Units</th>
+              <th>Period</th>
+              <th>Grade</th>
+              <th>Status</th>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+            <tr class="incomplete-row">
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td class="incomplete">Incomplete</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
     </div>
   </div>
+<script>
+  function toggleSection(header) {
+      const section = header.parentElement;
+      const content = section.querySelector(".section-content");
+      const arrow = section.querySelector(".arrow");
+
+      if (content.style.display === "block") {
+        content.style.display = "none"; // Collapse section
+        section.classList.remove("expanded"); // Reset arrow
+        arrow.innerHTML = "▶"; // Arrow points right
+      } else {
+        content.style.display = "block"; // Expand section
+        section.classList.add("expanded"); // Rotate arrow
+        arrow.innerHTML = "▼"; // Arrow points down
+      }
+    }
+    /* Ensure Sections Are Collapsed on Page Load */
+      document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".requirements-section").forEach((section) => {
+          const content = section.querySelector(".section-content");
+          const arrow = section.querySelector(".arrow");
+
+          content.style.display = "none"; // Collapse all sections
+          section.classList.remove("expanded");
+          arrow.innerHTML = "▶"; // Reset arrows
+        });
+      });
+</script>
 </body>
+
 </html>
