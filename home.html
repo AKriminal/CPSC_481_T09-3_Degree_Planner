@@ -8,35 +8,29 @@
   <title>Degree Planning Dashboard</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-  <div class="dashboard">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <button class="nav-btn" onclick="window.location.href='index.html'">Home</button>
-      <button class="nav-btn" onclick="window.location.href='planner.html'">Build Semester Plan</button>
-      <button class="nav-btn" onclick="window.location.href='requirements.html'">Academic Requirements</button>
-    </div>
 
+<body>
+  <header class="header">
+    <img src="Logo_Horz_Colour.png" alt="University Logo" class="logo">
+    <div class="header-right">
+      <input type="text" class="search-bar" placeholder="Search...">
+      <button class="logout-btn">Logout</button>
+    </div>
+  </header>
+  
+  <!-- Navigation Bar Below Header -->
+  <nav class="page-nav">
+    <a href="home.html" class="nav-btn">Home</a>
+    <a href="planner.html" class="nav-btn">Build Semester Plan</a>
+    <a href="requirements.html" class="nav-btn">Academic Requirements</a>
+  </nav>
     <!-- Main Content -->
     <div class="main-content">
-      <!-- Top Bar -->
-      <div class="header">
-        <img src="images/ucalgary logo.png" alt="University of Calgary Logo" class="logo">
-        <div class="header-center">
-          <button class="alert-btn" onclick="showAlerts()">❗</button>
-        </div>
-        
-        <div class="header-right">
-          <input type="text" class="search-bar" placeholder="Search...">
-          <button class="logout-btn">Logout</button>
-        </div>
-      </div>
-
       <!-- Combined Section: Profile and Degree Progress -->
       <div class="combined-section">
         <!-- User Profile -->
         <div class="profile">
-          <img src="images/user image.png" alt="Profile Photo" class="profile-photo">
+          <img src="user image.png" alt="Profile Photo" class="profile-photo">
           <div class="profile-info">
             <h2>John Doe</h2>
             <p>BSc in Computer Science</p>
@@ -136,12 +130,11 @@
   <!-- GPA Popup -->
   <div id="gpa-popup" class="popup">
     <div class="popup-content">
-      <span class="close-btn" onclick="hideGPA()">&times;</span>
+      <button class="close-btn" onclick="hideGPA()">✖</button>
       <h2>Your GPA</h2>
       <p>3.75</p>
     </div>
   </div>
-
   <script src="script.js"></script>
 </body>
 </html>

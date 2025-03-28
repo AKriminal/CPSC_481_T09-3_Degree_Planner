@@ -6,17 +6,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Build Semester Plan</title>
-  <link rel="stylesheet" href="styles.css">
+  
 </head>
 <body>
-  <div class="dashboard">
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <button class="nav-btn" onclick="window.location.href='index.html'">Home</button>
-      <button class="nav-btn active" onclick="window.location.href='planner.html'">Build Semester Plan</button>
-      <button class="nav-btn" onclick="window.location.href='requirements.html'">Academic Requirements</button>
+  <header class="header">
+    <img src="Logo_Horz_Colour.png" alt="University Logo" class="logo">
+    <div class="header-right">
+      <input type="text" class="search-bar" placeholder="Search...">
+      <button class="logout-btn">Logout</button>
     </div>
+  </header>
+  
+  <!-- Navigation Bar Below Header -->
+  <nav class="page-nav">
+    <a href="home.html" class="nav-btn">Home</a>
+    <a href="planner.html" class="nav-btn">Build Semester Plan</a>
+    <a href="requirements.html" class="nav-btn">Academic Requirements</a>
+  </nav>
 
+  <div class="dashboard">
     <!-- Main Content -->
     <div class="main-content">
       <h1>Build Semester Plan</h1>
