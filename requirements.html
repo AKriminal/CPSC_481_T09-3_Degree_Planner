@@ -29,14 +29,15 @@
       <h1>Academic Requirements</h1>
       <p><strong>GPA: 3.40 | Min: 2.00</strong></p>
       <p class="progress-label">
-        Completed: <span id="completed-units">48</span> |
-        In-progress: <span id="in-progress-units">9</span> |
-        Incomplete: <span id="incomplete-units">63</span>
+        <span class="progress-circle completed"></span> Completed: <span id="completed-units">48&nbsp</span> |&nbsp
+        <span class="progress-circle in-progress"></span> In-progress: <span id="in-progress-units">9&nbsp</span> |&nbsp
+        <span class="progress-circle incomplete"></span> Incomplete: <span id="incomplete-units">63</span>
       </p>
       <div class="progress-container">
         <div class="progress-bar">
           <div class="progress-completed"></div>
           <div class="progress-in-progress"></div>
+          <div class="progress-incomplete"></div>
         </div>
       </div>
       <!-- Required courses section -->
@@ -45,187 +46,142 @@
           <span class="arrow">▶</span> Required Courses
         </h2>
         <div class="section-content">
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course (A - Z)</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
-            <tr>
-              <th>Course</th>
-              <th>Units</th>
-              <th>Period</th>
-              <th>Grade</th>
-              <th>Status</th>
-            </tr>
-            <tr>
-              <td>CPSC 231</td>
-              <td>3.00</td>
-              <td>Fall 2022</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>CPSC 233</td>
-              <td>3.00</td>
-              <td>Fall 2022</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>CPSC 251</td>
-              <td>3.00</td>
-              <td>Fall 2022</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>MATH 211</td>
-              <td>3.00</td>
-              <td>Winter 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>MATH 249</td>
-              <td>3.00</td>
-              <td>Winter 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>PHIL 279</td>
-              <td>3.00</td>
-              <td>Winter 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>CPSC 331</td>
-              <td>3.00</td>
-              <td>Fall 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>CPSC 351</td>
-              <td>3.00</td>
-              <td>Fall 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>CPSC 355</td>
-              <td>3.00</td>
-              <td>Fall 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>SENG 300</td>
-              <td>3.00</td>
-              <td>Winter 2024</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>PHIL 314</td>
-              <td>3.00</td>
-              <td>Winter 2024</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
-            </tr>
-            <tr>
-              <td>CPSC 413</td>
-              <td>3.00</td>
-              <td>-</td>
-              <td>-</td>
-              <td class="incomplete">Incomplete</td>
-            </tr>
-            <tr>
-              <td>CPSC 449</td>
-              <td>3.00</td>
-              <td>-</td>
-              <td>-</td>
-              <td class="incomplete">Incomplete</td>
-            </tr>
-            <tr>
-              <td>CPSC 457</td>
-              <td>3.00</td>
-              <td>-</td>
-              <td>-</td>
-              <td class="incomplete">Incomplete</td>
-            </tr>
+            <thead>
+              <tr>
+                <th>Course</th>
+                <th>Units</th>
+                <th>Term</th>
+                <th>Year</th>
+                <th>Grade</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="course-table-body">
+              <tr>
+                <td>CPSC 231</td>
+                <td>3.00</td>
+                <td>Fall</td>
+                <td>2022</td>
+                <td>A</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 233</td>
+                <td>3.00</td>
+                <td>Fall</td>
+                <td>2022</td>
+                <td>A</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 251</td>
+                <td>3.00</td>
+                <td>Fall</td>
+                <td>2022</td>
+                <td>B+</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>MATH 211</td>
+                <td>3.00</td>
+                <td>Winter</td>
+                <td>2023</td>
+                <td>B-</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>MATH 249</td>
+                <td>3.00</td>
+                <td>Winter</td>
+                <td>2023</td>
+                <td>A</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>PHIL 279</td>
+                <td>3.00</td>
+                <td>Winter</td>
+                <td>2023</td>
+                <td>B</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 331</td>
+                <td>3.00</td>
+                <td>Fall</td>
+                <td>2023</td>
+                <td>A</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 351</td>
+                <td>3.00</td>
+                <td>Fall</td>
+                <td>2023</td>
+                <td>A</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 355</td>
+                <td>3.00</td>
+                <td>Fall</td>
+                <td>2023</td>
+                <td>A-</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>SENG 300</td>
+                <td>3.00</td>
+                <td>Winter</td>
+                <td>2024</td>
+                <td>A</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>PHIL 314</td>
+                <td>3.00</td>
+                <td>Winter</td>
+                <td>2024</td>
+                <td>A+</td>
+                <td><span class="completed">Complete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 413</td>
+                <td>3.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="incomplete">Incomplete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 449</td>
+                <td>3.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="incomplete">Incomplete</span></td>
+              </tr>
+              <tr>
+                <td>CPSC 457</td>
+                <td>3.00</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><span class="incomplete">Incomplete</span></td>
+              </tr>
+            </tbody>
           </table>
-          <div class="course-description">
-            <p><strong>CPSC 231: </strong>Introduction to Computer Science for Computer Science Majors I</p>
-            <p><strong>Description: </strong>Introduction to problem solving, the analysis and design of small-scale computational systems, and implementation using
-            a procedural programming language. For computer science majors.</p>
-            <p><strong>Prerequisite(s): </strong>Admission to Computer Science, Bioinformatics, or Natural Science with a primary concentration in Computer Science.</p>
-          </div>
-          <div class="course-description">
-            <p><strong>CPSC 233: </strong>Introduction to Computer Science for Computer Science Majors II</p>
-            <p><strong>Description: </strong>Continuation of Introduction to Computer Science for Computer Science Majors I. Emphasis on object-oriented analysis and
-            design of small-scale computational systems and implementation using an object-oriented language. Issues of design,
-            modularization, and programming style will be emphasized.</p>
-            <p><strong>Prerequisite(s): </strong>Computer Science 231 and admission to Computer Science, Bioinformatics, or Natural Science with a primary concentration
-            in Computer Science.</p>
-          </div>
-          <div class="course-description">
-            <p><strong>CPSC 251: </strong>Theoretical Foundations of Computer Science I</p>
-            <p><strong>Description: </strong>Proof techniques. Recursion and iteration. Specification of algorithmic problems and fundamental proof techniques in
-            Computer Science. Discrete structures such as graphs, trees, strings, functions, and their computer representation.
-            Counting, permutations. Random events. Conditional events. Applications in Computer Science.</p>
-            <p><strong>Prerequisite(s): </strong>Computer Science 219 or 231.</p>
-          </div>
-          <div class="course-description">
-            <p><strong>MATH 211: </strong>Linear Methods I</p>
-            <p><strong>Description: </strong>An introduction to systems of linear equations, vectors in Euclidean space and matrix algebra. Additional topics include
-            linear transformations, determinants, complex numbers, eigenvalues, and applications.</p>
-            <p><strong>Prerequisite(s): </strong>One of Mathematics 30-1, 212 or Mathematics 2 (offered by Continuing Education).</p>
-          </div>
-          <div class="course-description">
-            <p><strong>MATH 249: </strong>Introductory Calculus</p>
-            <p><strong>Description: </strong>An introduction to single variable calculus. Limits, derivatives and integrals of algebraic, exponential, logarithmic
-            and trigonometric functions play a central role. Additional topics include applications of differentiation; the
-            fundamental theorem of calculus, improper integrals and applications of integration.</p>
-            <p><strong>Prerequisite(s): </strong>One of Mathematics 30-1, 212 or Mathematics 2 (offered by Continuing Education).</p>
-          </div>
-          <div class="course-description">
-            <p><strong>PHIL 279: </strong>Logic I</p>
-            <p><strong>Description: </strong>Sentential and first-order logic from both deductive and semantic points of view. Some elementary metatheorems.</p>
-            </p>
-          </div>
-          <div class="course-description">
-            <p><strong>CPSC 331: </strong>Data Structures, Algorithms, and Their Analysis</p>
-            <p><strong>Description: </strong>Fundamental data structures, including arrays, lists, stacks, queues, trees, hash
-              tables, and graphs. Algorithms for
-              searching and sorting. Introduction to the correctness and analysis of algorithms. For computer science majors and
-              those
-              interested in algorithm design and analysis, information security, and other mathematically-intensive areas.</p>
-            <p><strong>Prerequisite(s): </strong>3 units from Computer Science 251, Mathematics 271 or 273; and 3 units from
-              Computer Science 219, 233, 235, Computer
-              Engineering 335, 339 or Software Engineering for Engineers 337.</p>
-          </div>
-          <div class="course-description">
-            <p><strong>CPSC 351: </strong>Theoretical Foundations of Computer Science II</p>
-            <p><strong>Description: </strong>Probability spaces, random variables, expectation, independence, concentration bounds, conditional probability, repeated
-            trials, error bounds. Turing machines and finite automata. Deterministic, nondeterministic and probabilistic models of
-            computation. Languages, regular languages and regular expressions. Methods for classifying computational problems as
-            decidable or undecidable.</p>
-            <p><strong>Prerequisite(s): </strong>3 units from Computer Science 219, 233 or 235; and 3 units from Mathematics 249, 265 or 275; and Philosophy 279 or 377;
-            and Computer Science 251; or Statistics 213 and Mathematics 271 or 273.</p>
-          </div>
-          <div class="course-description">
-            <p><strong>CPSC 355: </strong>Computing Machinery I</p>
-            <p><strong>Description: </strong>An introduction to computing machinery establishing the connection between programs expressed in a compiled language, an
-            assembly language, and machine code, and how such code is executed. Includes the detailed study of a modern CPU
-            architecture, its assembly language and internal data representation, and the relationship between high-level program
-            constructs and machine operations.</p>
-            <p><strong>Prerequisite(s): </strong>3 units from Computer Science 219, 233 or 235.</p>
-          </div>
-          <div class="course-description">
-            <p><strong>PHIL 314: </strong>Information Technology Ethics</p>
-            <p><strong>Description: </strong>A critical and analytical examination of ethical and legal problems arising in and about information technology. May
-            include hacking, online privacy, intellectual property rights, artificial intelligence, globalization and regulation
-            issues, cheating in online games, and others.</p>
-            </p>
-          </div>
         </div>
       </div>
 
@@ -235,35 +191,48 @@
           <span class="arrow">▶</span> Min 9 Units at 300+ Level
         </h2>
         <div class="section-content">
-        <p>(6 Complete, 3 Remaining)</p>
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
             <tr>
               <th>Course</th>
               <th>Units</th>
-              <th>Period</th>
+              <th>Term</th>
+              <th>Year</th>
               <th>Grade</th>
               <th>Status</th>
             </tr>
             <tr>
               <td>CPSC 329</td>
               <td>3.00</td>
-              <td>Spring 2023</td>
+              <td>Spring</td>
+              <td>2023</td>
               <td>A</td>
-              <td class="completed">Complete</td>
+              <td><span class="completed">Complete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>CPSC 393</td>
               <td>3.00</td>
-              <td>Summer 2023</td>
-              <td>A</td>
-              <td class="completed">Complete</td>
+              <td>Summer</td>
+              <td>2023</td>
+              <td>A+</td>
+              <td><span class="completed">Complete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
           </table>
         </div>
@@ -275,41 +244,56 @@
           <span class="arrow">▶</span> Min 12 Units at 400+ Level
         </h2>
         <div class="section-content">
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
             <tr>
               <th>Course</th>
               <th>Units</th>
-              <th>Period</th>
+              <th>Term</th>
+              <th>Year</th>
               <th>Grade</th>
               <th>Status</th>
             </tr>
             <tr>
               <td>CPSC 471</td>
               <td>3.00</td>
-              <td>Winter 2025</td>
+              <td>Winter</td>
+              <td>2025</td>
               <td>-</td>
-              <td class="in-progress">In-Progress</td>
+              <td><span class="in-progress">In-Progress</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>CPSC 481</td>
               <td>3.00</td>
-              <td>Winter 2025</td>
+              <td>Winter</td>
+              <td>2025</td>
               <td>-</td>
-              <td class="in-progress">In-Progress</td>
+              <td><span class="in-progress">In-Progress</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>CPSC 411</td>
               <td>3.00</td>
-              <td>Winter 2025</td>
+              <td>Winter</td>
+              <td>2025</td>
               <td>-</td>
-              <td class="in-progress">In-Progress</td>
+              <td><span class="in-progress">In-Progress</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
           </table>
         </div>
@@ -321,34 +305,48 @@
           <span class="arrow">▶</span> Min 9 Units at 500+ Level
         </h2>
         <div class="section-content">
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
             <tr>
               <th>Course</th>
               <th>Units</th>
-              <th>Period</th>
+              <th>Term</th>
+              <th>Year</th>
               <th>Grade</th>
               <th>Status</th>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
           </table>
         </div>
@@ -360,41 +358,56 @@
           <span class="arrow">▶</span> Non-Science Options
         </h2>
         <div class="section-content">
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
             <tr>
               <th>Course</th>
               <th>Units</th>
-              <th>Period</th>
+              <th>Term</th>
+              <th>Year</th>
               <th>Grade</th>
               <th>Status</th>
             </tr>
             <tr>
               <td>LWSO 201</td>
               <td>3.00</td>
-              <td>Spring 2023</td>
+              <td>Spring</td>
+              <td>2023</td>
               <td>A</td>
-              <td class="completed">Complete</td>
+              <td><span class="completed">Complete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>GEOG 204</td>
               <td>3.00</td>
-              <td>Spring 2024</td>
+              <td>Spring</td>
+              <td>2024</td>
               <td>A</td>
-              <td class="completed">Complete</td>
+              <td><span class="completed">Complete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>HTST 202</td>
               <td>3.00</td>
-              <td>Winter 2024</td>
+              <td>Winter</td>
+              <td>2024</td>
               <td>A</td>
-              <td class="completed">Complete</td>
+              <td><span class="completed">Complete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
           </table>
         </div>
@@ -406,83 +419,94 @@
           <span class="arrow">▶</span> Non-Major Field Options
         </h2>
         <div class="section-content">
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
             <tr>
               <th>Course</th>
               <th>Units</th>
-              <th>Period</th>
+              <th>Term</th>
+              <th>Year</th>
               <th>Grade</th>
               <th>Status</th>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
-            <tr class="incomplete-row">
+            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
           </table>
         </div>
@@ -494,11 +518,22 @@
           <span class="arrow">▶</span> Open Options
         </h2>
         <div class="section-content">
+          <div class="sorting-container">
+            <label for="sort-options"><strong>Sort by:</strong></label>
+            <select id="sort-options" onchange="sortTableDropdown()">
+              <option value="course">Course</option>
+              <option value="term">Term</option>
+              <option value="year">Year</option>
+              <option value="grade">Grade</option>
+              <option value="status">Status</option>
+            </select>
+          </div>
           <table class="requirements-table">
             <tr>
               <th>Course</th>
               <th>Units</th>
-              <th>Period</th>
+              <th>Term</th>
+              <th>Year</th>
               <th>Grade</th>
               <th>Status</th>
             </tr>
@@ -507,14 +542,16 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
             <tr class="incomplete-row">
               <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td class="incomplete">Incomplete</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
             </tr>
           </table>
         </div>

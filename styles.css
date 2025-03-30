@@ -1,6 +1,7 @@
 /* General Styles */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;font-size: 18px;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-size: 18px;
   margin: 0;
   padding: 0;
   background-color: #ffffff;
@@ -24,15 +25,7 @@ body {
 }
 
 .logo {
-  height: 55px;
-}
-
-/* Center Section (Alerts Icon) */
-.header-center {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 60px;
 }
 
 /* Right Section (Search + Logout) */
@@ -43,45 +36,55 @@ body {
   margin-right: 30px;
 }
 
-/* Search Bar */
+/* Search Bar Container */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Search Bar Styling */
 .search-bar {
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  width: 200px;
+  width: 300px;
+    padding: 10px;
+    font-size: 15px;
+    background-color: #f8f9fa;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Search Icon Styling */
+.search-icon {
+  position: absolute;
+  right: 10px;
+  color: #999;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 /* Logout Button */
 .logout-btn {
   padding: 8px 15px;
-  background-color: #e74c3c;
-  font-size: 15px;
+  background-color: #d6001c;
+  font-size: 16px;
   font-weight: bold;
   color: white;
-  border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin: 10px;
+  border: none;
 }
 
-button,
-.nav-btn {
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
-}
-
-button:hover,
-.nav-btn:hover {
+.logout-btn:hover {
   transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* =============================
-   Page Navigation (Below Header)
-   ============================= */
+/* Page Navigation (Below Header)*/
 .page-nav {
   display: flex;
   justify-content: center;
-  background-color: #f8f8f8;
+  background-color: #f8f9fa;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
   position: fixed;
@@ -93,9 +96,9 @@ button:hover,
 
 .page-nav .nav-btn {
   font-family: 'Inter', sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   font-weight: bold;
-  background-color: #2ecc71;
+  background-color: #d6001c;
   color: white;
   border: none;
   cursor: pointer;
@@ -104,59 +107,23 @@ button:hover,
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 10px 20px;
+  width: 100%;
+  text-align: center;
   text-decoration: none;
   transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
-.page-nav .nav-btn:hover,
-.page-nav .nav-btn.active {
-  background-color: #4db85c;
+button:hover,
+.nav-btn:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* =============================
-   Main Content Spacing (Avoid Overlap)
-   ============================= */
+/* Main Content */
 .main-content {
   margin-top: 115px;
   flex: 1;
   padding: 20px;
-}
-
-.nav-btn {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  background-color: #000000;
-  color: white;
-  border: white;
-  cursor: pointer;
-  text-align: center;
-}
-
-.search-bar {
-  padding: 10px;
-  font-size: 15px;
-  width: 300px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-.logout-btn {
-  padding: 8px 15px;
-    background-color: #e74c3c;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: transform 0.25s ease-in-out, background-color 0.2s ease-in-out;
-    /* Ensure it doesn't go off-screen */
-  }
-
-.logout-btn:hover {
-  transform: scale(1.03);
-  background-color: #c0392b;
 }
 
 /* Combined Section: Profile and Degree Progress */
@@ -164,6 +131,7 @@ button:hover,
   display: flex;
   justify-content: center;
   background-color: white;
+  margin-top: 8px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -177,15 +145,13 @@ button:hover,
 }
 
 .profile-photo {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   margin-right: 20px;
-  margin-top: -30px;
+  align-items: center;
   object-fit: cover;
-  /* Ensures the image fits well */
   display: block;
-  /* Ensures it is visible */
 }
 
 .profile-info h2 {
@@ -198,7 +164,7 @@ button:hover,
 
 .gpa-btn {
   padding: 10px 20px;
-  background-color: #3498db;
+  background-color: #d6001c;
   color: white;
   border: none;
   font-size: 15px;
@@ -209,7 +175,7 @@ button:hover,
 
 .gpa-btn:hover {
   transform: scale(1.03);
-  background-color: #2980b9;
+  background-color: #dc3545;
 }
 
 .divider {
@@ -221,6 +187,7 @@ button:hover,
 .degree-progress {
   flex: 1;
 }
+
 
 .degree-progress h3 {
   margin-top: 0;
@@ -236,9 +203,9 @@ button:hover,
   height: 150px;
   border-radius: 50%;
   background: conic-gradient(
-    #2ecc71 0% 60%,
-    #3498db 60% 80%,
-    #FA4032 80% 100%
+    #2ecc71 0% 40%,
+    #ffc107 40% 50%,
+    #d6001c 50% 50%
   );
   margin-right: 20px;
 }
@@ -263,7 +230,7 @@ button:hover,
 }
 
 .in-progress {
-  background-color: #3498db;
+  background-color: #ffc107;
   color: white;
   font-weight: bold;
   padding: 5px;
@@ -271,7 +238,7 @@ button:hover,
 }
 
 .incomplete {
-  background-color: #FA4032;
+  background-color: #d6001c;
   color: white;
   font-weight: bold;
   padding: 5px;
@@ -299,7 +266,7 @@ button:hover,
 .dropdown-content {
   display: none;
   padding: 10px;
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
   border: 1px solid #ddd;
 }
 
@@ -338,7 +305,7 @@ button:hover,
   right: 10px;
   width: 30px;
   height: 30px;
-  background-color: #e74c3c;
+  background-color: #d6001c;
   color: white;
   border: none;
   border-radius: 5px;
@@ -353,7 +320,7 @@ button:hover,
 
 .close-btn:hover {
   transform: scale(1.03);
-  background-color: #c0392b;
+  background-color: #dc3545;
 }
 
 /* Academic Requirements Section */
@@ -363,6 +330,12 @@ button:hover,
   margin-bottom: 10px;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h1 {
+  padding-top: 0px;
+  margin-top: 0px;
+  border-bottom: 2px solid #ddd;
 }
 
 .section-content {
@@ -386,17 +359,19 @@ button:hover,
 }
 
 .requirements-table th {
-  background-color: #2c3e50;
+  font-size: 17px;
+  height: 14px;
+  background-color: #d6001c;
   color: white;
   text-transform: uppercase;
 }
 
 .requirements-table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f8f9fa;
 }
 
 .incomplete-row {
-  background-color: #ffebeb;
+  background-color: #f8f9fa;
 }
 
 /* Reduce Section Tab Height */
@@ -406,7 +381,7 @@ button:hover,
   align-items: center;
   font-size: 18px;
   padding: 1px 1px 8px 10px;
-  background-color: #f8f8f8;
+  background-color: #f8f9fa;
   color: #222;
   border-radius: 5px;
   margin: 4px 0;
@@ -414,9 +389,35 @@ button:hover,
 }
 
 .arrow {
-  font-size: 13px;
+  font-size: 14px;
   margin-right: 8px;
   transition: transform 0.3s ease;
+}
+
+/* General styling for all progress circles */
+.progress-circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 20%;
+  vertical-align: middle;
+}
+
+/* Completed: Green */
+.completed {
+  display: inline-block;
+  margin-right: 5px;
+  background-color: #2ecc71;
+}
+
+/* In-progress: Yellow */
+.in-progress {
+  background-color: #ffc107;
+}
+
+/* Incomplete: Red */
+.incomplete {
+  background-color: #d6001c;
 }
 
 /* Progress Bar Container */
@@ -428,7 +429,7 @@ button:hover,
 }
 
 .progress-label {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   margin-bottom: 5px;
   text-align: left;
@@ -437,7 +438,7 @@ button:hover,
 /* Main Bar Background */
 .progress-bar {
   width: 100%;
-  height: 10px;
+  height: 12px;
   background-color: #ddd;
   border-radius: 10px;
   position: relative;
@@ -456,16 +457,36 @@ button:hover,
 /* In-progress Courses (Yellow) */
 .progress-in-progress {
   height: 100%;
-  background-color: #3498db;
+  background-color: #ffc107;
   position: absolute;
   top: 0;
 }
 
-.course-description {
-  display: none;
-  margin-top: 10px;
-  padding: 1px 1px 1px 10px;
-  background-color: #f9f9f9;
-  border-left: 5px solid #2ecc71;
+/* In-completed Courses (Red) */
+.progress-incomplete {
+  height: 100%;
+  background-color: #d6001c;
+  position: absolute;
+}
+
+.sorting-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.sorting-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#sort-options {
+  padding: 5px;
+  font-size: 16px;
+  border: 2px solid #ccc;
   border-radius: 5px;
+  width: 141px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
