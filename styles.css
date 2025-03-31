@@ -1,10 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
 /* General Styles */
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
   margin: 0;
   padding: 0;
-  background-color: #ffffff;
+  background-color: #f8f9fa;
 }
 
 /* Header Bar Styling */
@@ -77,18 +79,17 @@ body {
 }
 
 .logout-btn:hover {
-  transform: scale(1.03);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
 }
 
 /* Page Navigation (Below Header)*/
 .page-nav {
   display: flex;
   justify-content: center;
-  background-color: #f8f9fa;
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
+  background-color: #ffffff;
+  border-bottom: 1.0px solid #ddd;
   position: fixed;
-  top: 62px;
+  top: 52px;
   left: 0;
   right: 0;
   z-index: 999;
@@ -116,12 +117,12 @@ body {
 button:hover,
 .nav-btn:hover {
   transform: scale(1.02);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
 }
 
-/* Main Content */
+/*********************************** Main Content*********************************************/
 .main-content {
-  margin-top: 115px;
+  margin-top: 55px;
   flex: 1;
   padding: 20px;
 }
@@ -131,11 +132,8 @@ button:hover,
   display: flex;
   justify-content: center;
   background-color: white;
-  margin-top: 8px;
-  padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
 }
 
 .profile {
@@ -145,57 +143,85 @@ button:hover,
 }
 
 .profile-photo {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin-right: 20px;
   align-items: center;
   object-fit: cover;
   display: block;
+  margin-left: -20px;
+  margin-bottom: -20px;
 }
 
 .profile-info h2 {
-  margin: 0;
+  margin: 10px 0 0 0;
 }
 
 .profile-info p {
-  margin: 5px 0;
+  margin: 5px;
+}
+
+.profile-section {
+  margin: -15px 0 0 0;
+  width: 50%;
+  margin-right: 10px;
+  padding: 1px 0px 20px 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out, transform 0.2s ease-in-out;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.degree-progress-section {
+  width: 50%;
+  margin: -15px 0 0 10px;
+  margin-right: -40px;
+  padding-left: 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.profile-section:hover,.degree-progress-section:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-key p {
+  display: flex;
+  align-items: center;
+  margin: 10px 10 0 10px;
+}
+
+.profile-degree-container {
+  margin-left: -20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  width: 100%;
 }
 
 .gpa-btn {
   padding: 10px 20px;
   background-color: #d6001c;
   color: white;
+  margin-top: 20px;
   border: none;
   font-size: 15px;
   font-weight: bold;
   border-radius: 5px;
   cursor: pointer;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .gpa-btn:hover {
-  transform: scale(1.03);
-  background-color: #dc3545;
-}
-
-.divider {
-  width: 1px;
-  background-color: #ccc;
-  margin: 0 30px;
-}
-
-.degree-progress {
-  flex: 1;
-}
-
-
-.degree-progress h3 {
-  margin-top: 0;
-}
-
-.progress-container {
-  display: flex;
-  align-items: center;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
 }
 
 .pie-chart {
@@ -207,11 +233,8 @@ button:hover,
     #ffc107 40% 50%,
     #d6001c 50% 50%
   );
-  margin-right: 20px;
-}
-
-.progress-key {
-  text-align: left;
+  margin-right: 25px;
+  margin-left: 5px;
 }
 
 .color-box {
@@ -248,30 +271,13 @@ button:hover,
 .section-2 {
   background-color: white;
   padding: 1px 20px 20px 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-btn {
-  width: 100%;
-  padding: 10px;
-  background-color: #34495e;
-  color: white;
-  border: none;
-  cursor: pointer;
-  text-align: left;
-  margin-bottom: 5px;
-}
-
-.dropdown-content {
-  display: none;
-  padding: 10px;
-  background-color: #f8f9fa;
   border: 1px solid #ddd;
 }
 
-.dropdown-content p {
-  margin: 5px 0;
+.section-2:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
 }
 
 /* Popup */
@@ -289,7 +295,7 @@ button:hover,
 }
 
 .popup-content {
-  background-color: white;
+  background-color: #f8f9fa;
   padding: 20px;
   border-radius: 10px;
   text-align: center;
@@ -319,23 +325,17 @@ button:hover,
 }
 
 .close-btn:hover {
-  transform: scale(1.03);
   background-color: #dc3545;
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
 }
 
 /* Academic Requirements Section */
 .requirements-section {
   background-color: rgb(255, 255, 255);
   padding: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-}
-
-.main-content h1 {
-  padding-top: 0px;
-  margin-top: 0px;
-  border-bottom: 2px solid #ddd;
 }
 
 .section-content {
@@ -348,6 +348,10 @@ button:hover,
   border-collapse: collapse;
   margin-top: 0px;
   table-layout: fixed;
+}
+
+.requirements-section:hover {
+  box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.075);
 }
 
 .requirements-table th,
@@ -370,17 +374,25 @@ button:hover,
   background-color: #f8f9fa;
 }
 
+.requirements-table tr:first-child th {
+  min-height: 10px;
+  line-height: 10px;
+}
+
 .incomplete-row {
   background-color: #f8f9fa;
 }
 
+.main-content h1 {
+  margin-top: 70px;
+  border-bottom: 2px solid #ddd;
+  }
+
 /* Reduce Section Tab Height */
 .requirements-section h2 {
   cursor: pointer;
-  display: flex;
   align-items: center;
   font-size: 18px;
-  padding: 1px 1px 8px 10px;
   background-color: #f8f9fa;
   color: #222;
   border-radius: 5px;
@@ -390,7 +402,8 @@ button:hover,
 
 .arrow {
   font-size: 14px;
-  margin-right: 8px;
+  margin-left: 10px;
+  margin-bottom: 10px;
   transition: transform 0.3s ease;
 }
 
@@ -405,6 +418,7 @@ button:hover,
 
 /* Completed: Green */
 .completed {
+  margin-bottom: 3px;
   display: inline-block;
   margin-right: 5px;
   background-color: #2ecc71;
@@ -412,11 +426,17 @@ button:hover,
 
 /* In-progress: Yellow */
 .in-progress {
+  margin-bottom: 3px;
+  display: inline-block;
+  margin-right: 5px;
   background-color: #ffc107;
 }
 
 /* Incomplete: Red */
 .incomplete {
+  margin-bottom: 3px;
+  display: inline-block;
+  margin-right: 5px;
   background-color: #d6001c;
 }
 
@@ -439,8 +459,7 @@ button:hover,
 .progress-bar {
   width: 100%;
   height: 12px;
-  background-color: #ddd;
-  border-radius: 10px;
+  border-radius: 4px;
   position: relative;
   overflow: hidden;
 }
@@ -473,12 +492,7 @@ button:hover,
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  margin-bottom: 10px;
-}
-
-.sorting-container label {
-  margin-right: 10px;
-  font-weight: bold;
+  margin: -10px 0px 5px 0px;
 }
 
 #sort-options {

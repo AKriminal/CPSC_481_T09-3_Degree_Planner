@@ -27,7 +27,7 @@
     <!-- Main Content -->
     <div class="main-content">
       <h1>Academic Requirements</h1>
-      <p><strong>GPA: 3.40 | Min: 2.00</strong></p>
+      <p><strong>My GPA: 3.40 | Min: 2.00</strong></p>
       <p class="progress-label">
         <span class="progress-circle completed"></span> Completed: <span id="completed-units">48&nbsp</span> |&nbsp
         <span class="progress-circle in-progress"></span> In-progress: <span id="in-progress-units">9&nbsp</span> |&nbsp
@@ -47,14 +47,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course (A - Z)</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <thead>
@@ -192,14 +194,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <tr>
@@ -245,14 +249,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <tr>
@@ -306,14 +312,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <tr>
@@ -359,14 +367,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <tr>
@@ -420,14 +430,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <tr>
@@ -443,23 +455,11 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td><span class="incomplete">Incomplete</span></td>
-            </tr>
-            <tr>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
               <td>-</td>
               <td><span class="incomplete">Incomplete</span></td>
             </tr>
             <tr>
               <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td><span class="incomplete">Incomplete</span></td>
-            </tr>
-            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -471,23 +471,11 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
-              <td><span class="incomplete">Incomplete</span></td>
-            </tr>
-            <tr>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
               <td>-</td>
               <td><span class="incomplete">Incomplete</span></td>
             </tr>
             <tr>
               <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td><span class="incomplete">Incomplete</span></td>
-            </tr>
-            <tr>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -499,9 +487,43 @@
               <td>-</td>
               <td>-</td>
               <td>-</td>
+              <td>-</td>
               <td><span class="incomplete">Incomplete</span></td>
             </tr>
             <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td>-</td>
+              <td><span class="incomplete">Incomplete</span></td>
+            </tr>
+            <tr>
+              <td>-</td>
               <td>-</td>
               <td>-</td>
               <td>-</td>
@@ -519,14 +541,16 @@
         </h2>
         <div class="section-content">
           <div class="sorting-container">
-            <label for="sort-options"><strong>Sort by:</strong></label>
-            <select id="sort-options" onchange="sortTableDropdown()">
-              <option value="course">Course</option>
-              <option value="term">Term</option>
-              <option value="year">Year</option>
-              <option value="grade">Grade</option>
-              <option value="status">Status</option>
-            </select>
+            <div class="sort-box">
+              <select id="sort-options" onchange="sortTableDropdown()">
+                <option value="" disabled selected>Sort by:</option>
+                <option value="course">Course (A - Z)</option>
+                <option value="term">Term</option>
+                <option value="year">Year</option>
+                <option value="grade">Grade</option>
+                <option value="status">Status</option>
+              </select>
+            </div>
           </div>
           <table class="requirements-table">
             <tr>

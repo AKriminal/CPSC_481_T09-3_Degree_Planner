@@ -195,3 +195,72 @@ function convertStatus(status) {
   const statusOrder = { "Complete": 1, "In-progress": 2, "Incomplete": 3, "-": 4 };
   return statusOrder[status] || 5;
 }
+
+function getTableData() {
+    let totalCredits = 0;
+    let completedCredits = 0;
+
+    document.querySelectorAll(".course-table tbody tr").forEach(row => {
+        let credits = parseInt(row.cells[1].innerText); // Assuming the second column has credits
+        let status = row.cells[2].innerText.trim(); // Assuming third column is "Completed" or "In Progress"
+
+        totalCredits += credits;
+        if (status === "Completed") {
+            completedCredits += credits;
+        }
+    });
+
+    return { totalCredits, completedCredits };
+}
+
+function updateProgressBar() {
+    let { totalCredits, completedCredits } = getTableData();
+    let percentage = (completedCredits / totalCredits) * 100;
+
+    let progressBar = document.getElementById("progress-bar");
+    progressBar.style.width = percentage + "%";
+    progressBar.innerText = Math.round(percentage) + "% Completed";
+}
+
+let chartInstance = null; // Store chart instance globally
+
+function updatePieChart() {
+    let { totalCredits, completedCredits } = getTableData();
+    let remainingCredits = totalCredits - completedCredits;
+
+    let ctx = document.getElementById("myPieChart").getContext("2d");
+
+    if (chartInstance) {
+        chartInstance.destroy(); // Destroy old chart before re-rendering
+    }
+
+    chartInstance = new Chart(ctx, {
+        type: "pie",
+        data: {
+            labels: ["Completed", "Remaining"],
+            datasets: [{
+                data: [completedCredits, remainingCredits],
+                backgroundColor: ["#4CAF50", "#FFC107"], // Green & Yellow
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: { position: "bottom" }
+            }
+        }
+    });
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    updateProgressBar();
+    updatePieChart();
+
+    // If there's a button or event that updates courses
+    document.querySelectorAll(".course-status").forEach(select => {
+        select.addEventListener("change", function() {
+            updateProgressBar();
+            updatePieChart();
+        });
+    });
+});

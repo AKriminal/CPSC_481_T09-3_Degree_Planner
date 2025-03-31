@@ -29,29 +29,28 @@
     <!-- Main Content -->
     <div class="main-content">
       <!-- Combined Section: Profile and Degree Progress -->
-      <div class="combined-section">
-        <!-- User Profile -->
-        <div class="profile">
-          <img src="user image.png" alt="Profile Photo" class="profile-photo">
-          <div class="profile-info">
-            <h2>John Doe</h2>
-            <p>BSc in Computer Science</p>
-            <button class="gpa-btn" onclick="showGPA()">My GPA</button>
+      <div class="main-content">
+        <div class="profile-degree-container">
+          <!-- User Profile -->
+          <div class="profile-section">
+            <img src="user image.png" alt="Profile Photo" class="profile-photo">
+            <div class="profile-info">
+              <h2>John Doe</h2>
+              <p>B.Sc. in Computer Science</p>
+              <button class="gpa-btn" onclick="showGPA()">My GPA</button>
+            </div>
           </div>
-        </div>
-
-        <!-- Divider -->
-        <div class="divider"></div>
-
-        <!-- Degree Progress -->
-        <div class="degree-progress">
-          <h3>Degree Progress</h3>
-          <div class="progress-container">
-            <div class="pie-chart"></div>
-            <div class="progress-key">
-              <p><span class="color-box completed"></span> Completed: 48</p>
-              <p><span class="color-box in-progress"></span> In Progress: 9</p>
-              <p><span class="color-box incomplete"></span> Incomplete: 63</p>
+      
+          <!-- Degree Progress -->
+          <div class="degree-progress-section">
+            <h3>Degree Progress</h3>
+            <div class="progress-container">
+              <div class="pie-chart"></div>
+              <div class="progress-key">
+                <p><span class="color-box completed"></span>Completed: 48</p>
+                <p><span class="color-box in-progress"></span> In Progress: 9</p>
+                <p><span class="color-box incomplete"></span> Incomplete: 63</p>
+              </div>
             </div>
           </div>
         </div>
@@ -67,14 +66,16 @@
           </h2>
           <div id="year1" class="section-content">
             <div class="sorting-container">
-              <label for="sort-options"><strong>Sort by:</strong></label>
-              <select id="sort-options" onchange="sortTableDropdown()">
-                <option value="course">Course (A - Z)</option>
-                <option value="term">Term</option>
-                <option value="year">Year</option>
-                <option value="grade">Grade</option>
-                <option value="status">Status</option>
-              </select>
+              <div class="sort-box">
+                <select id="sort-options" onchange="sortTableDropdown()">
+                  <option value="" disabled selected>Sort by:</option>
+                  <option value="course">Course (A - Z)</option>
+                  <option value="term">Term</option>
+                  <option value="year">Year</option>
+                  <option value="grade">Grade</option>
+                  <option value="status">Status</option>
+                </select>
+              </div>
             </div>
             <table class="requirements-table">
               <tr>
@@ -112,14 +113,16 @@
           </h2>
           <div id="year2" class="section-content">
             <div class="sorting-container">
-              <label for="sort-options"><strong>Sort by:</strong></label>
-              <select id="sort-options" onchange="sortTableDropdown()">
-                <option value="course">Course (A - Z)</option>
-                <option value="term">Term</option>
-                <option value="year">Year</option>
-                <option value="grade">Grade</option>
-                <option value="status">Status</option>
-              </select>
+              <div class="sort-box">
+                <select id="sort-options" onchange="sortTableDropdown()">
+                  <option value="" disabled selected>Sort by:</option>
+                  <option value="course">Course (A - Z)</option>
+                  <option value="term">Term</option>
+                  <option value="year">Year</option>
+                  <option value="grade">Grade</option>
+                  <option value="status">Status</option>
+                </select>
+              </div>
             </div>
             <table class="requirements-table">
               <tr>
