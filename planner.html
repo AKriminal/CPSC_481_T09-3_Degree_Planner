@@ -1,35 +1,252 @@
-<!-- build a semester plan -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Build Semester Plan</title>
-  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build Semester Plan</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            height: 40px;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .search-container {
+            position: relative;
+        }
+        
+        .search-bar {
+            padding: 8px 15px 8px 35px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            width: 200px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #777;
+        }
+        
+        .logout-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .logout-btn:hover {
+            background-color: #e9ecef;
+        }
+        
+        .page-nav {
+            display: flex;
+            background-color: #fff;
+            padding: 0 30px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .nav-btn {
+            padding: 15px 20px;
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .nav-btn:hover {
+            color: #0d6efd;
+            border-bottom-color: #0d6efd;
+        }
+        
+        .nav-btn.active {
+            color: #0d6efd;
+            border-bottom-color: #0d6efd;
+        }
+        
+        .main-container {
+            display: flex;
+            min-height: calc(100vh - 120px);
+            padding: 20px 30px;
+        }
+        
+        .left-panel {
+            width: 65%;
+            padding: 0 20px 0 0;
+            overflow-y: auto;
+        }
+        
+        .right-panel {
+            width: 35%;
+            padding: 0 0 0 20px;
+        }
+        
+        .card {
+            margin-bottom: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: none;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c5c5c5;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+        
+        /* Media query for mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+                padding: 20px 15px;
+            }
+            
+            .left-panel, .right-panel {
+                width: 100%;
+                padding: 0;
+            }
+            
+            .right-panel {
+                margin-top: 20px;
+            }
+            
+            .header {
+                padding: 15px;
+                flex-direction: column;
+                gap: 15px;
+            }
+        
+            .header-right {
+                width: 100%;
+                justify-content: space-between;
+            }
+        
+            .search-container {
+                flex-grow: 1;
+                margin-right: 10px;
+            }
+        
+            .search-bar {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header class="header">
-    <img src="Logo_Horz_Colour.png" alt="University Logo" class="logo">
-    <div class="header-right">
-      <input type="text" class="search-bar" placeholder="Search...">
-      <button class="logout-btn">Logout</button>
-    </div>
-  </header>
-  
-  <!-- Navigation Bar Below Header -->
-  <nav class="page-nav">
-    <a href="home.html" class="nav-btn">Home</a>
-    <a href="planner.html" class="nav-btn">Build Semester Plan</a>
-    <a href="requirements.html" class="nav-btn">Academic Requirements</a>
-  </nav>
+    <header class="header">
+        <img src="Logo_Horz_Colour.png" alt="University Logo" class="logo">
+        <div class="header-right">
+            <div class="search-container">
+                <input type="text" class="search-bar" placeholder="Search...">
+                <i class="fas fa-search search-icon"></i>
+            </div>
+            <button class="logout-btn">Logout</button>
+        </div>
+    </header>
+    
+    <!-- Navigation Bar Below Header -->
+    <nav class="page-nav">
+        <a href="home.html" class="nav-btn">Home</a>
+        <a href="planner.html" class="nav-btn active">Build Semester Plan</a>
+        <a href="requirements.html" class="nav-btn">Academic Requirements</a>
+    </nav>
 
-  <div class="dashboard">
-    <!-- Main Content -->
-    <div class="main-content">
-      <h1>Build Semester Plan</h1>
-      <p>This page will allow you to build your semester plan.</p>
+    <div class="main-container">
+        <!-- Left panel -->
+        <div class="left-panel" id="left-panel">
+            <div id="degree-summary-container">
+                <!-- Degree summary component will be loaded here -->
+            </div>
+
+            <div id="years-container">
+                <!-- Years and semesters component will be loaded here -->
+            </div>
+        </div>
+        
+        <!-- Right panel -->
+        <div class="right-panel" id="right-panel">
+            <div id="tabbed-container">
+                <!-- Tabbed interface component will be loaded here -->
+            </div>
+        </div>
     </div>
-  </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load components
+            $("#degree-summary-container").load("components/degree-summary.html");
+            $("#years-container").load("components/years.html");
+            $("#tabbed-container").load("components/common-tabs.html");
+            
+            // Enhanced responsiveness
+            function adjustLayoutForScreenSize() {
+                if ($(window).width() < 768) {
+                    $('.left-panel, .right-panel').css({
+                        'width': '100%',
+                        'padding': '0'
+                    });
+                    $('.right-panel').css('margin-top', '20px');
+                } else {
+                    $('.left-panel').css({
+                        'width': '65%',
+                        'padding': '0 20px 0 0',
+                        'margin-top': '0'
+                    });
+                    $('.right-panel').css({
+                        'width': '35%',
+                        'padding': '0 0 0 20px',
+                        'margin-top': '0'
+                    });
+                }
+            }
+            
+            // Initial call and resize listener
+            adjustLayoutForScreenSize();
+            $(window).resize(adjustLayoutForScreenSize);
+        });
+    </script>
 </body>
 </html>
