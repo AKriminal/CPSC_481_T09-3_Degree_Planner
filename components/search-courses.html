@@ -130,10 +130,19 @@
     
     <div class="search-container">
         <i class="fas fa-search search-icon"></i>
-        <input type="text" class="search-input" placeholder="Search by course name or code...">
+        <input type="text" class="search-input" id="courseSearch" placeholder="Search by course name or code...">
     </div>
     
     <div class="filter-section">
+        <div>
+            <span class="filter-label">Faculty:</span>
+            <select class="filter-select" id="facultyFilter">
+                <option value="">All Faculties</option>
+                <option value="Science">Faculty of Science</option>
+                <option value="Arts">Faculty of Arts</option>
+            </select>
+        </div>
+        
         <div>
             <span class="filter-label">Department:</span>
             <select class="filter-select" id="departmentFilter">
@@ -141,6 +150,7 @@
                 <option value="CPSC">Computer Science (CPSC)</option>
                 <option value="SENG">Software Engineering (SENG)</option>
                 <option value="MATH">Mathematics (MATH)</option>
+                <option value="PHIL">Philosophy (PHIL)</option>
             </select>
         </div>
         
@@ -151,341 +161,280 @@
                 <option value="100">100-Level</option>
                 <option value="200">200-Level</option>
                 <option value="300">300-Level</option>
-                <option value="400+">400+ Level</option>
+                <option value="400">400-Level</option>
+                <option value="500">500-Level</option>
             </select>
         </div>
         
-        <div class="form-check ms-3">
-            <input class="form-check-input" type="checkbox" id="prereqCheck">
-            <label class="form-check-label" for="prereqCheck">
-                Prerequisites met
-            </label>
-        </div>
+        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
     </div>
-    <!-- Add this after the existing filter-section div -->
-<div class="d-flex justify-content-end mb-3">
-    <button class="btn btn-outline-secondary btn-sm" id="toggleAdvancedFilters">
-      <i class="fas fa-sliders-h me-1"></i> Advanced Filters
-    </button>
-  </div>
-
-    <!-- Advanced Filter Section - Add this after the existing filter-section div -->
-<div class="advanced-filters mb-4" id="advancedFilters" style="display: none;">
-    <div class="card">
-      <div class="card-header bg-light">
-        <h6 class="mb-0">Advanced Filters</h6>
-      </div>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-4 mb-3">
-            <label class="form-label filter-label">Availability</label>
-            <select class="filter-select w-100">
-              <option value="">Any Availability</option>
-              <option value="open">Open Sections</option>
-              <option value="waitlist">Waitlist Available</option>
-              <option value="online">Online Only</option>
-            </select>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label filter-label">Credits</label>
-            <select class="filter-select w-100">
-              <option value="">Any Credits</option>
-              <option value="1">1 Credit</option>
-              <option value="3">3 Credits</option>
-              <option value="4">4+ Credits</option>
-            </select>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label filter-label">Time of Day</label>
-            <select class="filter-select w-100">
-              <option value="">Any Time</option>
-              <option value="morning">Morning (8am-12pm)</option>
-              <option value="afternoon">Afternoon (12pm-5pm)</option>
-              <option value="evening">Evening (5pm-10pm)</option>
-            </select>
-          </div>
-        </div>
-        
     
-          <div class="col-md-4 mb-3">
-            <label class="form-label filter-label">Course Format</label>
-            <select class="filter-select w-100">
-              <option value="">Any Format</option>
-              <option value="lecture">Lecture</option>
-              <option value="seminar">Seminar</option>
-              <option value="lab">Lab</option>
-              <option value="hybrid">Hybrid</option>
-            </select>
-          </div>
-          <div class="col-md-4 mb-3">
-            <label class="form-label filter-label">Days of Week</label>
-            <div class="d-flex gap-1">
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="dayM">
-                <label class="form-check-label" for="dayM">M</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="dayT">
-                <label class="form-check-label" for="dayT">T</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="dayW">
-                <label class="form-check-label" for="dayW">W</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="dayTh">
-                <label class="form-check-label" for="dayTh">Th</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="dayF">
-                <label class="form-check-label" for="dayF">F</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="mt-2">
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="noFinalExam">
-            <label class="form-check-label" for="noFinalExam">
-              No Final Exam
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="checkbox" id="fulfillsRequirement">
-            <label class="form-check-label" for="fulfillsRequirement">
-              Fulfills Degree Requirement
-            </label>
-          </div>
-        </div>
-        
-        <div class="d-flex justify-content-end mt-3">
-          <button class="btn btn-secondary me-2" id="clearFilters">Clear All</button>
-          <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
-        </div>
-      </div>
-    </div>
-  </div>
-    
-    <div class="mb-3">
-        <div class="filter-tag">
-            Computer Science
-            <i class="fas fa-times ms-1"></i>
-        </div>
-        <div class="filter-tag">
-            300+ Level
-            <i class="fas fa-times ms-1"></i>
-        </div>
+    <div class="mb-3" id="activeFilters">
+        <!-- Filter tags will be added here dynamically -->
     </div>
     
     <div class="list-group" id="coursesList">
-        <div class="list-group-item course-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="fw-bold text-primary">CPSC 399</div>
-                <span class="course-credits">3 credits</span>
-            </div>
-            <div class="pb-1 pt-1">Computer History</div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-                <span class="semester-badge">Winter 2025</span>
-                <span class="badge bg-success status-badge">Added to Plan</span>
-            </div>
-        </div>
-        
-        <div class="list-group-item course-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="fw-bold text-primary">CPSC 313</div>
-                <span class="course-credits">3 credits</span>
-            </div>
-            <div class="pb-1 pt-1">Computer Systems Analysis and Design</div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-                <span class="semester-badge">Fall 2024</span>
-                <span class="badge bg-warning text-dark status-badge">Prerequisites pending</span>
-            </div>
-        </div>
-        
-        <div class="list-group-item course-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="fw-bold text-primary">CPSC 372</div>
-                <span class="course-credits">3 credits</span>
-                <button class="btn btn-sm btn-outline-primary">Add to Plan</button>
-            </div>
-            <div class="pb-1 pt-1">Computer Applications</div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-                <span class="semester-badge">Winter 2025</span>
-                
-            </div>
-        </div>
-        
-        <div class="list-group-item course-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="fw-bold text-primary">SENG 300</div>
-                <span class="course-credits">3 credits</span>
-            </div>
-            <div class="pb-1 pt-1">Introduction to Software Engineering</div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-                <span class="semester-badge">Fall 2024</span>
-                
-            </div>
-        </div>
-        
-        <div class="list-group-item course-item">
-            <div class="d-flex justify-content-between align-items-center">
-                <div class="fw-bold text-primary">MATH 331</div>
-                <span class="course-credits">3 credits</span>
-            </div>
-            <div class="pb-1 pt-1">Advanced Calculus</div>
-            <div class="d-flex justify-content-between align-items-center mt-1">
-                <span class="semester-badge">Winter 2025</span>
-                <span class="badge bg-danger status-badge">Prerequisites not met</span>
-            </div>
-        </div>
+        <!-- Courses will be loaded here dynamically -->
     </div>
     
     <div class="d-flex justify-content-center mt-4">
-        <button class="btn btn-outline-primary">
+        <button class="btn btn-outline-primary" id="loadMore">
             Load More Courses <i class="fas fa-angle-down ms-1"></i>
         </button>
     </div>
     
     <script>
         $(document).ready(function() {
-
-
-            
-            // Remove filter tag with animation
-            $('.filter-tag .fa-times').click(function() {
-                $(this).parent().fadeOut(300, function() {
-                    $(this).remove();
-                });
-            });
-            
-            // Enhanced search functionality with highlight effect
-            $('.search-input').on('keyup', function() {
-                let searchTerm = $(this).val().toLowerCase();
-                $('#coursesList .course-item').each(function() {
-                    let text = $(this).text().toLowerCase();
-                    if(text.indexOf(searchTerm) > -1) {
-                        $(this).slideDown(200);
-                    } else {
-                        $(this).slideUp(200);
-                    }
-                });
-            });
-            
-            // Course selection with visual feedback
-            $('#coursesList .course-item').click(function() {
-                let wasActive = $(this).hasClass('active');
-                $('#coursesList .course-item').removeClass('active');
-                
-                if (!wasActive) {
-                    $(this).addClass('active');
+            // Default courses that will show immediately
+            const defaultCourses = [
+                {
+                    "courseId": "CPSC217",
+                    "courseCode": "CPSC-217",
+                    "department": {"code": "CPSC", "name": "Computer Science"},
+                    "courseNumber": "217",
+                    "title": "Introduction to Computer Science for Multidisciplinary Studies I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": null,
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                    "uniqueId": 1
+                },
+                {
+                    "courseId": "CPSC231",
+                    "courseCode": "CPSC-231",
+                    "department": {"code": "CPSC", "name": "Computer Science"},
+                    "courseNumber": "231",
+                    "title": "Introduction to Computer Science for Computer Science Majors I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": {"or": ["Admission to CPSC"]},
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                    "uniqueId": 2
+                },
+                {
+                    "courseId": "MATH211",
+                    "courseCode": "MATH-211",
+                    "department": {"code": "MATH", "name": "Mathematics"},
+                    "courseNumber": "211",
+                    "title": "Linear Methods I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": null,
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                    "uniqueId": 3
+                },
+                {
+                    "courseId": "PHIL279",
+                    "courseCode": "PHIL-279",
+                    "department": {"code": "PHIL", "name": "Philosophy"},
+                    "courseNumber": "279",
+                    "title": "Logic I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": null,
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": false, "Summer": false},
+                    "uniqueId": 4
                 }
-            });
-            
-            // Filter functionality
-            $('#departmentFilter, #levelFilter').change(function() {
-                let dept = $('#departmentFilter').val();
-                let level = $('#levelFilter').val();
-                
-                // For demo purposes - in a real app, this would filter the actual data
-                console.log("Filtering by: Department=" + dept + ", Level=" + level);
-                
-                // Visual feedback for filter change
-                if (dept || level) {
-                    $('#coursesList').css('opacity', '0.7');
-                    setTimeout(function() {
-                        $('#coursesList').css('opacity', '1');
-                    }, 400);
-                }
-            });
-            
-            // "Add to Plan" button functionality with proper event handling
-            $('.btn-outline-primary').click(function(e) {
-                e.stopPropagation(); // Prevent triggering the parent course-item click
-                let $this = $(this);
-                let courseTitle = $this.closest('.course-item').find('.fw-bold').text();
-                
-                // Visual feedback during "adding" process
-                $this.html('<i class="fas fa-spinner fa-spin"></i>').prop('disabled', true);
-                
-                // Simulate network delay
-                setTimeout(function() {
-                    $this.closest('.course-item').find('.d-flex:last-child').html(
-                        '<span class="semester-badge">Winter 2025</span>' +
-                        '<span class="badge bg-success status-badge">Added to Plan</span>'
-                    );
-                }, 600);
-            });
-            
-            // Checkbox styling enhancement
-            $('#prereqCheck').change(function() {
-                if($(this).is(':checked')) {
-                    // For demo - would actually filter the courses
-                    $('.course-item').has('.badge.bg-danger').fadeOut(300);
-                } else {
-                    $('.course-item').fadeIn(300);
-                }
-            });
+            ];
 
-            $('#toggleAdvancedFilters').click(function() {
-    $('#advancedFilters').slideToggle(300);
-    
-    // Toggle button text
-    if ($(this).find('i').hasClass('fa-sliders-h')) {
-        $(this).html('<i class="fas fa-times me-1"></i> Hide Advanced Filters');
-    } else {
-        $(this).html('<i class="fas fa-sliders-h me-1"></i> Advanced Filters');
-    }
-});
-
-            // Clear filters button functionality
-            $('#clearFilters').click(function() {
-                // Reset all select elements to default
-                $('#advancedFilters select').val('');
-                
-                // Uncheck all checkboxes
-                $('#advancedFilters input[type="checkbox"]').prop('checked', false);
-                
-                // Visual feedback
-                $(this).html('<i class="fas fa-check me-1"></i> Cleared').addClass('btn-success').removeClass('btn-secondary');
-                setTimeout(function() {
-                    $('#clearFilters').html('Clear All').addClass('btn-secondary').removeClass('btn-success');
-                }, 1000);
-            });
-
-            // Apply filters button functionality
-            $('#applyFilters').click(function() {
-                // Visual feedback during "filtering" process
-                $(this).html('<i class="fas fa-spinner fa-spin"></i>').prop('disabled', true);
-                
-                // Simulate filtering delay
-                setTimeout(function() {
-                    // Reset button
-                    $('#applyFilters').html('Apply Filters').prop('disabled', false);
-                    
-                    // Visual feedback for filtered courses
-                    $('#coursesList').css('opacity', '0.6');
-                    setTimeout(function() {
-                        $('#coursesList').css('opacity', '1');
-                    }, 300);
-                    
-                    // Add a filter tag to show applied filters (as an example)
-                    if ($('#fulfillsRequirement').is(':checked')) {
-                        // Only add if not already present
-                        if ($('.filter-tag:contains("Fulfills Requirement")').length === 0) {
-                            $('.mb-3:has(.filter-tag)').append(
-                                '<div class="filter-tag">Fulfills Requirement<i class="fas fa-times ms-1"></i></div>'
-                            );
-                            // Re-bind the click event for the new tag
-                            $('.filter-tag .fa-times').last().click(function() {
-                                $(this).parent().fadeOut(300, function() {
-                                    $(this).remove();
-                                });
+            // Main course data
+            let allCourses = [...defaultCourses];
+            let displayedCourses = [];
+            const coursesPerPage = 4;
+            let currentPage = 1;
+            
+            // Function to load courses from JSON
+            function loadCoursesFromJSON() {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: 'courses.json',
+                        dataType: 'json',
+                        success: function(data) {
+                            // Combine default courses with JSON courses, removing duplicates
+                            const jsonCourses = Array.isArray(data) ? data : [];
+                            const combinedCourses = [...defaultCourses];
+                            
+                            jsonCourses.forEach(jsonCourse => {
+                                if (!defaultCourses.some(c => c.courseId === jsonCourse.courseId)) {
+                                    combinedCourses.push(jsonCourse);
+                                }
                             });
+                            
+                            allCourses = combinedCourses;
+                            resolve();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error loading JSON courses:", error);
+                            // We'll just use the default courses
+                            resolve();
                         }
-                    }
-                }, 600);
-            });
+                    });
+                });
+            }
+            
+            // Initialize the page
+            async function initialize() {
+                await loadCoursesFromJSON();
+                displayedCourses = [...allCourses];
+                renderCourses();
+                setupEventListeners();
+            }
+            
+            // Function to render courses
+            function renderCourses() {
+                const coursesList = $('#coursesList');
+                coursesList.empty();
+                
+                const endIndex = Math.min(currentPage * coursesPerPage, displayedCourses.length);
+                
+                for (let i = 0; i < endIndex; i++) {
+                    const course = displayedCourses[i];
+                    const courseItem = createCourseItem(course);
+                    coursesList.append(courseItem);
+                }
+                
+                $('#loadMore').toggle(endIndex < displayedCourses.length);
+            }
+            
+            // Function to create a course item
+            function createCourseItem(course) {
+                const hasPrerequisites = course.prerequisites && 
+                    (course.prerequisites.and || course.prerequisites.or || Object.keys(course.prerequisites).length > 0);
+                
+                const currentMonth = new Date().getMonth();
+                let offeredInCurrentSemester = false;
+                
+                if (currentMonth >= 8 || currentMonth <= 4) { // Fall/Winter
+                    offeredInCurrentSemester = course.offeredIn.Fall || course.offeredIn.Winter;
+                } else { // Spring/Summer
+                    offeredInCurrentSemester = course.offeredIn.Spring || course.offeredIn.Summer;
+                }
+                
+                return `
+                    <div class="list-group-item course-item" data-course-id="${course.uniqueId}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="fw-bold text-primary">${course.department.code} ${course.courseNumber}</div>
+                            <span class="course-credits">${course.credits} credits</span>
+                        </div>
+                        <div class="pb-1 pt-1">${course.title}</div>
+                        <div class="d-flex justify-content-between align-items-center mt-1">
+                            <span class="semester-badge">${offeredInCurrentSemester ? 'Current Semester' : 'Not offered this semester'}</span>
+                            <span class="badge ${hasPrerequisites ? 'bg-warning text-dark' : 'bg-success'} status-badge">
+                                ${hasPrerequisites ? 'Prerequisites pending' : 'No prerequisites'}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Function to filter courses
+            function filterCourses() {
+                const searchTerm = $('#courseSearch').val().toLowerCase();
+                const facultyFilter = $('#facultyFilter').val();
+                const departmentFilter = $('#departmentFilter').val();
+                const levelFilter = $('#levelFilter').val();
+                
+                displayedCourses = allCourses.filter(course => {
+                    // Search filter
+                    const matchesSearch = !searchTerm || 
+                        course.title.toLowerCase().includes(searchTerm) || 
+                        course.courseCode.toLowerCase().includes(searchTerm);
+                    
+                    // Faculty filter
+                    const matchesFaculty = !facultyFilter || 
+                        (facultyFilter === 'Science' && ['CPSC', 'SENG', 'MATH'].includes(course.department.code)) ||
+                        (facultyFilter === 'Arts' && course.department.code === 'PHIL');
+                    
+                    // Department filter
+                    const matchesDepartment = !departmentFilter || 
+                        course.department.code === departmentFilter;
+                    
+                    // Level filter
+                    const matchesLevel = !levelFilter || 
+                        (levelFilter === '100' && course.level < 200) ||
+                        (levelFilter === '200' && course.level >= 200 && course.level < 300) ||
+                        (levelFilter === '300' && course.level >= 300 && course.level < 400) ||
+                        (levelFilter === '400' && course.level >= 400 && course.level < 500) ||
+                        (levelFilter === '500' && course.level >= 500);
+                    
+                    return matchesSearch && matchesFaculty && matchesDepartment && matchesLevel;
+                });
+                
+                currentPage = 1;
+                renderCourses();
+                updateActiveFilters();
+            }
+            
+            // Function to update active filters display
+            function updateActiveFilters() {
+                const activeFilters = $('#activeFilters');
+                activeFilters.empty();
+                
+                const facultyFilter = $('#facultyFilter').val();
+                const departmentFilter = $('#departmentFilter').val();
+                const levelFilter = $('#levelFilter').val();
+                
+                if (facultyFilter) {
+                    activeFilters.append(`
+                        <div class="filter-tag">
+                            Faculty: ${facultyFilter}
+                            <i class="fas fa-times ms-1" data-filter="faculty"></i>
+                        </div>
+                    `);
+                }
+                
+                if (departmentFilter) {
+                    activeFilters.append(`
+                        <div class="filter-tag">
+                            ${$('#departmentFilter option:selected').text().split('(')[0].trim()}
+                            <i class="fas fa-times ms-1" data-filter="department"></i>
+                        </div>
+                    `);
+                }
+                
+                if (levelFilter) {
+                    activeFilters.append(`
+                        <div class="filter-tag">
+                            ${levelFilter}-Level
+                            <i class="fas fa-times ms-1" data-filter="level"></i>
+                        </div>
+                    `);
+                }
+            }
+            
+            // Setup event listeners
+            function setupEventListeners() {
+                // Search as you type
+                $('#courseSearch').on('input', function() {
+                    filterCourses();
+                });
+                
+                // Apply filters button
+                $('#applyFilters').click(function() {
+                    filterCourses();
+                });
+                
+                // Remove filter tags
+                $('#activeFilters').on('click', '.fa-times', function() {
+                    const filterType = $(this).data('filter');
+                    $(`#${filterType}Filter`).val('');
+                    filterCourses();
+                });
+                
+                // Course selection
+                $('#coursesList').on('click', '.course-item', function() {
+                    $(this).toggleClass('active').siblings().removeClass('active');
+                });
+                
+                // Load more courses
+                $('#loadMore').click(function() {
+                    currentPage++;
+                    renderCourses();
+                });
+            }
+            
+            // Initialize the page
+            initialize();
         });
     </script>
 </div>
