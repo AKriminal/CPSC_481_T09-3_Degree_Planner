@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Placeholders</title>
+    <!-- Include your main CSS files -->
+    <link rel="stylesheet" href="course-card.css">
+    <!-- Include the new placeholder CSS -->
+    <style>
+        /* Styles from placeholder-container-css artifact go here */
+        .placeholder-card {
+            border: 2px dashed #c3c3c3;
+            background-color: #f8f8f8;
+            border-left: 6px solid #1d4ed8;
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .course-code {
+            font-weight: bold;
+            font-size: 1.2rem;
+            color: #1d4ed8;
+        }
+
+        .placeholder-tag {
+            font-size: 0.75rem;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+            padding: 4px 8px;
+            border-radius: 9999px;
+            margin-left: 10px;
+        }
+
+        .placeholder-count {
+            background-color: #ffe5b4;
+            color: #b45309;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 9999px;
+            font-size: 0.8rem;
+        }
+
+        .courses-container {
+            min-height: 10px;
+        }
+
+        .select-course-button {
+            padding: 8px 12px;
+            border: none;
+            background-color: #1d4ed8;
+            color: white;
+            border-radius: 6px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            cursor: pointer;
+            width: fit-content;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        .select-course-button:hover {
+            background-color: #173bb0;
+        }
+
+        .course-item {
+            transition: all 0.2s ease;
+        }
+
+        .course-item:hover {
+            transform: translateX(2px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .remove-course-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        /* Additional styles for demo */
+        body {
+            font-family: system-ui, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .container-section {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Course Placeholders Demo</h2>
+    
+    <div class="container-section">
+        <h3>Computer Science Field Options</h3>
+        <div id="cs-field-container"></div>
+    </div>
+    
+    <div class="container-section">
+        <h3>Mathematics Options</h3>
+        <div id="math-options-container"></div>
+    </div>
+    
+    <!-- Include your existing JS files -->
+    <script src="course-card.js"></script>
+    <script src="course-loader.js"></script>
+    
+    <!-- Include the new placeholder container code -->
+    <script>
+        // Paste the CoursePlaceholderContainer class code here from the first artifact
+        
+        // Initialize placeholders when the page loads
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create a placeholder for CS field courses
+            const csFieldPlaceholder = new CoursePlaceholderContainer('CS-FLD', '400 lvl or higher', 4);
+            csFieldPlaceholder.addToContainer(document.getElementById('cs-field-container'));
+            
+            // Create a placeholder for math options
+            const mathPlaceholder = new CoursePlaceholderContainer('MATH-OPT', 'Any level', 2);
+            mathPlaceholder.addToContainer(document.getElementById('math-options-container'));
+        });
+    </script>
+</body>
+</html>

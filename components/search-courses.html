@@ -1,0 +1,438 @@
+<div>
+    <style>
+        /* Core styling with focus on HCI principles */
+        .search-input {
+            width: 100%;
+            padding: 12px 18px 12px 42px;
+            border: 1px solid #e1e1e1;
+            border-radius: 8px;
+            margin-bottom: 18px;
+            font-size: 1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+        }
+        
+        .search-input:focus {
+            border-color: #0d6efd;
+            box-shadow: 0 2px 8px rgba(13, 110, 253, 0.15);
+            outline: none;
+        }
+        
+        .search-container {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 15px;
+            top: 14px;
+            color: #6c757d;
+        }
+        
+        .course-item {
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            border: 1px solid #e1e1e1;
+            margin-bottom: 12px;
+            padding: 12px 15px;
+        }
+        
+        .course-item:hover {
+            background-color: #f8f9fa;
+            cursor: pointer;
+            border-color: #ccd4e0;
+        }
+        
+        .course-item.active {
+            border-left: 4px solid #0d6efd;
+            background-color: #f0f7ff;
+        }
+        
+        .filter-tag {
+            border-radius: 20px;
+            padding: 6px 12px;
+            margin-right: 8px;
+            margin-bottom: 8px;
+            display: inline-block;
+            background-color: #f8f9fa;
+            border: 1px solid #e1e1e1;
+        }
+        
+        .filter-tag i {
+            cursor: pointer;
+            opacity: 0.6;
+        }
+        
+        .filter-tag i:hover {
+            opacity: 1;
+        }
+        
+        .filter-buttons .btn {
+            border-radius: 6px;
+            padding: 8px 14px;
+        }
+        
+        .welcome-banner {
+            background: linear-gradient(135deg, #4a89dc, #5d9cec);
+            color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11);
+        }
+        
+        .semester-badge {
+            background-color: #e9ecef;
+            color: #495057;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            padding: 2px 8px;
+        }
+        
+        .filter-section {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        
+        .filter-label {
+            font-weight: 500;
+            color: #495057;
+            margin-right: 5px;
+        }
+        
+        .filter-select {
+            border-radius: 6px;
+            padding: 6px 10px;
+            border: 1px solid #dee2e6;
+            font-size: 0.9rem;
+        }
+        
+        .course-credits {
+            font-weight: 500;
+            color: #6c757d;
+        }
+        
+        .status-badge {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+    </style>
+    
+    <div class="welcome-banner">
+        <h4 class="mb-2">Find Your Next Course</h4>
+        <p class="mb-0">Search from over 2,000+ courses across all departments</p>
+    </div>
+    
+    <div class="search-container">
+        <i class="fas fa-search search-icon"></i>
+        <input type="text" class="search-input" id="courseSearch" placeholder="Search by course name or code...">
+    </div>
+    
+    <div class="filter-section">
+        <div>
+            <span class="filter-label">Faculty:</span>
+            <select class="filter-select" id="facultyFilter">
+                <option value="">All Faculties</option>
+                <option value="Science">Faculty of Science</option>
+                <option value="Arts">Faculty of Arts</option>
+            </select>
+        </div>
+        
+        <div>
+            <span class="filter-label">Department:</span>
+            <select class="filter-select" id="departmentFilter">
+                <option value="">All Departments</option>
+                <option value="CPSC">Computer Science (CPSC)</option>
+                <option value="SENG">Software Engineering (SENG)</option>
+                <option value="MATH">Mathematics (MATH)</option>
+                <option value="PHIL">Philosophy (PHIL)</option>
+            </select>
+        </div>
+        
+        <div>
+            <span class="filter-label">Level:</span>
+            <select class="filter-select" id="levelFilter">
+                <option value="">All Levels</option>
+                <option value="200">200-Level</option>
+                <option value="300">300-Level</option>
+                <option value="400">400-Level</option>
+                <option value="500">500-Level</option>
+            </select>
+        </div>
+        
+        <button class="btn btn-primary" id="applyFilters">Apply Filters</button>
+    </div>
+    
+    <div class="mb-3" id="activeFilters">
+        <!-- Filter tags will be added here dynamically -->
+    </div>
+    
+    <div class="list-group" id="coursesList">
+        <!-- Courses will be loaded here dynamically -->
+    </div>
+    
+    <div class="d-flex justify-content-center mt-4">
+        <button class="btn btn-outline-primary" id="loadMore">
+            Load More Courses <i class="fas fa-angle-down ms-1"></i>
+        </button>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            // Default courses that will show immediately
+            const defaultCourses = [
+                {
+                    "courseId": "CPSC217",
+                    "courseCode": "CPSC-217",
+                    "department": {"code": "CPSC", "name": "Computer Science"},
+                    "courseNumber": "217",
+                    "title": "Introduction to Computer Science for Multidisciplinary Studies I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": null,
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                    "uniqueId": 1
+                },
+                {
+                    "courseId": "CPSC231",
+                    "courseCode": "CPSC-231",
+                    "department": {"code": "CPSC", "name": "Computer Science"},
+                    "courseNumber": "231",
+                    "title": "Introduction to Computer Science for Computer Science Majors I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": {"or": ["Admission to CPSC"]},
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                    "uniqueId": 2
+                },
+                {
+                    "courseId": "MATH211",
+                    "courseCode": "MATH-211",
+                    "department": {"code": "MATH", "name": "Mathematics"},
+                    "courseNumber": "211",
+                    "title": "Linear Methods I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": null,
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                    "uniqueId": 3
+                },
+                {
+                    "courseId": "PHIL279",
+                    "courseCode": "PHIL-279",
+                    "department": {"code": "PHIL", "name": "Philosophy"},
+                    "courseNumber": "279",
+                    "title": "Logic I",
+                    "credits": 3,
+                    "level": 200,
+                    "prerequisites": null,
+                    "offeredIn": {"Fall": true, "Winter": true, "Spring": false, "Summer": false},
+                    "uniqueId": 4
+                }
+            ];
+
+            // Main course data
+            let allCourses = [...defaultCourses];
+            let displayedCourses = [];
+            const coursesPerPage = 4;
+            let currentPage = 1;
+            
+            // Function to load courses from JSON
+            function loadCoursesFromJSON() {
+                return new Promise((resolve, reject) => {
+                    $.ajax({
+                        url: 'courses.json',
+                        dataType: 'json',
+                        success: function(data) {
+                            // Combine default courses with JSON courses, removing duplicates
+                            const jsonCourses = Array.isArray(data) ? data : [];
+                            const combinedCourses = [...defaultCourses];
+                            
+                            jsonCourses.forEach(jsonCourse => {
+                                if (!defaultCourses.some(c => c.courseId === jsonCourse.courseId)) {
+                                    combinedCourses.push(jsonCourse);
+                                }
+                            });
+                            
+                            allCourses = combinedCourses;
+                            resolve();
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error loading JSON courses:", error);
+                            // We'll just use the default courses
+                            resolve();
+                        }
+                    });
+                });
+            }
+            
+            // Initialize the page
+            async function initialize() {
+                await loadCoursesFromJSON();
+                displayedCourses = [...allCourses];
+                renderCourses();
+                setupEventListeners();
+            }
+            
+            // Function to render courses
+            function renderCourses() {
+                const coursesList = $('#coursesList');
+                coursesList.empty();
+                
+                const endIndex = Math.min(currentPage * coursesPerPage, displayedCourses.length);
+                
+                for (let i = 0; i < endIndex; i++) {
+                    const course = displayedCourses[i];
+                    const courseItem = createCourseItem(course);
+                    coursesList.append(courseItem);
+                }
+                
+                $('#loadMore').toggle(endIndex < displayedCourses.length);
+            }
+            
+            // Function to create a course item
+            function createCourseItem(course) {
+                const hasPrerequisites = course.prerequisites && 
+                    (course.prerequisites.and || course.prerequisites.or || Object.keys(course.prerequisites).length > 0);
+                
+                const currentMonth = new Date().getMonth();
+                let offeredInCurrentSemester = false;
+                
+                if (currentMonth >= 8 || currentMonth <= 4) { // Fall/Winter
+                    offeredInCurrentSemester = course.offeredIn.Fall || course.offeredIn.Winter;
+                } else { // Spring/Summer
+                    offeredInCurrentSemester = course.offeredIn.Spring || course.offeredIn.Summer;
+                }
+                
+                return `
+                    <div class="list-group-item course-item" data-course-id="${course.uniqueId}">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div class="fw-bold text-primary">${course.department.code} ${course.courseNumber}</div>
+                            <span class="course-credits">${course.credits} credits</span>
+                        </div>
+                        <div class="pb-1 pt-1">${course.title}</div>
+                        <div class="d-flex justify-content-between align-items-center mt-1">
+                            <span class="semester-badge">${offeredInCurrentSemester ? 'Current Semester' : 'Not offered this semester'}</span>
+                            <span class="badge ${hasPrerequisites ? 'bg-warning text-dark' : 'bg-success'} status-badge">
+                                ${hasPrerequisites ? 'Prerequisites pending' : 'No prerequisites'}
+                            </span>
+                        </div>
+                    </div>
+                `;
+            }
+            
+            // Function to filter courses
+            function filterCourses() {
+                const searchTerm = $('#courseSearch').val().toLowerCase();
+                const facultyFilter = $('#facultyFilter').val();
+                const departmentFilter = $('#departmentFilter').val();
+                const levelFilter = $('#levelFilter').val();
+                
+                displayedCourses = allCourses.filter(course => {
+                    // Search filter
+                    const matchesSearch = !searchTerm || 
+                        course.title.toLowerCase().includes(searchTerm) || 
+                        course.courseCode.toLowerCase().includes(searchTerm);
+                    
+                    // Faculty filter
+                    const matchesFaculty = !facultyFilter || 
+                        (facultyFilter === 'Science' && ['CPSC', 'SENG', 'MATH'].includes(course.department.code)) ||
+                        (facultyFilter === 'Arts' && course.department.code === 'PHIL');
+                    
+                    // Department filter
+                    const matchesDepartment = !departmentFilter || 
+                        course.department.code === departmentFilter;
+                    
+                    // Level filter
+                    const matchesLevel = !levelFilter || 
+                        (levelFilter === '200' && course.level >= 200 && course.level < 300) ||
+                        (levelFilter === '300' && course.level >= 300 && course.level < 400) ||
+                        (levelFilter === '400' && course.level >= 400 && course.level < 500) ||
+                        (levelFilter === '500' && course.level >= 500);
+                    
+                    return matchesSearch && matchesFaculty && matchesDepartment && matchesLevel;
+                });
+                
+                currentPage = 1;
+                renderCourses();
+                updateActiveFilters();
+            }
+            
+            // Function to update active filters display
+            function updateActiveFilters() {
+                const activeFilters = $('#activeFilters');
+                activeFilters.empty();
+                
+                const facultyFilter = $('#facultyFilter').val();
+                const departmentFilter = $('#departmentFilter').val();
+                const levelFilter = $('#levelFilter').val();
+                
+                if (facultyFilter) {
+                    activeFilters.append(`
+                        <div class="filter-tag">
+                            Faculty: ${facultyFilter}
+                            <i class="fas fa-times ms-1" data-filter="faculty"></i>
+                        </div>
+                    `);
+                }
+                
+                if (departmentFilter) {
+                    activeFilters.append(`
+                        <div class="filter-tag">
+                            ${$('#departmentFilter option:selected').text().split('(')[0].trim()}
+                            <i class="fas fa-times ms-1" data-filter="department"></i>
+                        </div>
+                    `);
+                }
+                
+                if (levelFilter) {
+                    activeFilters.append(`
+                        <div class="filter-tag">
+                            ${levelFilter}-Level
+                            <i class="fas fa-times ms-1" data-filter="level"></i>
+                        </div>
+                    `);
+                }
+            }
+            
+            // Setup event listeners
+            function setupEventListeners() {
+                // Search as you type
+                $('#courseSearch').on('input', function() {
+                    filterCourses();
+                });
+                
+                // Apply filters button
+                $('#applyFilters').click(function() {
+                    filterCourses();
+                });
+                
+                // Remove filter tags
+                $('#activeFilters').on('click', '.fa-times', function() {
+                    const filterType = $(this).data('filter');
+                    $(`#${filterType}Filter`).val('');
+                    filterCourses();
+                });
+                
+                // Course selection
+                $('#coursesList').on('click', '.course-item', function() {
+                    $(this).toggleClass('active').siblings().removeClass('active');
+                });
+                
+                // Load more courses
+                $('#loadMore').click(function() {
+                    currentPage++;
+                    renderCourses();
+                });
+            }
+            
+            // Initialize the page
+            initialize();
+        });
+    </script>
+</div>
