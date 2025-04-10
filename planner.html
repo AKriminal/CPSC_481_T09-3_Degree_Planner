@@ -3,24 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Degree Planner</title>
+    <title>Build Semester Plan</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background-color: #f8f9fa;
             color: #212529;
-            padding-top: 120px; /* Added for fixed header */
+            padding-top: 130px; /* Reduced from 120px since nav is now in header */
+        }
+        
+        /* Modified header to contain navigation */
+        .header {
+            display: flex;
+            flex-direction: column;
+            height: 127px; /* Remove fixed height >>>>>>>>>>> WHITE HEADER*/
+            padding: 10px 20px 0; /* Adjusted padding */
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        
+        /* Modified navigation bar */
+        .page-nav {
+            position: fixed; /* Remove fixed positioning */
+            display: flex;
+            justify-content: center;
+            background-color: transparent;
+            border-bottom: none;
+            padding: 0;
+            margin-top: 20px;
+            border-bottom: 1.0px solid #ddd;
+            top: 52px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+        }
+        
+        .page-nav .nav-btn {
+            margin: 0 5px 10px; /* Adjusted margins */
+            padding: 8px 15px; /* Slightly smaller padding */
         }
         
         .main-container {
             display: flex;
-            min-height: 85vh;
-            padding: 20px 0;
+            min-height: calc(100vh - 80px); /* Adjusted for new header height */
+            padding: 20px 30px;
         }
         
+        /* Rest of your existing styles... */
         .left-panel {
             width: 65%;
             padding: 0 20px 0 0;
@@ -40,7 +78,6 @@
             border: none;
         }
         
-        /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -59,66 +96,57 @@
             background: #a0a0a0;
         }
         
-        /* Media query for mobile responsiveness */
         @media (max-width: 768px) {
             body {
-                padding-top: 160px; /* Adjusted for stacked header */
+                padding-top: 120px; /* Adjusted for mobile */
             }
             
             .main-container {
                 flex-direction: column;
+                padding: 20px 15px;
+                min-height: calc(100vh - 120px);
             }
             
             .left-panel, .right-panel {
                 width: 100%;
-                padding: 0 15px;
+                padding: 0;
             }
             
             .right-panel {
                 margin-top: 20px;
             }
+            
+            .page-nav .nav-btn {
+                padding: 6px 10px; /* Smaller buttons on mobile */
+                font-size: 14px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header with navigation bar -->
+    <!-- Combined header with navigation -->
     <header class="header">
-        <img src="Logo_Horz_Colour.png" alt="University Logo" class="logo">
-        <div class="header-right">
-            <div class="search-container">
-                <input type="text" class="search-bar" placeholder="Search...">
-                <i class="fas fa-search search-icon"></i>
+        <div class="header-top">
+            <img src="Logo_Horz_Colour.png" alt="University Logo" class="logo">
+            <div class="header-right">
+                <button class="logout-btn">Logout</button>
             </div>
-            <button class="logout-btn">Logout</button>
         </div>
+        <nav class="page-nav">
+            <a href="home.html" class="nav-btn">Home</a>
+            <a href="planner.html" class="nav-btn active">Build Semester Plan</a>
+            <a href="requirements.html" class="nav-btn">Academic Requirements</a>
+        </nav>
     </header>
-    
-    <!-- Navigation Bar -->
-    <nav class="page-nav">
-        <a href="home.html" class="nav-btn">Home</a>
-        <a href="planner.html" class="nav-btn active">Build Semester Plan</a>
-        <a href="requirements.html" class="nav-btn">Academic Requirements</a>
-    </nav>
 
-    <div class="container-fluid">
-        <div class="main-container">
-            <!-- Left panel -->
-            <div class="left-panel" id="left-panel">
-                <div id="degree-summary-container" class="card">
-                    <!-- Degree summary component will be loaded here -->
-                </div>
-
-                <div id="years-container" class="card">
-                    <!-- Years and semesters component will be loaded here -->
-                </div>
-            </div>
-            
-            <!-- Right panel -->
-            <div class="right-panel" id="right-panel">
-                <div id="tabbed-container" class="card">
-                    <!-- Tabbed interface component will be loaded here -->
-                </div>
-            </div>
+    <!-- Rest of your content remains the same -->
+    <div class="main-container">
+        <div class="left-panel" id="left-panel">
+            <div id="degree-summary-container"></div>
+            <div id="years-container"></div>
+        </div>
+        <div class="right-panel" id="right-panel">
+            <div id="tabbed-container"></div>
         </div>
     </div>
 
@@ -135,31 +163,27 @@
             $('.nav-btn').removeClass('active');
             $('.nav-btn[href="planner.html"]').addClass('active');
             
-            // Enhanced responsiveness
-            function adjustLayoutForScreenSize() {
+            // Responsive adjustments
+            function adjustLayout() {
                 if ($(window).width() < 768) {
                     $('.left-panel, .right-panel').css({
                         'width': '100%',
-                        'padding': '0 15px'
+                        'padding': '0'
                     });
                     $('.right-panel').css('margin-top', '20px');
                 } else {
                     $('.left-panel').css({
                         'width': '65%',
-                        'padding': '0 20px 0 0',
-                        'margin-top': '0'
+                        'padding': '0 20px 0 0'
                     });
                     $('.right-panel').css({
                         'width': '35%',
-                        'padding': '0 0 0 20px',
-                        'margin-top': '0'
+                        'padding': '0 0 0 20px'
                     });
                 }
             }
-            
-            // Initial call and resize listener
-            adjustLayoutForScreenSize();
-            $(window).resize(adjustLayoutForScreenSize);
+            adjustLayout();
+            $(window).resize(adjustLayout);
         });
     </script>
 </body>
