@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Degree Planner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        
+        .main-container {
+            display: flex;
+            min-height: 85vh;
+            padding: 20px 0;
+        }
+        
+        .left-panel {
+            width: 65%;
+            padding: 0 20px 0 0;
+            overflow-y: auto;
+        }
+        
+        .right-panel {
+            width: 35%;
+            padding: 0 0 0 20px;
+        }
+        
+        .card {
+            margin-bottom: 24px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            overflow: hidden;
+            border: none;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #c5c5c5;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a0a0a0;
+        }
+        
+        /* Media query for mobile responsiveness */
+        @media (max-width: 768px) {
+            .main-container {
+                flex-direction: column;
+            }
+            
+            .left-panel, .right-panel {
+                width: 100%;
+                padding: 0 15px;
+            }
+            
+            .right-panel {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container">
+        <!-- Header component will be loaded here -->
+    </div>
+
+    <div class="container-fluid">
+        <div class="main-container">
+            <!-- Left panel -->
+            <div class="left-panel" id="left-panel">
+                <div id="degree-summary-container">
+                    <!-- Degree summary component will be loaded here -->
+                </div>
+
+                <div id="years-container">
+                    <!-- Years and semesters component will be loaded here -->
+                </div>
+            </div>
+            
+            <!-- Right panel -->
+            <div class="right-panel" id="right-panel">
+                <div id="tabbed-container">
+                    <!-- Tabbed interface component will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load components
+            $("#header-container").load("components/header.html");
+            $("#degree-summary-container").load("components/degree-summary.html");
+            $("#years-container").load("components/years.html");
+            $("#tabbed-container").load("components/common-tabs.html");
+            
+            // Enhanced responsiveness
+            function adjustLayoutForScreenSize() {
+                if ($(window).width() < 768) {
+                    $('.left-panel, .right-panel').css({
+                        'width': '100%',
+                        'padding': '0 15px'
+                    });
+                    $('.right-panel').css('margin-top', '20px');
+                } else {
+                    $('.left-panel').css({
+                        'width': '65%',
+                        'padding': '0 20px 0 0',
+                        'margin-top': '0'
+                    });
+                    $('.right-panel').css({
+                        'width': '35%',
+                        'padding': '0 0 0 20px',
+                        'margin-top': '0'
+                    });
+                }
+            }
+            
+            // Initial call and resize listener
+            adjustLayoutForScreenSize();
+            $(window).resize(adjustLayoutForScreenSize);
+        });
+    </script>
+</body>
+</html>
