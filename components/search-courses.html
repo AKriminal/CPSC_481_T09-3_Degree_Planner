@@ -158,7 +158,6 @@
             <span class="filter-label">Level:</span>
             <select class="filter-select" id="levelFilter">
                 <option value="">All Levels</option>
-                <option value="100">100-Level</option>
                 <option value="200">200-Level</option>
                 <option value="300">300-Level</option>
                 <option value="400">400-Level</option>
@@ -351,7 +350,6 @@
                     
                     // Level filter
                     const matchesLevel = !levelFilter || 
-                        (levelFilter === '100' && course.level < 200) ||
                         (levelFilter === '200' && course.level >= 200 && course.level < 300) ||
                         (levelFilter === '300' && course.level >= 300 && course.level < 400) ||
                         (levelFilter === '400' && course.level >= 400 && course.level < 500) ||
