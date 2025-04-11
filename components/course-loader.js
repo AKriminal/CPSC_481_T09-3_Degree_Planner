@@ -72,16 +72,35 @@ function updateProgressTrackers() {
         const yearContainer = document.querySelector(`.year-container[data-year="${year}"]`);
         if (!yearContainer) return;
         
+        // Get counts for required courses
         const totalRequired = REQUIRED_COURSES_BY_YEAR[year].length;
         const completedCount = document.querySelectorAll(`#year${year}-courses .status-select.completed`).length;
         const inProgressCount = document.querySelectorAll(`#year${year}-courses .status-select.in-progress`).length;
         const plannedCount = document.querySelectorAll(`#year${year}-courses .status-select.planned`).length;
         
-        const remainingCount = totalRequired - completedCount - inProgressCount - plannedCount;
+        // Count placeholder requirements
+        const placeholderContainer = document.querySelector(`#year${year}-courses`);
+        let placeholderTotal = 0;
+        let placeholderFilled = 0;
+        
+        if (placeholderContainer) {
+            const placeholders = placeholderContainer.querySelectorAll('.placeholder-card');
+            placeholders.forEach(placeholder => {
+                const countText = placeholder.querySelector('.placeholder-count').textContent;
+                const [filled, total] = countText.split('/').map(num => parseInt(num, 10));
+                placeholderTotal += total;
+                placeholderFilled += filled;
+            });
+        }
+        
+        // Calculate total remaining (required courses + placeholders)
+        const totalCourses = totalRequired + placeholderTotal;
+        const totalCompleted = completedCount + inProgressCount + plannedCount + placeholderFilled;
+        const remainingCount = totalCourses - totalCompleted;
         
         const progressTracker = yearContainer.querySelector('.progress-tracker');
         if (progressTracker) {
-            progressTracker.textContent = `${remainingCount} remaining`;
+            progressTracker.textContent = `${totalCompleted}/${totalCourses} completed`;
             
             // Change color based on status
             if (remainingCount === 0) {
@@ -98,6 +117,8 @@ function updateProgressTrackers() {
 /**
  * Load and render all required courses for all years
  */
+// Fix for Year 4 empty message
+// Modify the loadAllRequiredCourses function in course-loader.js
 async function loadAllRequiredCourses() {
     // Load each year's courses
     for (let year = 1; year <= 4; year++) {
@@ -110,12 +131,15 @@ async function loadAllRequiredCourses() {
         // Get required courses for this year
         const courses = await loadRequiredCoursesByYear(year);
         
-        if (courses.length === 0) {
-            // Show empty message if no courses
+        if (courses.length === 0 && year !== 4) {
+            // Show empty message if no courses (except for Year 4)
             const emptyMsg = document.createElement('div');
             emptyMsg.className = 'empty-message';
             emptyMsg.textContent = 'No required courses for this year';
             yearContainer.appendChild(emptyMsg);
+        } else if (courses.length === 0 && year === 4) {
+            // Year 4 has no required courses but will have placeholders
+            // Don't add the empty message
         } else {
             // Create and add course cards
             courses.forEach(course => {
@@ -128,6 +152,24 @@ async function loadAllRequiredCourses() {
     // Update progress trackers
     updateProgressTrackers();
 }
+
+
+// Update initializePlaceholders function to ensure it runs for year 4
+// Add this to $(document).ready() in the requirements.html file
+function initializeAllPlaceholders() {
+    // Make sure we initialize placeholders for all years including year 4
+    setTimeout(() => {
+        initializeAllPlaceholders();
+        
+        // Update progress trackers after placeholders are added
+        if (window.CourseLoader) {
+            window.CourseLoader.updateProgressTrackers();
+        }
+    }, 500);
+}
+
+// Call this after CourseLoader.loadAllRequiredCourses()
+initializeAllPlaceholders();
 
 // Export functions for use in other scripts
 window.CourseLoader = {

@@ -24,15 +24,20 @@ class CoursePlaceholderContainer {
                 <div>
                     <span class="course-code">${this.placeholderType}</span>
                     <span class="placeholder-tag">${this.requirement}</span>
+                    <span class="tooltip-icon" title="Click for more information">ⓘ</span>
                 </div>
                 <span class="placeholder-count">0/${this.maxCount}</span>
+            </div>
+            
+            <div class="tooltip-content" style="display: none; margin-bottom: 10px; padding: 8px; background-color: #f0f7ff; border-radius: 4px; font-size: 0.9rem; color: #333;">
+                Click on "+ Select Course" to add courses to this requirement.
             </div>
             
             <div class="courses-container" style="margin: 10px 0;"></div>
             
             <button class="select-course-button">+ Select Course</button>
         `;
-        
+        container.setAttribute('data-type', this.placeholderType);
         return container;
     }
     
@@ -40,6 +45,42 @@ class CoursePlaceholderContainer {
         // Add click event for the select course button
         const selectButton = this.element.querySelector('.select-course-button');
         selectButton.addEventListener('click', () => this.#handleSelectCourse());
+        
+        // Add toggle for tooltip
+        const tooltipIcon = this.element.querySelector('.tooltip-icon');
+        const tooltipContent = this.element.querySelector('.tooltip-content');
+        
+        tooltipIcon.addEventListener('click', (e) => {
+            e.stopPropagation();
+            tooltipContent.style.display = tooltipContent.style.display === 'none' ? 'block' : 'none';
+        });
+        
+        // Style the tooltip icon
+        tooltipIcon.style.cssText = `
+            cursor: pointer;
+            color: #1d4ed8;
+            margin-left: 5px;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            background-color: #e6f0ff;
+        `;
+    }
+    
+    // Add a public method to update tooltip content
+    addTooltip(content) {
+        const tooltipContent = this.element.querySelector('.tooltip-content');
+        if (tooltipContent) {
+            // Add the custom content
+            tooltipContent.innerHTML = `
+                <p>${content}</p>
+                <p style="margin-top: 8px; font-style: italic;">Click on "+ Select Course" to add courses to this requirement.</p>
+            `;
+        }
     }
     
     #handleSelectCourse() {
@@ -100,8 +141,18 @@ class CoursePlaceholderContainer {
         // Store reference to the course card element
         const courseElement = courseCard.cardElement;
         
+        // Create a wrapper for the course card and actions
+        const courseWrapper = document.createElement('div');
+        courseWrapper.className = 'course-wrapper';
+        courseWrapper.style.cssText = `
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 8px;
+            position: relative;
+        `;
+        
         // Modify the card to fit within the placeholder container
-        courseElement.style.marginBottom = '8px';
+        courseElement.style.flexGrow = '1';
         courseElement.style.borderLeft = '3px solid #1d4ed8'; // Match placeholder color
         courseElement.style.padding = '12px 15px'; // Slightly more compact
         
@@ -114,42 +165,105 @@ class CoursePlaceholderContainer {
         // Add a custom class for styling
         courseElement.classList.add('placeholder-course-card');
         
-        // Add a remove button specifically for placeholder courses
-        const removeButton = document.createElement('button');
-        removeButton.className = 'remove-course-btn';
-        removeButton.innerHTML = '✕ Remove';
-        removeButton.style.cssText = `
-            background: #e74c3c;
-            color: white;
+        // Create the three-dots menu button
+        const menuButton = document.createElement('button');
+        menuButton.className = 'course-action-menu-btn';
+        menuButton.innerHTML = '⋮'; // Three vertical dots
+        menuButton.style.cssText = `
+            background: none;
             border: none;
-            border-radius: 4px;
-            padding: 4px 8px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #666;
             cursor: pointer;
-            margin-left: 10px;
-            font-size: 13px;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: 5px;
+            margin-top: 10px;
         `;
         
-        removeButton.addEventListener('click', (e) => {
+        // Create dropdown menu
+        const dropdownMenu = document.createElement('div');
+        dropdownMenu.className = 'course-action-dropdown';
+        dropdownMenu.style.cssText = `
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            z-index: 10;
+            min-width: 120px;
+            display: none;
+        `;
+        
+        // Add menu options
+        dropdownMenu.innerHTML = `
+            <div class="menu-item swap-course" style="padding: 8px 12px; cursor: pointer; border-bottom: 1px solid #eee;">
+                <i class="fas fa-exchange-alt" style="margin-right: 8px;"></i> Swap Course
+            </div>
+            <div class="menu-item delete-course" style="padding: 8px 12px; cursor: pointer; color: #e74c3c;">
+                <i class="fas fa-trash" style="margin-right: 8px;"></i> Delete Course
+            </div>
+        `;
+        
+        // Add event listeners for the menu
+        menuButton.addEventListener('click', (e) => {
             e.stopPropagation();
+            dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
+        
+        // Close dropdown when clicking elsewhere
+        document.addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
+        });
+        
+        // Stop propagation on dropdown click
+        dropdownMenu.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+        
+        // Add event listeners for menu items
+        dropdownMenu.querySelector('.swap-course').addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
+            this.#removeCourse(course.courseId);
+            // Trigger the select course prompt again
+            this.#handleSelectCourse();
+        });
+        
+        dropdownMenu.querySelector('.delete-course').addEventListener('click', () => {
+            dropdownMenu.style.display = 'none';
             this.#removeCourse(course.courseId);
         });
         
-        // Add the remove button to the card's action area
-        const actionArea = courseElement.querySelector('.status-selector')?.parentElement;
-        if (actionArea) {
-            actionArea.appendChild(removeButton);
-        }
+        // Append action button and dropdown
+        const actionContainer = document.createElement('div');
+        actionContainer.className = 'course-action-container';
+        actionContainer.style.position = 'relative';
+        actionContainer.appendChild(menuButton);
+        actionContainer.appendChild(dropdownMenu);
+        
+        // Add to wrapper
+        courseWrapper.appendChild(courseElement);
+        courseWrapper.appendChild(actionContainer);
         
         // Add to internal courses array
         this.courses.push({
             code: course.courseId,
             title: course.title,
-            element: courseElement,
+            element: courseWrapper,
             cardInstance: courseCard
         });
         
         // Add to the DOM
-        this.coursesContainer.appendChild(courseElement);
+        this.coursesContainer.appendChild(courseWrapper);
+        
+        // Hide the tooltip content when a course is added
+        const tooltipContent = this.element.querySelector('.tooltip-content');
+        if (tooltipContent) {
+            tooltipContent.style.display = 'none';
+        }
         
         // Hide the select button if max reached
         if (this.courses.length >= this.maxCount) {
@@ -239,6 +353,10 @@ async function fetchCoursesData() {
         { courseId: "CPSC457", title: "Principles of Operating Systems" },
         { courseId: "CPSC441", title: "Computer Networks" },
         { courseId: "CPSC471", title: "Data Base Management Systems" },
-        { courseId: "CPSC481", title: "Human-Computer Interaction I" }
+        { courseId: "CPSC481", title: "Human-Computer Interaction I" },
+        { courseId: "MATH211", title: "Linear Methods I" },
+        { courseId: "MATH271", title: "Discrete Mathematics" },
+        { courseId: "ENGL201", title: "Literature: Transformative Narratives" },
+        { courseId: "PSYC200", title: "Principles of Psychology" }
     ];
 }

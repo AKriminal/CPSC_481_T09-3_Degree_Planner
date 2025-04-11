@@ -1,43 +1,57 @@
-/* Course Card Styling - Sleeker Version */
+/* Unified Course Card Styling */
 .course-card {
-    border-radius: 6px;
+    border-radius: 8px;
     background: white;
-    border-left: 3px solid #0064A4; /* UCalGary blue */
-    padding: 14px 18px;
-    margin-bottom: 12px;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+    border-left: 4px solid #0064A4; /* UCalgary blue */
+    padding: 16px;
+    margin-bottom: 14px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     position: relative;
-    transition: all 0.15s ease;
-    /* Base z-index for cards */
+    transition: all 0.2s ease;
     z-index: 1;
+    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
 }
 
-/* Set lower z-index for all cards by default */
+/* Container Styles */
 #courses-container .course-card {
     z-index: 1;
 }
 
-/* Card with active dropdown gets higher z-index */
 #courses-container .course-card.dropdown-active {
     z-index: 1000;
 }
 
 .course-card:hover {
-    box-shadow: 0 2px 5px rgba(0,0,0,0.12);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transform: translateY(-1px);
 }
 
+/* Layout Spacing */
+.year-content .content-inner {
+    padding: 16px 12px;
+}
+
+.course-card {
+    margin-bottom: 16px;
+}
+
+.content-inner > div:first-child:not(.loading-spinner) {
+    margin-top: 8px;
+}
+
+/* Header Section */
 .course-header {
     display: flex;
     align-items: center;
-    margin-bottom: 3px;
+    margin-bottom: 8px;
+    gap: 8px;
 }
 
 .course-code {
-    font-size: 18px;
+    font-size: 17px;
     font-weight: 700;
-    color: #0064A4; /* UCalGary blue */
-    margin-right: 10px;
+    color: #222; /* Changed from blue to black */
+    margin-right: 4px;
     cursor: pointer;
 }
 
@@ -45,54 +59,62 @@
     text-decoration: underline;
 }
 
+.course-title {
+    font-size: 15px;
+    color: #444;
+    margin: 8px 0 14px 0;
+    line-height: 1.4;
+}
+
+/* Badges */
 .badge-required {
-    background-color: #E6F3FF; /* Light blue */
+    background-color: #E6F3FF;
     color: #0064A4;
-    font-size: 13px;
-    padding: 3px 10px;
-    border-radius: 16px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .badge-planned {
-    background-color: #E6F5F2; /* Light teal */
+    background-color: #E6F5F2;
     color: #17a2b8;
-    font-size: 13px;
-    padding: 3px 10px;
-    border-radius: 16px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
     font-weight: 500;
 }
 
-.course-title {
-    font-size: 16px;
-    font-weight: 400;
-    color: #333;
-    margin: 6px 0 12px 0;
-}
-
+/* Term Selector */
 .term-selector {
     position: relative;
     width: 100%;
-    margin-top: 3px;
+    margin-top: 8px;
 }
 
 .select-term {
     width: 100%;
     padding: 8px 14px;
     border-radius: 6px;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ddd;
     font-size: 14px;
     color: #495057;
     background-color: white;
     cursor: pointer;
     text-align: left;
+    transition: all 0.2s ease;
     appearance: none;
     -webkit-appearance: none;
     -moz-appearance: none;
 }
 
+.select-term:hover {
+    border-color: #aaa;
+}
+
 .select-term.active {
-    background-color: #f8a356; /* Orange */
+    background-color: #f8a356;
     color: white;
     border-color: #f8a356;
 }
@@ -101,9 +123,11 @@
     content: '▼';
     position: absolute;
     right: 12px;
-    top: 10px;
+    top: 50%;
+    transform: translateY(-50%);
     pointer-events: none;
     font-size: 10px;
+    color: #666;
 }
 
 .term-dropdown {
@@ -112,11 +136,10 @@
     max-height: 0;
     overflow: hidden;
     border-radius: 6px;
-    margin-top: 1px;
+    margin-top: 4px;
     background-color: white;
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    /* Very high z-index to ensure it's above everything */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     z-index: 9999;
     transition: all 0.2s ease;
     opacity: 0;
@@ -124,19 +147,19 @@
 }
 
 .term-dropdown.show {
-    max-height: 200px; /* Limit dropdown height */
+    max-height: 200px;
     overflow-y: auto;
     opacity: 1;
     visibility: visible;
 }
 
 .term-option {
-    padding: 8px 14px;
+    padding: 10px 14px;
     font-size: 14px;
-    color: #495057;
+    color: #333;
     cursor: pointer;
     transition: background-color 0.15s;
-    border-bottom: 1px solid #f0f0f0;
+    border-bottom: 1px solid #f5f5f5;
 }
 
 .term-option:last-child {
@@ -153,16 +176,24 @@
     cursor: not-allowed;
 }
 
+/* Action Buttons */
+.input-group {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
 .add-button {
-    background-color: #0064A4; /* UCalGary blue */
+    background-color: #0064A4;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 8px 16px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -181,21 +212,16 @@
     margin-right: 5px;
 }
 
-.input-group {
-    display: flex;
-    gap: 8px;
-}
-
 .remove-button {
     background-color: #e74c3c;
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 8px 16px;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.15s ease;
+    transition: background-color 0.2s ease;
     display: flex;
     align-items: center;
 }
@@ -204,64 +230,68 @@
     background-color: #c0392b;
 }
 
+/* Status Selector */
+.status-selector {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 5;
+}
+
+.status-select {
+    font-size: 12px;
+    padding: 5px 12px 5px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    border: 1px solid #ddd;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 6px center;
+    background-size: 14px;
+    padding-right: 28px;
+}
+
+.status-select.none {
+    background-color: #f0f0f0;
+    color: #666;
+}
+
+.status-select.completed {
+    background-color: #4cd964;
+    color: white;
+    border-color: #3ac052;
+}
+
+.status-select.in-progress {
+    background-color: #ffcc00;
+    color: #212121;
+    border-color: #e6b800;
+}
+
+.status-select.planned {
+    background-color: #007aff;
+    color: white;
+    border-color: #0069e6;
+}
+
+/* Planned Tag */
 .planned-tag {
     position: absolute;
     top: 12px;
     right: 16px;
     background-color: #E6F5F2;
     color: #17a2b8;
-    font-size: 13px;
-    padding: 3px 10px;
-    border-radius: 16px;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
     font-weight: 500;
 }
 
-/* Status Capsule Styling */
-.status-selector {
-    position: absolute;
-    bottom: 12px;
-    right: 16px;
-    z-index: 5;
-}
-
-.status-select {
-    font-size: 13px;
-    padding: 3px 10px;
-    border-radius: 16px;
-    font-weight: 500;
-    border: 1px solid #dee2e6;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3E%3Cpath fill='%23555' d='M0 2l4 4 4-4z'/%3E%3C/svg%3E");
-    background-repeat: no-repeat;
-    background-position: right 8px center;
-    background-size: 8px 8px;
-    padding-right: 24px;
-    cursor: pointer;
-}
-
-.status-select.none {
-    background-color: #e0e0e0;
-    color: #444;
-}
-
-.status-select.completed {
-    background-color: #4cd964;
-    color: white;
-}
-
-.status-select.in-progress {
-    background-color: #ffcc00;
-    color: #212121;
-}
-
-.status-select.planned {
-    background-color: #007aff;
-    color: white;
-}
-
-/* Semester move dialog styles */
+/* Dialog Styles */
 .semester-move-dialog {
     position: fixed;
     top: 50%;
@@ -279,6 +309,7 @@
 .semester-move-dialog h4 {
     margin-top: 0;
     font-size: 18px;
+    color: #222;
 }
 
 .semester-move-dialog select {
@@ -286,7 +317,8 @@
     padding: 8px;
     margin: 12px 0;
     border-radius: 4px;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ddd;
+    font-size: 14px;
 }
 
 .semester-move-dialog .dialog-buttons {
@@ -297,21 +329,32 @@
 }
 
 .semester-move-dialog button {
-    padding: 6px 12px;
-    border-radius: 4px;
+    padding: 8px 16px;
+    border-radius: 6px;
     font-size: 14px;
+    font-weight: 500;
     cursor: pointer;
+    transition: all 0.2s ease;
 }
 
 .semester-move-dialog .cancel-btn {
     background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
+    border: 1px solid #ddd;
+    color: #444;
+}
+
+.semester-move-dialog .cancel-btn:hover {
+    background-color: #eee;
 }
 
 .semester-move-dialog .move-btn {
     background-color: #0064A4;
     color: white;
     border: none;
+}
+
+.semester-move-dialog .move-btn:hover {
+    background-color: #00497a;
 }
 
 .overlay {
@@ -322,4 +365,24 @@
     bottom: 0;
     background-color: rgba(0,0,0,0.5);
     z-index: 999;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .course-card {
+        padding: 14px;
+    }
+    
+    .course-code {
+        font-size: 16px;
+    }
+    
+    .course-title {
+        font-size: 14px;
+    }
+    
+    .input-group {
+        flex-direction: column;
+        align-items: flex-end;
+    }
 }

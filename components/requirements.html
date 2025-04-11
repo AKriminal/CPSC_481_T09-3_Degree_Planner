@@ -32,29 +32,27 @@
         }
         
         .year-container {
-            margin-bottom: 12px;
-            border-radius: 6px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .year-header {
-            background-color: #f8f9fa;
-            padding: 12px 18px;
-            cursor: pointer;
-            border-left: 4px solid #CF0722;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.2s ease;
-            position: relative;
-        }
+    margin-bottom: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
 
-        .year-header h5 {
-            margin: 0;
-            font-weight: 600;
-            color: black;
-        }
+.year-header {
+    background-color: #f5f5f5;
+    padding: 14px 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.year-header h5 {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+}
+
+
         
         .year-header:hover {
             background-color: #e9ecef;
@@ -101,6 +99,7 @@
     background-color: white;
     border: 1px solid #e6e6e6;
     border-top: none;
+    padding: 10px;
 }
 
 /* Modify the open state to have a fixed height with scrolling */
@@ -200,6 +199,7 @@
             background-color: #f8f8f8;
             border-left: 6px solid #1d4ed8;
             margin-bottom: 15px;
+            
         }
 
         .course-header {
@@ -455,47 +455,129 @@
             }
 
             // Function to initialize placeholders for each year
-            function initializePlaceholders() {
-                // Example placeholders for different years
-                
-                // Year 3 placeholders (typically when field courses start)
-                const year3Container = document.getElementById('year3-courses');
-                if (year3Container) {
-                    // Add a heading for the placeholder section
-                    const sectionHeading = document.createElement('div');
-                    sectionHeading.className = 'placeholder-section-heading';
-                    sectionHeading.textContent = 'Field Course Options';
-                    year3Container.appendChild(sectionHeading);
-                    
-                    // Add the CS Junior Field options placeholder
-                    const csJuniorPlaceholder = new CoursePlaceholderContainer('CS-FLD-JR', '300-level', 2);
-                    csJuniorPlaceholder.addToContainer(year3Container);
-                }
-                
-                // Year 4 placeholders (typically more advanced field courses)
-                const year4Container = document.getElementById('year4-courses');
-                if (year4Container) {
-                    // Add a heading for field courses
-                    const fieldHeading = document.createElement('div');
-                    fieldHeading.className = 'placeholder-section-heading';
-                    fieldHeading.textContent = 'Field Course Options';
-                    year4Container.appendChild(fieldHeading);
-                    
-                    // Add the CS Senior Field options placeholder
-                    const csSeniorPlaceholder = new CoursePlaceholderContainer('CS-FLD-SR', '400-level or higher', 4);
-                    csSeniorPlaceholder.addToContainer(year4Container);
-                    
-                    // Add a heading for options
-                    const optionsHeading = document.createElement('div');
-                    optionsHeading.className = 'placeholder-section-heading';
-                    optionsHeading.textContent = 'Additional Requirements';
-                    year4Container.appendChild(optionsHeading);
-                    
-                    // Add the Math options placeholder
-                    const mathPlaceholder = new CoursePlaceholderContainer('MATH-OPT', 'Any level', 2);
-                    mathPlaceholder.addToContainer(year4Container);
-                }
-            }
+            // Function to initialize placeholders for each year
+function initializePlaceholders() {
+    // Define tooltip content
+    const tooltips = {
+        'NON-SCIENCE': 'A Non-Science Option is any course from faculties other than the Faculty of Science, excluding courses listed in Table 1.',
+        'NON-MAJOR': 'A Non-Major Field Option is any option NOT in the field of Computer Science.',
+        'OPEN': 'An Open Option is any course offered by any Faculty, including the Major Field.',
+        'CS-FLD': 'Computer Science Field courses at the specified level.'
+    };
+    
+    // Year 1 placeholders
+    const year1Container = document.getElementById('year1-courses');
+    if (year1Container) {
+        const sectionHeading1 = document.createElement('div');
+        sectionHeading1.className = 'placeholder-section-heading';
+        sectionHeading1.textContent = 'Additional Requirements';
+        year1Container.appendChild(sectionHeading1);
+        
+        // Non-Science Options (Breadth Requirement) x2
+        const nonScienceY1 = new CoursePlaceholderContainer('NON-SCIENCE', 'Breadth Requirement', 2);
+        nonScienceY1.addToContainer(year1Container);
+        nonScienceY1.addTooltip(tooltips['NON-SCIENCE']);
+        
+        // Non-Major Field Option x2
+        const nonMajorY1 = new CoursePlaceholderContainer('NON-MAJOR', 'Field Option', 2);
+        nonMajorY1.addToContainer(year1Container);
+        nonMajorY1.addTooltip(tooltips['NON-MAJOR']);
+    }
+    
+    // Year 2 placeholders
+    const year2Container = document.getElementById('year2-courses');
+    if (year2Container) {
+        const sectionHeading2 = document.createElement('div');
+        sectionHeading2.className = 'placeholder-section-heading';
+        sectionHeading2.textContent = 'Additional Requirements';
+        year2Container.appendChild(sectionHeading2);
+        
+        // Non-Major Field Option x3
+        const nonMajorY2 = new CoursePlaceholderContainer('NON-MAJOR', 'Field Option', 3);
+        nonMajorY2.addToContainer(year2Container);
+        nonMajorY2.addTooltip(tooltips['NON-MAJOR']);
+        
+        // Non-Science Option x1
+        const nonScienceY2 = new CoursePlaceholderContainer('NON-SCIENCE', 'Breadth Requirement', 1);
+        nonScienceY2.addToContainer(year2Container);
+        nonScienceY2.addTooltip(tooltips['NON-SCIENCE']);
+        
+        // CS Field Course x1
+        const csFieldY2 = new CoursePlaceholderContainer('CS-FLD', '300 level or higher', 1);
+        csFieldY2.addToContainer(year2Container);
+        csFieldY2.addTooltip(tooltips['CS-FLD']);
+    }
+    
+    // Year 3 placeholders
+    const year3Container = document.getElementById('year3-courses');
+    if (year3Container) {
+        const sectionHeading3 = document.createElement('div');
+        sectionHeading3.className = 'placeholder-section-heading';
+        sectionHeading3.textContent = 'Additional Requirements';
+        year3Container.appendChild(sectionHeading3);
+        
+        // Non-Major Field Option x3
+        const nonMajorY3 = new CoursePlaceholderContainer('NON-MAJOR', 'Field Option', 3);
+        nonMajorY3.addToContainer(year3Container);
+        nonMajorY3.addTooltip(tooltips['NON-MAJOR']);
+        
+        // Non-Science Option x1
+        const nonScienceY3 = new CoursePlaceholderContainer('NON-SCIENCE', 'Breadth Requirement', 1);
+        nonScienceY3.addToContainer(year3Container);
+        nonScienceY3.addTooltip(tooltips['NON-SCIENCE']);
+        
+        // Field courses section
+        const fieldHeading3 = document.createElement('div');
+        fieldHeading3.className = 'placeholder-section-heading';
+        fieldHeading3.textContent = 'Field Course Options';
+        year3Container.appendChild(fieldHeading3);
+        
+        // CS Field 300 level x2
+        const csField300Y3 = new CoursePlaceholderContainer('CS-FLD', '300 level or higher', 2);
+        csField300Y3.addToContainer(year3Container);
+        csField300Y3.addTooltip(tooltips['CS-FLD']);
+        
+        // CS Field 400 level x1
+        const csField400Y3 = new CoursePlaceholderContainer('CS-FLD', '400 level or higher', 1);
+        csField400Y3.addToContainer(year3Container);
+        csField400Y3.addTooltip(tooltips['CS-FLD']);
+    }
+    
+    // Year 4 placeholders
+    const year4Container = document.getElementById('year4-courses');
+    if (year4Container) {
+        const sectionHeading4 = document.createElement('div');
+        sectionHeading4.className = 'placeholder-section-heading';
+        sectionHeading4.textContent = 'Additional Requirements';
+        year4Container.appendChild(sectionHeading4);
+        
+        // Non-Major Field Option x2
+        const nonMajorY4 = new CoursePlaceholderContainer('NON-MAJOR', 'Field Option', 2);
+        nonMajorY4.addToContainer(year4Container);
+        nonMajorY4.addTooltip(tooltips['NON-MAJOR']);
+        
+        // Open Option x2
+        const openY4 = new CoursePlaceholderContainer('OPEN', 'Any Faculty', 2);
+        openY4.addToContainer(year4Container);
+        openY4.addTooltip(tooltips['OPEN']);
+        
+        // Field courses section
+        const fieldHeading4 = document.createElement('div');
+        fieldHeading4.className = 'placeholder-section-heading';
+        fieldHeading4.textContent = 'Field Course Options';
+        year4Container.appendChild(fieldHeading4);
+        
+        // CS Field 400 level x3
+        const csField400Y4 = new CoursePlaceholderContainer('CS-FLD', '400 level or higher', 3);
+        csField400Y4.addToContainer(year4Container);
+        csField400Y4.addTooltip(tooltips['CS-FLD']);
+        
+        // CS Field 500 level x3
+        const csField500Y4 = new CoursePlaceholderContainer('CS-FLD', '500 level', 3);
+        csField500Y4.addToContainer(year4Container);
+        csField500Y4.addTooltip(tooltips['CS-FLD']);
+    }
+}
 
             // Function to get all courses from placeholders
             function getAllPlaceholderCourses() {
