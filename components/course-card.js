@@ -243,47 +243,45 @@ class CourseCard {
     }
 
     // Add this to course-card.js (replace the existing #addCourse method)
-#addCourse() {
-    this.currentState = "planned";
-    
-    // Create planned state card if not exists
-    if (!this.plannedCardElement) {
-        this.plannedCardElement = this.#createPlannedCard();
-    } else {
-        // Update the existing planned card
-        this.plannedCardElement.querySelector('.planned-tag').textContent = `Planned: ${this.selectedTerm}`;
-    }
-    
-    // Set status to planned by default when adding
-    this.currentStatus = "planned";
-    
-    // Replace card element in DOM
-    this.cardElement.parentNode.replaceChild(this.plannedCardElement, this.cardElement);
-    this.cardElement = this.plannedCardElement;
-    
-    // Save course data
-    if (window.CourseDataHelper) {
-        const credits = 3; // Default credits - you might want to get this from course data
-        window.CourseDataHelper.addCourseToTerm(
-            this.code,
-            this.title,
-            this.selectedTerm,
-            this.currentStatus,
-            credits
-        );
+    #addCourse() {
+        this.currentState = "planned";
         
-        // Trigger UI update in year.html
-        if (typeof window.updateSemesterCourses === 'function') {
-            window.updateSemesterCourses(this.selectedTerm);
+        // Create planned state card if not exists
+        if (!this.plannedCardElement) {
+            this.plannedCardElement = this.#createPlannedCard();
+        } else {
+            // Update the existing planned card
+            this.plannedCardElement.querySelector('.planned-tag').textContent = `Planned: ${this.selectedTerm}`;
+        }
+        
+        // Set status to planned by default when adding
+        this.currentStatus = "planned";
+        
+        // Replace card element in DOM
+        this.cardElement.parentNode.replaceChild(this.plannedCardElement, this.cardElement);
+        this.cardElement = this.plannedCardElement;
+        
+        // Save course data using the manager
+        if (window.CourseDataManager) {
+            window.CourseDataManager.saveCourse({
+                code: this.code,
+                title: this.title,
+                term: this.selectedTerm,
+                status: this.currentStatus,
+                credits: 3 // Default credits - you might want to get this from course data
+            });
+            
+            // Explicitly trigger semester view update
+            if (typeof window.updateSemesterCourses === 'function') {
+                window.updateSemesterCourses(this.selectedTerm);
+            }
+        }
+        
+        // Update progress trackers if available
+        if (typeof window.CourseLoader !== 'undefined') {
+            window.CourseLoader.updateProgressTrackers();
         }
     }
-    
-    // Update progress trackers if available
-    if (typeof window.CourseLoader !== 'undefined') {
-        window.CourseLoader.updateProgressTrackers();
-    }
-}
-
     #removeCourse() {
         this.currentState = "initial";
         this.selectedTerm = "";

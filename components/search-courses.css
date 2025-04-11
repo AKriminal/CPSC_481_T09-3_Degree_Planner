@@ -1,0 +1,256 @@
+/* Core styling with focus on simplicity and HCI principles */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Segoe UI', Roboto, -apple-system, sans-serif;
+}
+
+.welcome-banner {
+    background: linear-gradient(135deg, #0064A4, #0074c4);
+    color: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add to search-courses.css */
+.selection-mode-header {
+    background-color: #f0f7ff;
+    padding: 12px 15px;
+    margin: -20px -20px 20px -20px;
+    border-radius: 0 0 8px 8px;
+    border-bottom: 2px solid #0064A4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-course-btn {
+    transition: all 0.2s ease;
+}
+
+.add-course-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Disabled filter styling */
+.filter-select:disabled {
+    background-color: #f8f9fa;
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.welcome-banner h4 {
+    margin: 0 0 10px 0;
+    font-size: 20px;
+}
+
+.welcome-banner p {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+.search-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 14px;
+    color: #6c757d;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 18px 12px 42px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.search-input:focus {
+    border-color: #0064A4;
+    box-shadow: 0 2px 8px rgba(0, 100, 164, 0.15);
+    outline: none;
+}
+
+.filter-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.filter-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.filter-select {
+    border-radius: 6px;
+    padding: 8px 12px;
+    border: 1px solid #dee2e6;
+    font-size: 14px;
+}
+
+.btn-primary {
+    background-color: #0064A4;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #00497a;
+}
+
+.active-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.filter-tag {
+    background-color: #f2f2f2;
+    border-radius: 16px;
+    padding: 5px 12px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.filter-tag-close {
+    cursor: pointer;
+    font-weight: bold;
+    opacity: 0.7;
+}
+
+.filter-tag-close:hover {
+    opacity: 1;
+}
+
+.course-item {
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    border: 1px solid #e1e1e1;
+    margin-bottom: 12px;
+    padding: 12px 15px;
+}
+
+.course-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    border-color: #ccd4e0;
+}
+
+.course-item.active {
+    border-left: 4px solid #0064A4;
+    background-color: #f0f7ff;
+}
+
+.semester-badge {
+    background-color: #e9ecef;
+    color: #495057;
+    font-size: 0.75rem;
+    border-radius: 4px;
+    padding: 2px 8px;
+}
+
+.course-credits {
+    font-weight: 500;
+    color: #6c757d;
+}
+
+.status-badge {
+    font-size: 0.75rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+}
+
+.bg-warning {
+    background-color: #ffc107;
+    color: #212529;
+}
+
+.bg-success {
+    background-color: #198754;
+    color: white;
+}
+
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background-color: #f2f2f2;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pagination-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.pagination-btn:hover:not(:disabled) {
+    background-color: #e6e6e6;
+}
+
+#pagination-info {
+    font-size: 14px;
+    color: #666;
+}
+
+.no-results {
+    text-align: center;
+    padding: 20px;
+    color: #6c757d;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .filter-section {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .filter-select {
+        flex-grow: 1;
+    }
+    
+    .btn-primary {
+        margin-top: 8px;
+        width: 100%;
+    }
+}
