@@ -1,8 +1,8 @@
 <div class="years-content">
     <style>
         :root {
-            --primary-color: #CF0722;
-            --secondary-color: #FFA300;
+            --primary-color: #D6001C;
+            --secondary-color: #FFC107;
             --border-color: #ddd;
             --card-bg: white;
             --hover-bg: #f8f9fa;
@@ -178,11 +178,6 @@
             color: var(--primary-color);
         }
         
-        .check-icon {
-            color: #28a745;
-            margin-right: 10px;
-        }
-        
         /* New styles for enhanced features */
         .course-actions {
             position: absolute;
@@ -312,7 +307,6 @@
     <!-- Year 2024 - 2025 -->
     <div class="year-container" data-year="2024-2025">
         <div class="year-header">
-            <i class="fas fa-check-circle check-icon"></i>
             <h5 class="mb-0">2024 - 2025</h5>
             <span class="ms-3">0 Courses, 0 Credits</span>
             <span class="ms-auto remove-year">remove year</span>
@@ -745,7 +739,6 @@
                     const newYearHTML = `
                         <div class="year-container" data-year="${newStartYear}-${newEndYear}">
                             <div class="year-header">
-                                <i class="fas fa-check-circle check-icon"></i>
                                 <h5 class="mb-0">${newStartYear} - ${newEndYear}</h5>
                                 <span class="ms-3">0 Courses, 0 Credits</span>
                                 <span class="ms-auto remove-year">remove year</span>
