@@ -1,0 +1,2748 @@
+[
+    {
+      "courseId": "CPSC217",
+      "courseCode": "CPSC-217",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "217",
+      "title": "Introduction to Computer Science for Multidisciplinary Studies I",
+      "credits": 3,
+      "level": 200,
+      "description": "Introduction to problem solving, analysis and design of small-scale computational systems and implementation using a procedural programming language. For students wishing to combine studies in computer science with studies in other disciplines.",
+      "prerequisites": null,
+      "antirequisites": {
+        "and": [
+          "CPSC-217",
+          {
+            "or": [
+              "CPSC-215",
+              "CPSC-231",
+              "CPSC-235",
+              "DATA-211",
+              "ENCM-339",
+              "ENG-233",
+              "ENDG-233"
+            ]
+          }
+        ]
+      },
+      "notes": "See the statements at the beginning of the Computer Science entry.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 1
+    },
+    {
+      "courseId": "CPSC219",
+      "courseCode": "CPSC-219",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "219",
+      "title": "Introduction to Computer Science for Multidisciplinary Studies II",
+      "credits": 3,
+      "level": 200,
+      "description": "Continuation of Introduction to Computer Science for Multidisciplinary Studies I. Emphasis on object-oriented analysis and design of small-scale computational systems and implementation using an object-oriented language. Issues of design, modularization and programming style will be emphasized.",
+      "prerequisites": {
+        "or": [
+          "CPSC-217",
+          "DATA-211"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-219",
+          {
+            "or": [
+              "CPSC-233",
+              "CPSC-235",
+              "ENEL-497",
+              "ENCM-493"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 2
+    },
+    {
+      "courseId": "CPSC231",
+      "courseCode": "CPSC-231",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "231",
+      "title": "Introduction to Computer Science for Computer Science Majors I",
+      "credits": 3,
+      "level": 200,
+      "description": "Introduction to problem solving, the analysis and design of small-scale computational systems, and implementation using a procedural programming language. For computer science majors.",
+      "prerequisites": {
+        "or": [
+          "Admission to CPSC",
+          "Bioinformatics",
+          "Natural Science with a primary concentration in CPSC"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-231",
+          {
+            "or": [
+              "CPSC-215",
+              "CPSC-217",
+              "CPSC-235",
+              "DATA-211",
+              "ENCM-339",
+              "ENG-233",
+              "ENDG-233"
+            ]
+          }
+        ]
+      },
+      "notes": "See the statements at the beginning of the Computer Science entry.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 3
+    },
+    {
+      "courseId": "CPSC233",
+      "courseCode": "CPSC-233",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "233",
+      "title": "Introduction to Computer Science for Computer Science Majors II",
+      "credits": 3,
+      "level": 200,
+      "description": "Continuation of Introduction to Computer Science for Computer Science Majors I. Emphasis on object-oriented analysis and design of small-scale computational systems and implementation using an object-oriented language. Issues of design, modularization, and programming style will be emphasized.",
+      "prerequisites": {
+        "and": [
+          "CPSC-231",
+          {
+            "or": [
+              "Admission to CPSC",
+              "Bioinformatics",
+              "Natural Science with a primary concentration in CPSC"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-233",
+          {
+            "or": [
+              "CPSC-219",
+              "CPSC-235",
+              "ENEL-497",
+              "ENCM-493"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 4
+    },
+    {
+      "courseId": "CPSC235",
+      "courseCode": "CPSC-235",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "235",
+      "title": "Advanced Introduction to Computer Science",
+      "credits": 3,
+      "level": 200,
+      "description": "An accelerated introduction to problem solving, the analysis and design of small-scale computational systems and implementation using both procedural and object-oriented programming languages. Issues of design, modularization, and programming style will be emphasized.",
+      "prerequisites": {
+        "and": [
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-235",
+          {
+            "or": [
+              "CPSC-215",
+              "CPSC-217",
+              "CPSC-219",
+              "CPSC-231",
+              "CPSC-233",
+              "ENCM-339",
+              "ENCM-493",
+              "DATA-211"
+            ]
+          }
+        ]
+      },
+      "notes": "See the statements at the beginning of the Computer Science entry.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 5
+    },
+    {
+      "courseId": "CPSC251",
+      "courseCode": "CPSC-251",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "251",
+      "title": "Theoretical Foundations of Computer Science I",
+      "credits": 3,
+      "level": 200,
+      "description": "Proof techniques. Recursion and iteration. Specification of algorithmic problems and fundamental proof techniques in Computer Science. Discrete structures such as graphs, trees, strings, functions, and their computer representation. Counting, permutations. Random events. Conditional events. Applications in Computer Science.",
+      "prerequisites": {
+        "or": [
+          "CPSC-219",
+          "CPSC-231"
+        ]
+      },
+      "antirequisites": {
+        "or": [
+          "MATH-271",
+          "MATH-273"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 6
+    },
+    {
+      "courseId": "CPSC304",
+      "courseCode": "CPSC-304",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "304",
+      "title": "A Survey of Computer Science for Non-Majors",
+      "credits": 3,
+      "level": 300,
+      "description": "An accessible exploration of different computing topics. Emphasizing a familiarity with a broad array of subjects within computer science rather than depth. Topics may include computing hardware, data representation, data compression, computer graphics, sorting algorithms, artificial intelligence techniques, databases, networks and security and privacy.",
+      "prerequisites": null,
+      "antirequisites": {
+        "or": [
+          {
+            "or": [
+              "Major in CPSC",
+              "Bioinformatics",
+              "ENEL",
+              "Software Engineering",
+              "ENCM",
+              "Natural Sciences with a primary concentration in CPSC"
+            ]
+          },
+          {
+            "and": [
+              "At least 3 units of courses numbered 300 or above",
+              {
+                "or": [
+                  "CPSC",
+                  "Software Engineering",
+                  "Software Engineering for Engineers"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "notes": "Also known as: (formerly CPSC-399.04)",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 7
+    },
+    {
+      "courseId": "CPSC313",
+      "courseCode": "CPSC-313",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "313",
+      "title": "Introduction to Computability",
+      "credits": 3,
+      "level": 300,
+      "description": "An introduction to abstract models of sequential computation, including finite automata, regular expressions, context-free grammars, and Turing machines. Formal languages, including regular, context-free, and recursive languages, methods for classifying languages according to these types, and relationships among these classes.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "MATH-271",
+              "MATH-273"
+            ]
+          },
+          {
+            "or": [
+              "Philosophy 279",
+              "Philosophy 377"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-219",
+              "CPSC-233",
+              "CPSC-235"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-313",
+          "CPSC-351"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 8
+    },
+    {
+      "courseId": "CPSC319",
+      "courseCode": "CPSC-319",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "319",
+      "title": "Data Structures, Algorithms, and Their Applications",
+      "credits": 3,
+      "level": 300,
+      "description": "Fundamental data structures, including arrays, lists, stacks, queues, trees, hash tables, and graphs. Algorithms for searching and sorting. Introduction to analysis of algorithms. Applications of these data structures and algorithms. For students wishing to combine studies in computer science with studies in other disciplines.",
+      "prerequisites": {
+        "or": [
+          "CPSC-219",
+          "CPSC-233",
+          "CPSC-235",
+          "ENCM-335",
+          "ENCM-339",
+          "Software Engineering for Engineers 337"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-319",
+          {
+            "or": [
+              "CPSC-331"
+            ]
+          }
+        ]
+      },
+      "notes": "Computer Science majors are not permitted to register in this course.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 9
+    },
+    {
+      "courseId": "CPSC329",
+      "courseCode": "CPSC-329",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "329",
+      "title": "Explorations in Information Security and Privacy",
+      "credits": 3,
+      "level": 300,
+      "description": "A broad survey of topics in information security and privacy, with the purpose of cultivating an appropriate mindset for approaching security and privacy issues. Topics will be motivated by recreational puzzles. Legal and ethical considerations will be introduced as necessary.",
+      "prerequisites": {
+        "or": [
+          "MATH-30-1",
+          "MATH-30-2",
+          "MATH-31"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 10
+    },
+    {
+      "courseId": "CPSC331",
+      "courseCode": "CPSC-331",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "331",
+      "title": "Data Structures, Algorithms, and Their Analysis",
+      "credits": 3,
+      "level": 300,
+      "description": "Fundamental data structures, including arrays, lists, stacks, queues, trees, hash tables, and graphs. Algorithms for searching and sorting. Introduction to the correctness and analysis of algorithms. For computer science majors and those interested in algorithm design and analysis, information security, and other mathematically-intensive areas.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-251",
+              "MATH-271",
+              "MATH-273"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-219",
+              "CPSC-233",
+              "CPSC-235",
+              "ENCM-335",
+              "ENCM-339",
+              "Software Engineering for Engineers 337"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-331",
+          "CPSC-319"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 11
+    },
+    {
+      "courseId": "CPSC335",
+      "courseCode": "CPSC-335",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "335",
+      "title": "Intermediate Information Structures",
+      "credits": 3,
+      "level": 300,
+      "description": "A continuation of Computer Science 319 or 331. Collision resolution in hash tables, search algorithms, advanced tree structures, strings. Advanced algorithmic tools for the storing and manipulation of information.",
+      "prerequisites": {
+        "or": [
+          "CPSC-319",
+          "CPSC-331"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 12
+    },
+    {
+      "courseId": "CPSC351",
+      "courseCode": "CPSC-351",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "351",
+      "title": "Theoretical Foundations of Computer Science II",
+      "credits": 3,
+      "level": 300,
+      "description": "Probability spaces, random variables, expectation, independence, concentration bounds, conditional probability, repeated trials, error bounds. Turing machines and finite automata. Deterministic, nondeterministic and probabilistic models of computation. Languages, regular languages and regular expressions. Methods for classifying computational problems as decidable or undecidable.",
+      "prerequisites": {
+        "or": [
+          {
+            "and": [
+              {
+                "or": [
+                  "CPSC-219",
+                  "CPSC-233",
+                  "CPSC-235"
+                ]
+              },
+              {
+                "or": [
+                  "MATH-249",
+                  "MATH-265",
+                  "MATH-275"
+                ]
+              },
+              {
+                "or": [
+                  "Philosophy 279",
+                  "Philosophy 377"
+                ]
+              },
+              "CPSC-251"
+            ]
+          },
+          {
+            "and": [
+              "STAT-213",
+              {
+                "or": [
+                  "MATH-271",
+                  "MATH-273"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-351",
+          "CPSC-313"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 13
+    },
+    {
+      "courseId": "CPSC355",
+      "courseCode": "CPSC-355",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "355",
+      "title": "Computing Machinery I",
+      "credits": 3,
+      "level": 300,
+      "description": "An introduction to computing machinery establishing the connection between programs expressed in a compiled language, an assembly language, and machine code, and how such code is executed. Includes the detailed study of a modern CPU architecture, its assembly language and internal data representation, and the relationship between high-level program constructs and machine operations.",
+      "prerequisites": {
+        "or": [
+          "CPSC-219",
+          "CPSC-233",
+          "CPSC-235"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-355",
+          {
+            "or": [
+              "265",
+              "ENCM-369"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 14
+    },
+    {
+      "courseId": "CPSC359",
+      "courseCode": "CPSC-359",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "359",
+      "title": "Computing Machinery II",
+      "credits": 3,
+      "level": 300,
+      "description": "An introduction to hardware and microprocessor design, including the connection between gate-level digital logic circuits and sequential machines that can execute an algorithm and perform input and output.",
+      "prerequisites": {
+        "and": [
+          "CPSC-355",
+          {
+            "or": [
+              "Philosophy 279",
+              "Philosophy 377"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-359",
+          {
+            "or": [
+              "325",
+              "455",
+              "ENCM-415"
+            ]
+          }
+        ]
+      },
+      "notes": "A supplementary fee will be assessed to cover additional costs associated with this course.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 15
+    },
+    {
+      "courseId": "CPSC393",
+      "courseCode": "CPSC-393",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "393",
+      "title": "Metacognition in Self-Directed Learning Methodologies",
+      "credits": 3,
+      "level": 300,
+      "description": "Remain current in computer science as this field evolves by developing a reflective life-long learning practice. Independent student work will include using a wide variety of sources and developing the ability to self-assess progress in learning and knowledge in topics related to computer science.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-219",
+              "CPSC-233",
+              "DATA-311"
+            ]
+          },
+          {
+            "or": [
+              "Major in CPSC",
+              "Bioinformatics",
+              "ENEL",
+              "Software Engineering",
+              "ENCM",
+              "Natural Sciences with a primary concentration in CPSC"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "Also known as: (formerly CPSC-399.03)",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": true,
+        "Summer": false
+      },
+      "uniqueId": 16
+    },
+    {
+      "courseId": "CPSC399",
+      "courseCode": "CPSC-399",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "399",
+      "title": "Special Topics in Computer Science",
+      "credits": 3,
+      "level": 300,
+      "description": "Exploration of various areas in Computer Science. Topics will vary from year-to-year. It will be offered as required to provide the opportunity for students to engage in additional areas in Computer Science. Before registration, consult the Department of Computer Science for topics offered.",
+      "prerequisites": {
+        "and": [
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "MAY BE REPEATED FOR CREDIT",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": true
+      },
+      "uniqueId": 17
+    },
+    {
+      "courseId": "CPSC405",
+      "courseCode": "CPSC-405",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "405",
+      "title": "Software Entrepreneurship",
+      "credits": 3,
+      "level": 400,
+      "description": "Development of business models, building software prototypes and creation of pitch presentations to create a software-based business.",
+      "prerequisites": {
+        "or": [
+          "Software Engineering 300",
+          "Software Engineering 301"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "Taught in collaboration with the Haskayne School of Business. Also known as: (formerly CPSC-499.01)",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 18
+    },
+    {
+      "courseId": "CPSC409",
+      "courseCode": "CPSC-409",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "409",
+      "title": "History of Computation",
+      "credits": 3,
+      "level": 400,
+      "description": "The history of computation from the earliest times to the modern era.",
+      "prerequisites": {
+        "and": [
+          "CPSC-355"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 19
+    },
+    {
+      "courseId": "CPSC411",
+      "courseCode": "CPSC-411",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "411",
+      "title": "Compiler Construction",
+      "credits": 3,
+      "level": 400,
+      "description": "Introduction to compilers, interpreters, and the tools for parsing and translation. Lexical analysis, context free grammars and software tools for their recognition. Attribute grammars and their applications in translation and compiling.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-355",
+              "ENCM-369"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 20
+    },
+    {
+      "courseId": "CPSC413",
+      "courseCode": "CPSC-413",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "413",
+      "title": "Design and Analysis of Algorithms I",
+      "credits": 3,
+      "level": 400,
+      "description": "Techniques for the analysis of algorithms, including counting, summation, recurrences, and asymptotic relations; techniques for the design of efficient algorithms, including greedy methods, divide and conquer, and dynamic programming; examples of their application; an introduction to tractable and intractable problems.",
+      "prerequisites": {
+        "and": [
+          "CPSC-331",
+          {
+            "or": [
+              "CPSC-313",
+              "CPSC-351"
+            ]
+          },
+          {
+            "or": [
+              "MATH-211",
+              "MATH-213"
+            ]
+          },
+          {
+            "or": [
+              "MATH-249",
+              "MATH-265",
+              "MATH-275"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "Students who have credit for CPSC-319 instead of CPSC-331 should contact the department for instructions on how to enrol in this course.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 21
+    },
+    {
+      "courseId": "CPSC418",
+      "courseCode": "CPSC-418",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "418",
+      "title": "Introduction to Cryptography",
+      "credits": 3,
+      "level": 400,
+      "description": "The basics of cryptography, with emphasis on attaining well-defined and practical notations of security. Symmetric and public key cryptosystems; one-way and trapdoor functions; mechanisms for data integrity; digital signatures; key management; applications to the design of cryptographic systems. In addition to written homework, assessment will involve application programming; additional mathematical theory and proof-oriented exercises will be available for extra credit.",
+      "prerequisites": {
+        "and": [
+          "CPSC-331",
+          {
+            "or": [
+              "CPSC-351",
+              "MATH-271",
+              "MATH-273",
+              "MATH-315",
+              "Pure Mathematics 315"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-418",
+          {
+            "or": [
+              "CPSC-429",
+              "CPSC-557",
+              "MATH-318",
+              "Pure Mathematics 329",
+              "418"
+            ]
+          }
+        ]
+      },
+      "notes": "Students who have credit for CPSC-319 instead of CPSC-331 should contact the department for instructions on how to enrol in this course.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 22
+    },
+    {
+      "courseId": "CPSC433",
+      "courseCode": "CPSC-433",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "433",
+      "title": "Artificial Intelligence",
+      "credits": 3,
+      "level": 400,
+      "description": "An examination of the objectives, key techniques and achievements of work on artificial intelligence in Computer Science.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-313",
+              "CPSC-351"
+            ]
+          },
+          {
+            "or": [
+              "Philosophy 279",
+              "Philosophy 377"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 23
+    },
+    {
+      "courseId": "CPSC441",
+      "courseCode": "CPSC-441",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "441",
+      "title": "Computer Networks",
+      "credits": 3,
+      "level": 400,
+      "description": "Principles and practice in modern telecommunications, computer communications and networks. Layered communication protocols and current physical, data link, network and Internet protocol layers. Circuit switching, packet switching, and an introduction to broadband multimedia networking.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-355",
+              "ENCM-369"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-441",
+          "ENEL-573"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 24
+    },
+    {
+      "courseId": "CPSC449",
+      "courseCode": "CPSC-449",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "449",
+      "title": "Programming Paradigms",
+      "credits": 3,
+      "level": 400,
+      "description": "Examination of the basic principles of the major programming language paradigms. Focus on declarative paradigms such as functional and logic programming. Data types, control expressions, loops, types of references, lazy evaluation, different interpretation principles, information hiding.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-313",
+              "CPSC-351"
+            ]
+          },
+          {
+            "or": [
+              "Philosophy 279",
+              "Philosophy 377"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-449",
+          "349"
+        ]
+      },
+      "notes": "The prerequisite of Philosophy 279 or 377 is waived for Engineering students in the Software Engineering program.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 25
+    },
+    {
+      "courseId": "CPSC453",
+      "courseCode": "CPSC-453",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "453",
+      "title": "Introduction to Computer Graphics",
+      "credits": 3,
+      "level": 400,
+      "description": "Introduction to computer graphics. Principles of raster image generation. Example of a graphics API. Graphics primitives. Co-ordinate systems, affine transformations and viewing of graphical objects. Introduction to rendering including shading models and ray tracing. Introduction to modelling including polygon meshes, subdivision, and parametric curves and surfaces.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          },
+          {
+            "or": [
+              "MATH-211",
+              "MATH-213"
+            ]
+          },
+          {
+            "or": [
+              "MATH-253",
+              "MATH-267",
+              "MATH-277",
+              "MATH-283",
+              "Applied Mathematics 219"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 26
+    },
+    {
+      "courseId": "CPSC457",
+      "courseCode": "CPSC-457",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "457",
+      "title": "Principles of Operating Systems",
+      "credits": 3,
+      "level": 400,
+      "description": "An introduction to operating systems principles. Performance measurement; concurrent programs; the management of information, memory and processor resources.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-355",
+              "ENCM-369"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-457",
+          "Business Technology Management 331"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 27
+    },
+    {
+      "courseId": "CPSC461",
+      "courseCode": "CPSC-461",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "461",
+      "title": "Information Structures",
+      "credits": 3,
+      "level": 400,
+      "description": "File architecture and manipulation techniques for various file types. Physical characteristics of current mass storage devices. Advanced data structures and algorithms for implementing various sequential and hierarchical file structures. File organization and design for various applications, file systems and other storage management techniques including website design.",
+      "prerequisites": {
+        "and": [
+          "CPSC-355",
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 28
+    },
+    {
+      "courseId": "CPSC471",
+      "courseCode": "CPSC-471",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "471",
+      "title": "Data Base Management Systems",
+      "credits": 3,
+      "level": 400,
+      "description": "Conceptual, internal and external data bases. Relational data base systems and SQL. The normal forms, data base design, and the entity-relationship approach.",
+      "prerequisites": {
+        "or": [
+          "CPSC-319",
+          "CPSC-331"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-471",
+          "Business Technology Management 331"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 29
+    },
+    {
+      "courseId": "CPSC481",
+      "courseCode": "CPSC-481",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "481",
+      "title": "Human-Computer Interaction I",
+      "credits": 3,
+      "level": 400,
+      "description": "Fundamental theory and practice of the design, implementation, and evaluation of human-computer interfaces. Topics include: principles of design; methods for evaluating interfaces with or without user involvement; techniques for prototyping and implementing graphical user interfaces.",
+      "prerequisites": {
+        "or": [
+          "Software Engineering 300",
+          "Software Engineering 301",
+          "Software Engineering 480",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 30
+    },
+    {
+      "courseId": "CPSC491",
+      "courseCode": "CPSC-491",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "491",
+      "title": "Techniques for Numerical Computation",
+      "credits": 3,
+      "level": 400,
+      "description": "Elementary techniques for the numerical solution of mathematical problems on a computer, including methods for solving linear and non-linear equations, numerical integration, and interpolation.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-319",
+              "CPSC-331"
+            ]
+          },
+          {
+            "or": [
+              "MATH-211",
+              "MATH-213"
+            ]
+          },
+          {
+            "or": [
+              "MATH-249",
+              "MATH-265",
+              "MATH-275"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-491",
+          {
+            "or": [
+              "MATH-391",
+              "MATH-493",
+              "ENG-407",
+              "Chemical Engineering 407"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 31
+    },
+    {
+      "courseId": "CPSC499",
+      "courseCode": "CPSC-499",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "499",
+      "title": "Special Topics in Computer Science",
+      "credits": 3,
+      "level": 400,
+      "description": "Exploration of various areas in Computer Science. Topics will vary from year-to-year. It will be offered as required to provide the opportunity for students to engage in additional areas in Computer Science. Before registration, consult the Department of Computer Science for topics offered.",
+      "prerequisites": {
+        "and": [
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "MAY BE REPEATED FOR CREDIT",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 32
+    },
+    {
+      "courseId": "CPSC511",
+      "courseCode": "CPSC-511",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "511",
+      "title": "Introduction to Complexity Theory",
+      "credits": 3,
+      "level": 500,
+      "description": "Time and space complexity; the classes P, LOGSPACE, PSPACE and their nondeterministic counterparts; containments and separations between complexity classes; intractability and the theory of NP-completeness; complexity theories for probabilistic algorithms and for parallel algorithms.",
+      "prerequisites": {
+        "and": [
+          "CPSC-413"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-511",
+          "CPSC-611"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 33
+    },
+    {
+      "courseId": "CPSC513",
+      "courseCode": "CPSC-513",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "513",
+      "title": "Computability",
+      "credits": 3,
+      "level": 500,
+      "description": "Computable functions; decidable and undecidable problems; Church's thesis and recursive functions.",
+      "prerequisites": {
+        "or": [
+          "CPSC-313",
+          "CPSC-351"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 34
+    },
+    {
+      "courseId": "CPSC517",
+      "courseCode": "CPSC-517",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "517",
+      "title": "Design and Analysis of Algorithms II",
+      "credits": 3,
+      "level": 500,
+      "description": "Advanced techniques for the design and analysis of deterministic and probabilistic algorithms; techniques for deriving lower bounds on the complexity of problems.",
+      "prerequisites": {
+        "and": [
+          "CPSC-413"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 35
+    },
+    {
+      "courseId": "CPSC518",
+      "courseCode": "CPSC-518",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "518",
+      "title": "Introduction to Computer Algebra",
+      "credits": 3,
+      "level": 500,
+      "description": "Fundamental problems, classical and modern algorithms, and algorithm design and analysis techniques of use in computer algebra. Integer and polynomial arithmetic. Additional problems in computer algebra, possibly including problems in computational linear algebra, factorization, and concerning systems of polynomial equations will be considered as time permits.",
+      "prerequisites": {
+        "and": [
+          "CPSC-413",
+          {
+            "or": [
+              "MATH-211",
+              "MATH-213"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-518",
+          "CPSC-667"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 36
+    },
+    {
+      "courseId": "CPSC519",
+      "courseCode": "CPSC-519",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "519",
+      "title": "Introduction to Quantum Computation",
+      "credits": 3,
+      "level": 500,
+      "description": "Introduction to quantum computing. Quantum algorithms, quantum search, quantum fourier transforms, quantum error correcting codes, quantum cryptography, nonlocality and quantum communication complexity, and quantum computational complexity.",
+      "prerequisites": {
+        "and": [
+          "CPSC-413",
+          {
+            "or": [
+              "MATH-311",
+              "MATH-313"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-519",
+          "CPSC-619"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 37
+    },
+    {
+      "courseId": "CPSC521",
+      "courseCode": "CPSC-521",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "521",
+      "title": "Foundations of Functional Programming",
+      "credits": 3,
+      "level": 500,
+      "description": "Theoretical foundations of functional programming: the lambda-calculus, beta-reduction, confluence, and reduction strategies. Programming syntax: solving recursive equations with the Y-combinator, let and letrec, types, datatypes, and patterns. Programming in a functional language: recursion patterns, useful combinators, maps, and folds, for datatypes. Example applications: recursive descent parsing, unification, combinatorial algorithms, theorem proving.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-313",
+              "CPSC-351"
+            ]
+          },
+          {
+            "or": [
+              "CPSC-349",
+              "CPSC-449"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 38
+    },
+    {
+      "courseId": "CPSC522",
+      "courseCode": "CPSC-522",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "522",
+      "title": "Introduction to Randomized Algorithms",
+      "credits": 3,
+      "level": 500,
+      "description": "Techniques for the design and analysis of randomized algorithms; discrete probability theory; randomized data structures; lower bound techniques; randomized complexity classes; advanced algorithmic applications from various areas.",
+      "prerequisites": {
+        "and": [
+          "CPSC-413"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-522",
+          "CPSC-622"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 39
+    },
+    {
+      "courseId": "CPSC525",
+      "courseCode": "CPSC-525",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "525",
+      "title": "Principles of Computer Security",
+      "credits": 3,
+      "level": 500,
+      "description": "Security policies and protection mechanisms for a computing system, including such topics as design principles of protection systems, authentication and authorization, reference monitors, security architecture of popular platforms, formal modelling of protection systems, discretionary access control, safety analysis, information flow control, integrity, role-based access control. Legal and ethical considerations will be introduced.",
+      "prerequisites": {
+        "and": [
+          "CPSC-457",
+          {
+            "or": [
+              "CPSC-351",
+              "MATH-271",
+              "MATH-273"
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-525",
+          {
+            "or": [
+              "CPSC-529",
+              "CPSC-625"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 40
+    },
+    {
+      "courseId": "CPSC526",
+      "courseCode": "CPSC-526",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "526",
+      "title": "Network Systems Security",
+      "credits": 3,
+      "level": 500,
+      "description": "Attacks on networked systems and Internet protocols. Tools and techniques for detection and protection against attacks including firewalls, authentication, and cryptographic protocols. Web security attacks and defenses including same-origin policy, cross site scripting, and UI redressing. Legal and ethical issues will be introduced.",
+      "prerequisites": {
+        "and": [
+          "CPSC-441"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-526",
+          {
+            "or": [
+              "CPSC-529",
+              "CPSC-626"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 41
+    },
+    {
+      "courseId": "CPSC527",
+      "courseCode": "CPSC-527",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "527",
+      "title": "Computer Viruses and Malware",
+      "credits": 3,
+      "level": 500,
+      "description": "Study of computer viruses, worms, Trojan horses, and other forms of malicious software. Countermeasures to malicious software. Legal and ethical issues, and some general computer and network security issues.",
+      "prerequisites": {
+        "and": [
+          "CPSC-313",
+          "CPSC-457",
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-527",
+          "CPSC-627"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 42
+    },
+    {
+      "courseId": "CPSC528",
+      "courseCode": "CPSC-528",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "528",
+      "title": "Ads, Spam, and Spyware",
+      "credits": 3,
+      "level": 500,
+      "description": "Spam and other unsolicited bulk electronic communication, and spyware. Legal and ethical issues. Countermeasures and related security problems.",
+      "prerequisites": {
+        "and": [
+          "CPSC-313",
+          "CPSC-457",
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-528",
+          "CPSC-628"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 43
+    },
+    {
+      "courseId": "CPSC530",
+      "courseCode": "CPSC-530",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "530",
+      "title": "Information Theory and Security",
+      "credits": 3,
+      "level": 500,
+      "description": "Information theoretic concepts such as entropy and mutual information and their applications to defining and evaluating information security systems including encryption, authentication, secret sharing and secure message transmission.",
+      "prerequisites": {
+        "or": [
+          "CPSC-351",
+          {
+            "and": [
+              {
+                "or": [
+                  "CPSC-219",
+                  "CPSC-233",
+                  "CPSC-235"
+                ]
+              },
+              {
+                "or": [
+                  "MATH-271",
+                  "MATH-273",
+                  "MATH-315"
+                ]
+              },
+              {
+                "or": [
+                  "STAT-205",
+                  "STAT-213",
+                  "STAT-321"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-530",
+          "CPSC-630"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 44
+    },
+    {
+      "courseId": "CPSC531",
+      "courseCode": "CPSC-531",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "531",
+      "title": "Systems Modelling and Simulation",
+      "credits": 3,
+      "level": 500,
+      "description": "An introduction to the modelling and simulation of stochastic systems; programming language issues; model and tool design; input data modelling; simulation experiments; and the interpretation of simulation results.",
+      "prerequisites": {
+        "and": [
+          "CPSC-457",
+          {
+            "or": [
+              "MATH-321",
+              "STAT-205",
+              "STAT-211",
+              "STAT-213",
+              "STAT-321"
+            ]
+          }
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 45
+    },
+    {
+      "courseId": "CPSC535",
+      "courseCode": "CPSC-535",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "535",
+      "title": "Introduction to Image Analysis and Computer Vision",
+      "credits": 3,
+      "level": 500,
+      "description": "Standard methods used in the analysis of digital images. Image acquisition and display: visual perception; digital representation. Sampling and enhancement. Feature extraction and classification methods. Object recognition.",
+      "prerequisites": {
+        "or": [
+          "MATH-311",
+          "MATH-313",
+          "MATH-331",
+          "MATH-353",
+          "MATH-376",
+          "Applied Mathematics 307",
+          "Applied Mathematics 311",
+          "Pure Mathematics 331"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-535",
+          "CPSC-635"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 46
+    },
+    {
+      "courseId": "CPSC544",
+      "courseCode": "CPSC-544",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "544",
+      "title": "Machine Learning",
+      "credits": 3,
+      "level": 500,
+      "description": "Presenting various techniques for learning various kinds of knowledge, including rules, parameters, trees and graphs, partitions of sets, sequences and behaviours, and cases. Pointing out the components that can be improved using knowledge about the application area of a system. Looking at various pre-processing and post-processing improvement techniques.",
+      "prerequisites": {
+        "and": [
+          "CPSC-433"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-544",
+          "CPSC-599.44"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 47
+    },
+    {
+      "courseId": "CPSC550",
+      "courseCode": "CPSC-550",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "550",
+      "title": "Systems Administration",
+      "credits": 6,
+      "level": 500,
+      "description": "Topics and practices in systems administration and management. Required and optional administration duties and responsibilities. Moral and ethical conundrums, and legal responsibilities, in systems operation. Configuration and installation of operating systems and network and systems services.",
+      "prerequisites": {
+        "and": [
+          "CPSC-441",
+          "CPSC-457",
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 48
+    },
+    {
+      "courseId": "CPSC556",
+      "courseCode": "CPSC-556",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "556",
+      "title": "Machine Learning in Biometric Security",
+      "credits": 3,
+      "level": 500,
+      "description": "Principles of machine learning in biometric system design. Examine methods of expert decision making in multi-modal systems using rank, score, decision and fuzzy level fusion. Biometric classification using traditional machine learning methods and modern deep learning architectures. Application topics may include image processing, pattern recognition, data mining, medicine, defense and cybersecurity.",
+      "prerequisites": {
+        "or": [
+          "CPSC-319",
+          "CPSC-331",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-556",
+          "CPSC-656"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 49
+    },
+    {
+      "courseId": "CPSC559",
+      "courseCode": "CPSC-559",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "559",
+      "title": "Introduction to Distributed Systems",
+      "credits": 3,
+      "level": 500,
+      "description": "Designing and implementing distributed systems that overcome challenges due to concurrent computation, failure of components in the system and heterogeneity of processors and communication channels.",
+      "prerequisites": {
+        "and": [
+          "CPSC-441",
+          "CPSC-457"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 50
+    },
+    {
+      "courseId": "CPSC561",
+      "courseCode": "CPSC-561",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "561",
+      "title": "Introduction to Distributed Algorithms",
+      "credits": 3,
+      "level": 500,
+      "description": "Basic problems in distributed systems such as symmetry breaking, consensus, resource allocation, and synchronization. The impact of system characteristics, such as models of communication, timing and failure, and of solution requirements, such as correctness and complexity criteria and algorithmic constraints, on the computability and complexity of these problems. Techniques for solving problems under different models will be emphasized.",
+      "prerequisites": {
+        "and": [
+          "CPSC-413"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-561",
+          "CPSC-661"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 51
+    },
+    {
+      "courseId": "CPSC565",
+      "courseCode": "CPSC-565",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "565",
+      "title": "Emergent Computing",
+      "credits": 3,
+      "level": 500,
+      "description": "An insight into a new mindset for programming as an emergent and evolutionary process of \"breeding,\" rather than constructing. Programs can evolve to perform specific tasks in a bottom-up fashion rather than being manually coded. Topics will include: decentralized agent-based programming, massive parallelism and interaction, evolution, swarm intelligence.",
+      "prerequisites": {
+        "and": [
+          {
+            "or": [
+              "CPSC-217",
+              "CPSC-231",
+              "DATA-211"
+            ]
+          },
+          "6 units offered by the Faculty of Science at the 400 level or above"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 52
+    },
+    {
+      "courseId": "CPSC567",
+      "courseCode": "CPSC-567",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "567",
+      "title": "Foundations of Multi-Agent Systems",
+      "credits": 3,
+      "level": 500,
+      "description": "Modelling of agents and properties of multi-agent systems. Communication issues, including interaction and co-ordination concepts, forming and maintaining organizations, and competitive agent environments. Example systems; the implementation of a multi-agent system will be performed as the assignment.",
+      "prerequisites": {
+        "and": [
+          "CPSC-457",
+          "CPSC-433"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-567",
+          {
+            "or": [
+              "609",
+              "Software Engineering 697"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 53
+    },
+    {
+      "courseId": "CPSC568",
+      "courseCode": "CPSC-568",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "568",
+      "title": "Agent Communications",
+      "credits": 3,
+      "level": 500,
+      "description": "An examination of communication paradigms in multi-agent systems. A number of paradigms will be covered including simple protocols, BDI (Believe, Desire, Intension), and social commitments.",
+      "prerequisites": {
+        "and": [
+          "CPSC-433",
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-568",
+          "CPSC-662"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 54
+    },
+    {
+      "courseId": "CPSC571",
+      "courseCode": "CPSC-571",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "571",
+      "title": "Design and Implementation of Database Systems",
+      "credits": 3,
+      "level": 500,
+      "description": "Implementation and design of modern database systems including query modification/optimization, recovery, concurrency, integrity, and distribution.",
+      "prerequisites": {
+        "and": [
+          "CPSC-471"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-571",
+          "CPSC-671"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 55
+    },
+    {
+      "courseId": "CPSC572",
+      "courseCode": "CPSC-572",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "572",
+      "title": "Fundamentals of Network Analysis and Data Mining",
+      "credits": 3,
+      "level": 500,
+      "description": "Introduction to data mining with emphasis on frequent pattern mining, clustering and classification, data collection, network construction, basic graph theory concepts and network analysis metrics, and case studies.",
+      "prerequisites": {
+        "or": [
+          "CPSC-471",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-572",
+          {
+            "or": [
+              "CPSC-599.77",
+              "CPSC-672"
+            ]
+          }
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 56
+    },
+    {
+      "courseId": "CPSC573",
+      "courseCode": "CPSC-573",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "573",
+      "title": "Visualization and Analytics",
+      "credits": 3,
+      "level": 500,
+      "description": "The full data analysis lifecycle from collection to presentation. Practical application of exploratory statistical, analytical, and visualization techniques to real-world data with a focus on critical thinking, accuracy, and ethics.",
+      "prerequisites": {
+        "or": [
+          "CPSC-319",
+          "CPSC-331",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-573",
+          "CPSC-599.87"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 57
+    },
+    {
+      "courseId": "CPSC575",
+      "courseCode": "CPSC-575",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "575",
+      "title": "iProgramming for Creative Minds",
+      "credits": 3,
+      "level": 500,
+      "description": "Design, develop and market apps. This course has a focus on developing, implementing and evaluating ideas in teams and gaining entrepreneurial skills for software development and marketing.",
+      "prerequisites": {
+        "or": [
+          "Software Engineering 300",
+          "Software Engineering 301",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "Also known as: (formerly CPSC-599.72)",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 58
+    },
+    {
+      "courseId": "CPSC577",
+      "courseCode": "CPSC-577",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "577",
+      "title": "Biometric Technologies",
+      "credits": 3,
+      "level": 500,
+      "description": "Principles of biometric system design, technology and performance evaluation. Verification, identification and synthesis in biometrics. Traditional and emerging techniques for fingerprint matching, face recognition, iris modelling, signature authentication, and biometric pattern recognition. Multi-modal biometrics and information fusion. Privacy and ethics considerations in deployment of biometric systems.",
+      "prerequisites": {
+        "or": [
+          "CPSC-319",
+          "CPSC-331",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-697"
+        ]
+      },
+      "notes": "Also known as: (formerly CPSC-599.97)",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 59
+    },
+    {
+      "courseId": "CPSC581",
+      "courseCode": "CPSC-581",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "581",
+      "title": "Human-Computer Interaction II",
+      "credits": 3,
+      "level": 500,
+      "description": "Intermediate and advanced topics and applications in human-computer interaction, to further one's skills for designing highly interactive human-computer interfaces.",
+      "prerequisites": {
+        "and": [
+          "CPSC-481",
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 60
+    },
+    {
+      "courseId": "CPSC583",
+      "courseCode": "CPSC-583",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "583",
+      "title": "Introduction to Information Visualization",
+      "credits": 3,
+      "level": 500,
+      "description": "Principles of information representation, presentation and interaction. Development of mappings from data to visual structures and exploration, navigation, cues, distortion and emphasis techniques.",
+      "prerequisites": {
+        "or": [
+          "CPSC-319",
+          "CPSC-331",
+          "DATA-311"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 61
+    },
+    {
+      "courseId": "CPSC584",
+      "courseCode": "CPSC-584",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "584",
+      "title": "Human-Robot Interaction",
+      "credits": 3,
+      "level": 500,
+      "description": "Introduction to the design, implementation and evaluation of human-robot interfaces. Topics include the evaluation of human-robot interaction (HRI), theoretical, philosophical and ethical issues, exploration of applications and tasks, prototyping HRI tools, and practical implementation and evaluation methods.",
+      "prerequisites": {
+        "and": [
+          "CPSC-481"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 62
+    },
+    {
+      "courseId": "CPSC585",
+      "courseCode": "CPSC-585",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "585",
+      "title": "Games Programming",
+      "credits": 3,
+      "level": 500,
+      "description": "Standard techniques for the implementation of computer games. Standard multimedia programming environments and high performance multimedia. Special purpose rendering engines. Interactive control and feedback; modelling.",
+      "prerequisites": {
+        "and": [
+          "CPSC-453",
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 63
+    },
+    {
+      "courseId": "CPSC587",
+      "courseCode": "CPSC-587",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "587",
+      "title": "Fundamentals of Computer Animation",
+      "credits": 3,
+      "level": 500,
+      "description": "Principles of traditional animation, key framing, parametric and track animation, free form deformation, inverse kinematics, dynamics, spring mass systems, particle systems, numerical integration, Lagrangian constraints, space time constraints, collisions, human animation, behavioural animation, metamorphosis, implicit animation techniques, animating liquids, gases and cloth, motion capture.",
+      "prerequisites": {
+        "and": [
+          "CPSC-453"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-587",
+          "CPSC-687"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 64
+    },
+    {
+      "courseId": "CPSC589",
+      "courseCode": "CPSC-589",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "589",
+      "title": "Modelling for Computer Graphics",
+      "credits": 3,
+      "level": 500,
+      "description": "Parametric Modelling. B-splines and NURBS. Subdivision schemes. Surface subdivision. Multiresolution. Wavelets. Implicit modelling. Blends. Polygonization. Blobtree. Precise contact modelling. Solid modelling. CSG. Procedural modelling. Special topics, e.g. Differential geometry. Graph-based modelling. Topology.",
+      "prerequisites": {
+        "and": [
+          "CPSC-453"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-589",
+          "CPSC-689"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 65
+    },
+    {
+      "courseId": "CPSC591",
+      "courseCode": "CPSC-591",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "591",
+      "title": "Rendering",
+      "credits": 3,
+      "level": 500,
+      "description": "Physical foundations of illumination techniques. Colour. Radiometry and photometry. Reflection models. The rendering equation. Ray tracing. Monte Carlo techniques. Sampling and antialiasing. Texturing. Radiosity. Photon tracing. Volume rendering. Image-based rendering. Real-time shading.",
+      "prerequisites": {
+        "and": [
+          "CPSC-453"
+        ]
+      },
+      "antirequisites": {
+        "and": [
+          "CPSC-591",
+          "CPSC-691"
+        ]
+      },
+      "notes": "",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 66
+    },
+    {
+      "courseId": "CPSC594",
+      "courseCode": "CPSC-594",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "594",
+      "title": "Software Engineering Project",
+      "credits": 6,
+      "level": 500,
+      "description": "A software engineering project conducted under the guidance of a faculty member.",
+      "prerequisites": {
+        "and": [
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "Includes a research, writing and presentation component.",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 67
+    },
+    {
+      "courseId": "CPSC598",
+      "courseCode": "CPSC-598",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "598",
+      "title": "Special Topics in Computer Science",
+      "credits": 6,
+      "level": 500,
+      "description": "New areas in Computer Science. It will be offered only as required. Before registration consult the Department of Computer Science for topics offered.",
+      "prerequisites": {
+        "and": [
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "MAY BE REPEATED FOR CREDIT",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 68
+    },
+    {
+      "courseId": "CPSC599",
+      "courseCode": "CPSC-599",
+      "department": {
+        "code": "CPSC",
+        "name": "Computer Science"
+      },
+      "courseNumber": "599",
+      "title": "Special Topics in Computer Science",
+      "credits": 3,
+      "level": 500,
+      "description": "Exploration of various areas in Computer Science. Topics will vary from year-to-year. It will be offered as required to provide the opportunity for students to engage in additional areas in Computer Science. Before registration, consult the Department of Computer Science for topics offered.",
+      "prerequisites": {
+        "and": [
+          "Consent of the Department"
+        ]
+      },
+      "antirequisites": [],
+      "notes": "MAY BE REPEATED FOR CREDIT",
+      "offeredIn": {
+        "Fall": true,
+        "Winter": true,
+        "Spring": false,
+        "Summer": false
+      },
+      "uniqueId": 69
+    }
+    ,
+        {
+          "courseId": "MATH211",
+          "courseCode": "MATH-211",
+          "department": {
+            "code": "MATH",
+            "name": "Mathematics"
+          },
+          "courseNumber": "211",
+          "title": "Linear Methods I",
+          "credits": 3,
+          "level": 200,
+          "description": "An introduction to systems of linear equations, vectors in Euclidean space and matrix algebra. Additional topics include linear transformations, determinants, complex numbers, eigenvalues, and applications.",
+          "prerequisites": {
+            "or": [
+              "MATH-30-1",
+              "MATH-212",
+              "MATH-2"
+            ]
+          },
+          "antirequisites": {
+            "and": [
+              "MATH-211",
+              "MATH-213"
+            ]
+          },
+          "notes": "",
+          "offeredIn": {
+            "Fall": true,
+            "Winter": true,
+            "Spring": true,
+            "Summer": false
+          },
+          "uniqueId": 70
+        },
+        {
+          "courseId": "MATH249",
+          "courseCode": "MATH-249",
+          "department": {
+            "code": "MATH",
+            "name": "Mathematics"
+          },
+          "courseNumber": "249",
+          "title": "Introductory Calculus",
+          "credits": 3,
+          "level": 300,
+          "description": "An introduction to single variable calculus. Limits, derivatives and integrals of algebraic, exponential, logarithmic and trigonometric functions play a central role. Additional topics include applications of differentiation; the fundamental theorem of calculus, improper integrals and applications of integration.",
+          "prerequisites": {
+            "or": [
+              "MATH-30-1",
+              "MATH-212",
+              "MATH-2"
+            ]
+          },
+          "antirequisites": {
+            "and": [
+              "MATH-249",
+              {
+                "or": [
+                  "MATH-265",
+                  "MATH-275"
+                ]
+              }
+            ]
+          },
+          "notes": "Not open to students with 50% or higher in MATH-31 or a grade of 'C' or higher in MATH-3 (Continuing Education), except with special departmental permission.",
+          "offeredIn": {
+            "Fall": true,
+            "Winter": true,
+            "Spring": true,
+            "Summer": false
+          },
+          "uniqueId": 71
+        },
+        {
+          "courseId": "MATH265",
+          "courseCode": "MATH-265",
+          "department": {
+            "code": "MATH",
+            "name": "Mathematics"
+          },
+          "courseNumber": "265",
+          "title": "University Calculus I",
+          "credits": 3,
+          "level": 300,
+          "description": "An introduction to single variable calculus intended for students with credit in high school calculus. Limits, derivatives, and integrals of algebraic, exponential, logarithmic and trigonometric functions play a central role. Additional topics include applications of differentiation; the fundamental theorem of calculus, improper integrals and applications of integration. Differential calculus in several variables will also be introduced.",
+          "prerequisites": {
+            "and": [
+              {
+                "or": [
+                  "MATH-30-1",
+                  "MATH-212",
+                  "MATH-2"
+                ]
+              },
+              {
+                "or": [
+                  "MATH-31",
+                  "MATH-3"
+                ]
+              }
+            ]
+          },
+          "antirequisites": {
+            "and": [
+              "MATH-265",
+              {
+                "or": [
+                  "MATH-249",
+                  "MATH-275"
+                ]
+              }
+            ]
+          },
+          "notes": "",
+          "offeredIn": {
+            "Fall": true,
+            "Winter": true,
+            "Spring": true,
+            "Summer": false
+          },
+          "uniqueId": 72
+        },
+        {
+          "courseId": "PHIL279",
+          "courseCode": "PHIL-279",
+          "department": {
+            "code": "PHIL",
+            "name": "Philosophy"
+          },
+          "courseNumber": "279",
+          "title": "Logic I",
+          "credits": 3,
+          "level": 300,
+          "description": "Sentential and first-order logic from both deductive and semantic points of view. Some elementary metatheorems.",
+          "prerequisites": null,
+          "antirequisites": {
+            "and": [
+              "PHIL-279",
+              "PHIL-377"
+            ]
+          },
+          "notes": "",
+          "offeredIn": {
+            "Fall": true,
+            "Winter": true,
+            "Spring": false,
+            "Summer": false
+          },
+          "uniqueId": 73
+        },
+        {
+          "courseId": "PHIL314",
+          "courseCode": "PHIL-314",
+          "department": {
+            "code": "PHIL",
+            "name": "Philosophy"
+          },
+          "courseNumber": "314",
+          "title": "Information Technology Ethics",
+          "credits": 3,
+          "level": 300,
+          "description": "A critical and analytical examination of ethical and legal problems arising in and about information technology. May include hacking, online privacy, intellectual property rights, artificial intelligence, globalization and regulation issues, cheating in online games, and others.",
+          "prerequisites": null,
+          "antirequisites": null,
+          "notes": "",
+          "offeredIn": {
+            "Fall": true,
+            "Winter": true,
+            "Spring": false,
+            "Summer": false
+          },
+          "uniqueId": 74
+        },
+        {
+          "courseId": "SENG300",
+          "courseCode": "SENG-300",
+          "department": {
+            "code": "SENG",
+            "name": "Software Engineering"
+          },
+          "courseNumber": "300",
+          "title": "Introduction to Software Engineering",
+          "credits": 3,
+          "level": 300,
+          "description": "Introduction to the development and evolution of software. Covers key conceptual foundations as well as key methods and techniques used in the different phases of the software lifecycle. Emphasis on both technical and soft skills needed for high quality software and software-based products developed in teams.",
+          "prerequisites": {
+            "or": [
+              "CPSC-219",
+              "CPSC-233",
+              "CPSC-235"
+            ]
+          },
+          "antirequisites": {
+            "and": [
+              "SENG-300",
+              {
+                "or": [
+                  "SENG-301",
+                  "SENG-311",
+                  "SENG-403",
+                  "SENG-411",
+                  "CPSC-301",
+                  "CPSC-333",
+                  "CPSC-451",
+                  "SENG-480"
+                ]
+              }
+            ]
+          },
+          "notes": "",
+          "offeredIn": {
+            "Fall": true,
+            "Winter": true,
+            "Spring": true,
+            "Summer": false
+          },
+          "uniqueId": 75
+        }
+      ]
+      
+  
