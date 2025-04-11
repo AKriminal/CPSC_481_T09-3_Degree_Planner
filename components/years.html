@@ -1,0 +1,1127 @@
+<div class="years-content">
+    
+    <style>
+        :root {
+            --primary-color: #CF0722;
+            --secondary-color: #FFA300;
+            --border-color: #ddd;
+            --card-bg: white;
+            --hover-bg: #f8f9fa;
+        }
+        
+        .control-bar {
+            background-color: var(--secondary-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .control-bar button {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-right: 10px;
+            font-weight: 500;
+        }
+        
+        .control-bar button:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .year-container {
+            margin-bottom: 20px;
+            border-left: 5px solid var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        .year-header {
+            display: flex;
+            align-items: center;
+            background-color: var(--card-bg);
+            padding: 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .year-header:hover {
+            background-color: var(--hover-bg);
+        }
+        
+        .semester-container {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            padding: 0 15px 15px;
+        }
+        
+        .semester-layout {
+            display: flex;
+            width: 100%;
+        }
+        
+        .semester-column {
+            flex: 1;
+            margin: 0 5px;
+        }
+        
+        .semester-column.half {
+            flex: 0.5;
+        }
+        
+        .semester-card {
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            padding: 15px;
+            background-color: var(--card-bg);
+            margin-bottom: 15px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        
+        .semester-card h6 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .course-item {
+            padding: 10px;
+            border-radius: 5px;
+            background-color: var(--hover-bg);
+            margin-bottom: 10px;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .course-item .fw-bold {
+            color: var(--primary-color);
+        }
+        
+        .add-course-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px dashed var(--border-color);
+            background-color: var(--card-bg);
+            color: #666;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .add-course-btn:hover {
+            background-color: var(--hover-bg);
+            border-color: #aaa;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25em 0.6em;
+            font-size: 75%;
+            font-weight: 700;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: baseline;
+            border-radius: 0.25rem;
+        }
+        
+        .bg-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        
+        .bg-light {
+            background-color: #f8f9fa;
+            color: #212529;
+        }
+        
+        .text-dark {
+            color: #212529;
+        }
+        
+        .add-year-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .add-year-btn {
+            padding: 10px 20px;
+            background-color: var(--card-bg);
+            border: 1px dashed var(--border-color);
+            color: #666;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.2s;
+        }
+        
+        .add-year-btn:hover {
+            background-color: var(--hover-bg);
+            border-color: #aaa;
+        }
+        
+        .remove-year {
+            color: #6c757d;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        
+        .remove-year:hover {
+            color: var(--primary-color);
+        }
+        
+        .check-icon {
+            color: #28a745;
+            margin-right: 10px;
+        }
+        
+        /* New styles for enhanced features */
+        .course-actions {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+        }
+        
+        
+        .course-menu-btn {
+            background: none;
+            border: none;
+            color: #6c757d;
+            cursor: pointer;
+            padding: 0 5px;
+        }
+        
+        .course-menu-btn:hover {
+            color: var(--primary-color);
+        }
+      /* Course Alert Styles */
+.semester-alert-badge {
+    display: inline-block;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.semester-alerts {
+    margin-bottom: 10px; 
+    display: flex; 
+    gap: 5px; 
+    flex-wrap: wrap;
+}
+
+.semester-alerts .badge {
+    padding: 4px 8px;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.course-item.has-prereq-alert {
+    border-left: 3px solid #d9534f;
+}
+
+.course-item.has-duplicate-alert {
+    border-left: 3px solid #c71585;
+}
+
+.semester-card h6 {
+    display: inline-block;
+}
+
+/* Make alerts more prominent */
+.badge.bg-danger {
+    background-color: #d9534f !important;
+    color: white;
+}
+
+/* Tooltip styles */
+.prereq-alert i, .duplicate-alert i {
+    cursor: help;
+}
+
+/* Style for the semester alert count display */
+.semester-alert-badge .badge {
+    font-size: 14px;
+    padding: 5px 10px;
+    border-radius: 15px;
+}
+        
+        .course-menu {
+            position: absolute;
+            right: 0;
+            top: 100%;
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 100;
+            display: none;
+        }
+        
+        .course-menu.show {
+            display: block;
+        }
+        
+        .course-menu-item {
+            padding: 5px 15px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        
+        .course-menu-item:hover {
+            background-color: var(--hover-bg);
+        }
+        
+        .status-select {
+            display: inline-block;
+            width: auto;
+            padding: 0.25em 0.5em;
+            font-size: 75%;
+            margin-right: 5px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+        }
+        
+        .progress {
+            height: 5px;
+            background-color: #e9ecef;
+            border-radius: 2.5px;
+            margin-top: 5px;
+        }
+        
+        .progress-bar {
+            background-color: var(--primary-color);
+            border-radius: 2.5px;
+        }
+        
+        .undo-notification {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #333;
+            color: white;
+            border-radius: 5px;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        .undo-link {
+            color: var(--secondary-color);
+            font-weight: bold;
+            margin-left: 5px;
+        }
+        
+        .help-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            .semester-layout {
+                flex-direction: column;
+            }
+            
+            .semester-column, .semester-column.half {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .status-select {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+    
+    <!-- Control Bar -->
+    <div class="control-bar">
+        <div>
+            <h4 class="mb-0">Academic Plan</h4>
+            <button class="help-btn" title="Get help with using the academic planner">
+                <i class="fas fa-question-circle"></i>
+            </button>
+        </div>
+        <div>
+            <button id="expand-all">Expand All</button>
+            <button id="collapse-all">Collapse All</button>
+            <button id="refresh-plan">Refresh</button>
+        </div>
+    </div>
+
+    <!-- Year 2024 - 2025 -->
+    <div class="year-container" data-year="2024-2025">
+        <div class="year-header">
+            <i class="fas fa-check-circle check-icon"></i>
+            <h5 class="mb-0">2024 - 2025</h5>
+            <span class="ms-3">0 Courses, 0 Credits</span>
+            <span class="ms-auto remove-year">remove year</span>
+        </div>
+        <div class="semester-container">
+            <div class="semester-layout">
+                <!-- Fall Semester -->
+                <div class="semester-column">
+                    <div class="semester-card">
+                        <h6>Fall 2024</h6>
+                        <div>Total Credits: 0</div>
+                        <div class="course-list">
+                            <!-- Courses will be added here -->
+                        </div>
+                        <button class="add-course-btn" data-semester="Fall 2024">
+                            <i class="fas fa-plus"></i> Add Course
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Winter Semester -->
+                <div class="semester-column">
+                    <div class="semester-card">
+                        <h6>Winter 2025</h6>
+                        <div>Total Credits: 0</div>
+                        <div class="course-list">
+                            <!-- Courses will be added here -->
+                        </div>
+                        <button class="add-course-btn" data-semester="Winter 2025">
+                            <i class="fas fa-plus"></i> Add Course
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Spring/Summer Column -->
+                <div class="semester-column">
+                    <div class="semester-card">
+                        <h6>Spring 2025</h6>
+                        <div>Total Credits: 0</div>
+                        <div class="course-list">
+                            <!-- Courses will be added here -->
+                        </div>
+                        <button class="add-course-btn" data-semester="Spring 2025">
+                            <i class="fas fa-plus"></i> Add Course
+                        </button>
+                    </div>
+                    
+                    <div class="semester-card">
+                        <h6>Summer 2025</h6>
+                        <div>Total Credits: 0</div>
+                        <div class="course-list">
+                            <!-- Courses will be added here -->
+                        </div>
+                        <button class="add-course-btn" data-semester="Summer 2025">
+                            <i class="fas fa-plus"></i> Add Course
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Year Button -->
+    <div class="add-year-container">
+        <button id="add-year-btn" class="add-year-btn">
+            <i class="fas fa-plus"></i> Add Year
+        </button>
+    </div>
+
+    <!-- Add jQuery library (if not already included in your project) -->
+     <!-- Load these first -->
+<script src="components/course-data-manager.js"></script>
+<script src="components/semester-view.js"></script>
+<script src="components/course-card.js"></script>
+<script src="components/course-loader.js"></script>
+<script src="components/course-selector.js"></script>
+<!-- Add this after your other script includes -->
+<script src="components/course-alerts.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Add Font Awesome for icons (if not already included) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    
+    <script>
+        // Function to update semester courses
+        function updateSemesterCourses(term) {
+            // Find the semester card for this term
+            const semesterCard = $(`.semester-card:has(h6:contains('${term}'))`);
+            if (!semesterCard.length) return;
+            
+            // Get courses for this term
+            const termCourses = CourseDataManager.getTermCourses(term);
+            const courseList = semesterCard.find('.course-list');
+            
+            // Clear existing courses
+            courseList.empty();
+            
+            // Add each course
+            Object.values(termCourses).forEach(course => {
+                const courseHTML = `
+                    <div class="course-item" data-code="${course.code}">
+                        <div class="course-actions">
+                            <button class="course-menu-btn">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="course-menu">
+                                <div class="course-menu-item move-course">Move Course</div>
+                                <div class="course-menu-item delete-course">Delete Course</div>
+                            </div>
+                        </div>
+                        <div class="fw-bold">${course.code}</div>
+                        <div>${course.title}</div>
+                        <div>
+                            <select class="status-select ${course.status}">
+                                <option value="none">None</option>
+                                <option value="completed" ${course.status === 'completed' ? 'selected' : ''}>Completed</option>
+                                <option value="in-progress" ${course.status === 'in-progress' ? 'selected' : ''}>In Progress</option>
+                                <option value="planned" ${course.status === 'planned' ? 'selected' : ''}>Planned</option>
+                            </select>
+                            <span class="badge bg-secondary">${course.credits} Credits</span>
+                        </div>
+                    </div>
+                `;
+                
+                courseList.append(courseHTML);
+            });
+            
+            // Update semester credits
+            let totalCredits = 0;
+            Object.values(termCourses).forEach(course => {
+                totalCredits += course.credits;
+            });
+            
+            semesterCard.find('div:contains("Total Credits:")').text(`Total Credits: ${totalCredits}`);
+        }
+
+        // Make function globally available
+        window.updateSemesterCourses = updateSemesterCourses;
+
+        $(document).ready(function() {
+            // Initialize the first year as expanded
+            $('.year-container:first .semester-container').show();
+            
+            // Status options for courses
+            const statusOptions = ['none', 'completed', 'in-progress', 'planned'];
+            
+            // Initialize semester views with existing data
+            if (window.CourseDataManager && typeof window.updateSemesterCourses === 'function') {
+                const allTerms = Object.keys(window.CourseDataManager.getAllTerms());
+                allTerms.forEach(term => {
+                    window.updateSemesterCourses(term);
+                });
+            }
+
+            // Listen for course data changes from requirements panel
+            if (window.CourseDataManager) {
+                CourseDataManager.onCourseChange(({code, data}) => {
+                    if (data.term && typeof window.updateSemesterCourses === 'function') {
+                        window.updateSemesterCourses(data.term);
+                    }
+                });
+                
+                CourseDataManager.onTermChange(({code, data}) => {
+                    // Update both old and new terms if term changed
+                    const oldTerm = window.userPlan.courses[code]?.term;
+                    if (oldTerm) {
+                        window.updateSemesterCourses(oldTerm);
+                    }
+                    if (data.term) {
+                        window.updateSemesterCourses(data.term);
+                    }
+                });
+                
+                CourseDataManager.onStatusChange(({code, data}) => {
+                    if (data.term) {
+                        window.updateSemesterCourses(data.term);
+                    }
+                });
+                
+                CourseDataManager.onCourseRemove(({code, data}) => {
+                    // Find and remove course from semester view
+                    $(`.course-item[data-code="${code}"]`).remove();
+                    // Update the semester it was in
+                    if (data.term) {
+                        window.updateSemesterCourses(data.term);
+                    }
+                });
+            }
+
+            // Event delegation for dynamic elements
+            $(document)
+                .on('click', '.year-header', function() {
+                    $(this).next('.semester-container').slideToggle();
+                })
+                .on('click', '#expand-all', function() {
+                    $('.semester-container').slideDown();
+                })
+                .on('click', '#collapse-all', function() {
+                    $('.semester-container').slideUp();
+                })
+                .on('click', '#refresh-plan', function() {
+    // Update all semester views first
+    const allTerms = Object.keys(CourseDataManager.getAllTerms());
+    allTerms.forEach(term => {
+        updateSemesterCourses(term);
+    });
+    
+    // Then update all alerts
+    if (typeof CourseAlertsManager !== 'undefined') {
+        CourseAlertsManager.updateAllAlerts();
+    }
+    
+    // Update year summaries
+    updateYearSummaries();
+})
+                .on('click', '.add-course-btn', function() {
+                    addCourseToSemester($(this));
+                })
+                .on('click', '.remove-year', function(e) {
+                    e.stopPropagation();
+                    removeYear($(this).closest('.year-container'));
+                })
+                .on('click', '#add-year-btn', function(e) {
+                    e.preventDefault();
+                    addNewAcademicYear();
+                })
+                .on('click', '.help-btn', function() {
+                    showHelpModal();
+                })
+                .on('click', '.course-menu-btn', function(e) {
+                    e.stopPropagation();
+                    $(this).next('.course-menu').toggleClass('show');
+                })
+                .on('click', '.move-course', function() {
+                    const courseItem = $(this).closest('.course-item');
+                    showMoveModal(courseItem);
+                })
+                .on('click', '.delete-course', function() {
+                    const courseItem = $(this).closest('.course-item');
+                    deleteCourse(courseItem);
+                })
+                .on('change', '.status-select', function() {
+                    updateStatusBadge($(this));
+                    updateYearSummaries();
+                    
+                    // Update in CourseDataManager
+                    const courseCode = $(this).closest('.course-item').data('code');
+                    const status = $(this).val();
+                    if (window.CourseDataManager && courseCode) {
+                        const courseData = window.CourseDataManager.getCourseData(courseCode);
+                        if (courseData) {
+                            window.CourseDataManager.saveCourseStatus(courseCode, status);
+                        }
+                    }
+                })
+                .on('click', function(e) {
+                    // Close all course menus when clicking elsewhere
+                    if (!$(e.target).closest('.course-menu-btn').length && 
+                        !$(e.target).closest('.course-menu').length) {
+                        $('.course-menu').removeClass('show');
+                    }
+                });
+            
+            // Function to add a course to a semester
+            // Replace the existing addCourseToSemester function with this:
+            let courseSelector = null;
+
+async function addCourseToSemester(button) {
+    const semester = button.data('semester');
+    
+    // Initialize selector if not already done
+    if (!courseSelector) {
+        courseSelector = new CourseSelector({
+            onSelect: (course) => {
+                const courseList = button.siblings('.course-list');
+                
+                // Check if course already exists in this semester
+                if (courseList.find(`[data-code="${course.courseId}"]`).length) {
+                    alert(`Course ${course.courseId} is already in this semester.`);
+                    return;
+                }
+                
+                // Create the course HTML
+                const courseHTML = `
+                    <div class="course-item" data-code="${course.courseId}">
+                        <div class="course-actions">
+                            <button class="course-menu-btn">
+                                <i class="fas fa-ellipsis-v"></i>
+                            </button>
+                            <div class="course-menu">
+                                <div class="course-menu-item move-course">Move Course</div>
+                                <div class="course-menu-item delete-course">Delete Course</div>
+                            </div>
+                        </div>
+                        <div class="fw-bold">${course.courseId}</div>
+                        <div>${course.title}</div>
+                        <div>
+                            <select class="status-select">
+                                <option value="none">None</option>
+                                <option value="completed">Completed</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="planned" selected>Planned</option>
+                            </select>
+                            <span class="badge bg-secondary">${course.credits || 3} Credits</span>
+                        </div>
+                    </div>
+                `;
+                
+                courseList.append(courseHTML);
+                updateSemesterCredits(button.closest('.semester-card'));
+                updateYearSummaries();
+                
+                // Save to CourseDataManager
+                if (window.CourseDataManager) {
+                    window.CourseDataManager.saveCourse({
+                        code: course.courseId,
+                        title: course.title,
+                        term: semester,
+                        status: 'planned',
+                        credits: course.credits || 3
+                    });
+                }
+            }
+        });
+    }
+    
+    // Show the selector
+    courseSelector.show();
+}
+
+// Add these helper functions at the top of your script section:
+async function fetchCoursesData() {
+    try {
+        const response = await fetch('components/courses.json');
+        if (!response.ok) {
+            throw new Error('Failed to fetch courses data');
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error loading courses data:', error);
+        return [];
+    }
+}
+
+function findCourseById(courses, courseId) {
+    return courses.find(course => course.courseId === courseId) || null;
+}
+            
+            // Function to update semester credits
+            function updateSemesterCredits(semesterCard) {
+                let totalCredits = 0;
+                
+                semesterCard.find('.course-item').each(function() {
+                    const creditText = $(this).find('.badge').text();
+                    const credits = parseInt(creditText) || 0;
+                    totalCredits += credits;
+                });
+                
+                semesterCard.find('div:contains("Total Credits:")').text(`Total Credits: ${totalCredits}`);
+            }
+            
+            // Function to update year summaries
+            function updateYearSummaries() {
+                $('.year-container').each(function() {
+                    let totalCourses = 0;
+                    let totalCredits = 0;
+                    let completedCredits = 0;
+                    
+                    $(this).find('.course-item').each(function() {
+                        totalCourses++;
+                        const creditText = $(this).find('.badge').text();
+                        const credits = parseInt(creditText) || 0;
+                        totalCredits += credits;
+                        
+                        if ($(this).find('.status-select').val() === 'completed') {
+                            completedCredits += credits;
+                        }
+                    });
+                    
+                    const completionPercentage = totalCredits > 0 ? 
+                        Math.round((completedCredits / totalCredits) * 100) : 0;
+                    
+                    $(this).find('.year-header span:contains("Courses")').html(`
+                        ${totalCourses} Courses, ${totalCredits} Credits
+                        <div class="progress">
+                            <div class="progress-bar" 
+                                 style="width: ${completionPercentage}%">
+                            </div>
+                        </div>
+                    `);
+                });
+            }
+            
+            // Function to update status badge
+            function updateStatusBadge(selectElement) {
+                const badge = selectElement.siblings('.badge');
+                badge.removeClass('bg-secondary bg-success bg-warning bg-info');
+                
+                switch(selectElement.val()) {
+                    case 'completed':
+                        badge.addClass('bg-success');
+                        break;
+                    case 'in-progress':
+                        badge.addClass('bg-warning');
+                        break;
+                    case 'planned':
+                        badge.addClass('bg-info');
+                        break;
+                    default:
+                        badge.addClass('bg-secondary');
+                }
+            }
+            
+            // Function to delete a course
+            function deleteCourse(courseItem) {
+                if (confirm("Are you sure you want to delete this course?")) {
+                    const semesterCard = courseItem.closest('.semester-card');
+                    const courseCode = courseItem.data('code');
+                    
+                    // Remove from CourseDataManager
+                    if (window.CourseDataManager && courseCode) {
+                        window.CourseDataManager.removeCourseData(courseCode);
+                    }
+                    
+                    courseItem.fadeOut(200, function() {
+                        $(this).remove();
+                        updateSemesterCredits(semesterCard);
+                        updateYearSummaries();
+                    });
+                }
+            }
+            
+            // Function to show move modal
+            function showMoveModal(courseItem) {
+    const currentSemester = courseItem.closest('.semester-card');
+    const allSemesters = $('.semester-card').not(currentSemester);
+    const courseCode = courseItem.data('code');
+    
+    let moveOptionsHTML = '';
+    allSemesters.each(function() {
+        const semesterName = $(this).find('h6').text();
+        moveOptionsHTML += `<option value="${semesterName}">${semesterName}</option>`;
+    });
+    
+    if (moveOptionsHTML === '') {
+        alert("No other semesters available to move this course to.");
+        return;
+    }
+    
+    // Create modal with proper structure
+    const moveModalHTML = `
+        <div class="move-modal" style="
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        ">
+            <div style="
+                background: white;
+                padding: 20px;
+                border-radius: 8px;
+                width: 90%;
+                max-width: 400px;
+            ">
+                <h5>Move Course</h5>
+                <p>Select destination semester:</p>
+                <select class="form-select mb-3" id="move-semester-select">
+                    ${moveOptionsHTML}
+                </select>
+                <div style="display: flex; justify-content: flex-end; gap: 10px;">
+                    <button id="cancel-move" class="btn btn-secondary">Cancel</button>
+                    <button id="confirm-move" class="btn btn-primary">Move</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Add modal to DOM
+    const $modal = $(moveModalHTML).appendTo('body');
+    
+    // Use event delegation for better reliability
+    $modal.on('click', '#cancel-move', function() {
+        $modal.remove();
+    });
+    
+    $modal.on('click', '#confirm-move', function() {
+        const selectedSemester = $('#move-semester-select').val();
+        const targetSemester = $(`.semester-card:has(h6:contains('${selectedSemester}'))`);
+        
+        if (targetSemester.length) {
+            const targetCourseList = targetSemester.find('.course-list');
+            targetCourseList.append(courseItem);
+            
+            // Update in CourseDataManager
+            if (window.CourseDataManager && courseCode) {
+                window.CourseDataManager.saveCourseTerm(courseCode, selectedSemester);
+            }
+            
+            updateSemesterCredits(currentSemester);
+            updateSemesterCredits(targetSemester);
+            updateYearSummaries();
+        }
+        
+        $modal.remove();
+    });
+    
+    // Close modal when clicking outside
+    $modal.on('click', function(e) {
+        if (e.target === this) {
+            $modal.remove();
+        }
+    });
+}
+            
+            // Enhanced function to remove a year with validation
+            function removeYear(yearContainer) {
+                event.stopPropagation();
+
+                // Check for any courses in the year
+                if (yearContainer.find('.course-item').length > 0) {
+                    alert("Please remove all courses before deleting this year.");
+                    return;
+                }
+
+                // Check if there's any *next* year after this one in the DOM
+                const nextYearExists = yearContainer.nextAll('.year-container').length > 0;
+
+                if (nextYearExists) {
+                    alert("Please remove later academic years first (remove in reverse chronological order).");
+                    return;
+                }
+
+                // Confirm deletion
+                if (confirm("Are you sure you want to remove this academic year?")) {
+                    const removedContent = yearContainer.html();
+                    const position = yearContainer.index();
+                    
+                    yearContainer.slideUp(300, function() {
+                        $(this).remove();
+                        updateYearSummaries();
+                        
+                        // Show undo notification
+                        const notification = $(`
+                            <div class="undo-notification">
+                                Year removed. <a href="#" class="undo-link">Undo</a>
+                            </div>
+                        `);
+                        
+                        $('body').append(notification);
+                        
+                        $('.undo-link').on('click', function(e) {
+                            e.preventDefault();
+                            notification.remove();
+                            
+                            const newYear = $(`<div class="year-container" style="display:none;"></div>`);
+                            newYear.html(removedContent);
+                            
+                            if (position === 0) {
+                                newYear.insertBefore($('.year-container').first());
+                            } else {
+                                newYear.insertBefore($('.add-year-container'));
+                            }
+                            
+                            newYear.slideDown();
+                            updateYearSummaries();
+                        });
+                        
+                        setTimeout(function() {
+                            notification.fadeOut(300, function() {
+                                $(this).remove();
+                            });
+                        }, 5000);
+                    });
+                }
+            }
+            
+            // Function to add a new academic year
+            function addNewAcademicYear() {
+                try {
+                    // Get all year containers
+                    const yearContainers = $('.year-container');
+                    
+                    // Determine the next academic year to add
+                    let highestEndYear = 2025;  // Default if we can't find any
+                    
+                    // Loop through all year containers to find the highest end year
+                    yearContainers.each(function() {
+                        // Try to get year from data-year attribute
+                        const dataYearAttr = $(this).attr('data-year');
+                        if (dataYearAttr) {
+                            const yearParts = dataYearAttr.split('-');
+                            if (yearParts.length === 2) {
+                                const endYear = parseInt(yearParts[1]);
+                                if (!isNaN(endYear) && endYear > highestEndYear) {
+                                    highestEndYear = endYear;
+                                }
+                            }
+                        }
+                        
+                        // Alternatively, try to get from heading text
+                        const headingText = $(this).find('h5').text().trim();
+                        const yearMatch = headingText.match(/(\d{4})\s*-\s*(\d{4})/);
+                        if (yearMatch && yearMatch.length === 3) {
+                            const endYear = parseInt(yearMatch[2]);
+                            if (!isNaN(endYear) && endYear > highestEndYear) {
+                                highestEndYear = endYear;
+                            }
+                        }
+                    });
+                    
+                    // Calculate new academic year
+                    const newStartYear = highestEndYear;
+                    const newEndYear = highestEndYear + 1;
+                    
+                    // Create new year container
+                    const newYearHTML = `
+                        <div class="year-container" data-year="${newStartYear}-${newEndYear}">
+                            <div class="year-header">
+                                <i class="fas fa-check-circle check-icon"></i>
+                                <h5 class="mb-0">${newStartYear} - ${newEndYear}</h5>
+                                <span class="ms-3">0 Courses, 0 Credits</span>
+                                <span class="ms-auto remove-year">remove year</span>
+                            </div>
+                            <div class="semester-container" style="display:none;">
+                                <div class="semester-layout">
+                                    <!-- Fall Semester -->
+                                    <div class="semester-column">
+                                        <div class="semester-card">
+                                            <h6>Fall ${newStartYear}</h6>
+                                            <div>Total Credits: 0</div>
+                                            <div class="course-list"></div>
+                                            <button class="add-course-btn" data-semester="Fall ${newStartYear}">
+                                                <i class="fas fa-plus"></i> Add Course
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Winter Semester -->
+                                    <div class="semester-column">
+                                        <div class="semester-card">
+                                            <h6>Winter ${newEndYear}</h6>
+                                            <div>Total Credits: 0</div>
+                                            <div class="course-list"></div>
+                                            <button class="add-course-btn" data-semester="Winter ${newEndYear}">
+                                                <i class="fas fa-plus"></i> Add Course
+                                            </button>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- Spring/Summer Column -->
+                                    <div class="semester-column">
+                                        <div class="semester-card">
+                                            <h6>Spring ${newEndYear}</h6>
+                                            <div>Total Credits: 0</div>
+                                            <div class="course-list"></div>
+                                            <button class="add-course-btn" data-semester="Spring ${newEndYear}">
+                                                <i class="fas fa-plus"></i> Add Course
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="semester-card">
+                                            <h6>Summer ${newEndYear}</h6>
+                                            <div>Total Credits: 0</div>
+                                            <div class="course-list"></div>
+                                            <button class="add-course-btn" data-semester="Summer ${newEndYear}">
+                                                <i class="fas fa-plus"></i> Add Course
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    
+                    // Insert before the add year button container
+                    const addYearContainer = $('.add-year-container');
+                    if (addYearContainer.length === 0) {
+                        throw new Error("Could not find .add-year-container element");
+                    }
+                    
+                    $(newYearHTML).insertBefore(addYearContainer);
+                    
+                    // Show success message
+                    alert(`Academic year ${newStartYear}-${newEndYear} added successfully!`);
+                    
+                } catch (error) {
+                    console.error("Error adding new academic year:", error);
+                    alert("An error occurred while adding the new academic year. Details: " + error.message);
+                }
+            }
+            
+            // Function to show help modal
+            function showHelpModal() {
+                const modalHTML = `
+                    <div class="move-modal" style="
+                        position: fixed;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0,0,0,0.5);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        z-index: 1000;
+                    ">
+                        <div style="
+                            background: white;
+                            padding: 20px;
+                            border-radius: 8px;
+                            width: 90%;
+                            max-width: 500px;
+                        ">
+                            <h5 style="color: var(--primary-color); margin-top: 0;">Academic Planner Help</h5>
+                            <h6>Basic Usage</h6>
+                            <ul>
+                                <li>Click "Add Year" to create a new academic year</li>
+                                <li>Click on a year header to expand/collapse it</li>
+                                <li>Click "Add Course" in any semester to add a new course</li>
+                                <li>Use the three-dot menu on courses to move or delete them</li>
+                            </ul>
+                            
+                            <h6>Course Status</h6>
+                            <p>Track your progress by setting course status:</p>
+                            <div style="display: flex; gap: 10px; margin-bottom: 15px;">
+                                <span class="badge bg-secondary">Registered</span>
+                                <span class="badge bg-success">Completed</span>
+                                <span class="badge bg-warning">In Progress</span>
+                                <span class="badge bg-info">Planned</span>
+                            </div>
+                            
+                            <div style="text-align: right;">
+                                <button id="close-help" style="
+                                    background: var(--primary-color);
+                                    color: white;
+                                    border: none;
+                                    padding: 5px 15px;
+                                    border-radius: 4px;
+                                    cursor: pointer;
+                                ">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                $('body').append(modalHTML);
+                
+                $('#close-help').on('click', function() {
+                    $('.move-modal').remove();
+                });
+            }
+        });
+    </script>
+</div>
