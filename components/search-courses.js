@@ -105,30 +105,29 @@ $(document).ready(function() {
     function displayCourses() {
         $('#search-courses-container').empty();
         
-        // Calculate start and end indices for current page
         const startIndex = (currentPage - 1) * coursesPerPage;
         const endIndex = Math.min(startIndex + coursesPerPage, filteredCourses.length);
         
-        // Display no results message if no courses found
         if (filteredCourses.length === 0) {
             $('#search-courses-container').html('<div class="no-results">No courses found matching your criteria.</div>');
             return;
         }
         
-        // Display current page of courses (max 4 per page, but no total limit)
         for (let i = startIndex; i < endIndex; i++) {
             const course = filteredCourses[i];
             const hasPrerequisites = course.prerequisites && 
                 (course.prerequisites.and || course.prerequisites.or || Object.keys(course.prerequisites).length > 0);
             
-            const currentMonth = new Date().getMonth();
-            let offeredInCurrentSemester = false;
+            // Generate offered semesters string
+            const offeredSemesters = [];
+            if (course.offeredIn.Fall) offeredSemesters.push('Fall');
+            if (course.offeredIn.Winter) offeredSemesters.push('Winter');
+            if (course.offeredIn.Spring) offeredSemesters.push('Spring');
+            if (course.offeredIn.Summer) offeredSemesters.push('Summer');
             
-            if (currentMonth >= 8 || currentMonth <= 4) { // Fall/Winter
-                offeredInCurrentSemester = course.offeredIn.Fall || course.offeredIn.Winter;
-            } else { // Spring/Summer
-                offeredInCurrentSemester = course.offeredIn.Spring || course.offeredIn.Summer;
-            }
+            const offeredString = offeredSemesters.length > 0 
+                ? `Usually offered in: ${offeredSemesters.join(', ')}`
+                : 'Not regularly offered';
             
             $('#search-courses-container').append(`
                 <div class="course-item" data-course-id="${course.uniqueId}">
@@ -138,7 +137,7 @@ $(document).ready(function() {
                     </div>
                     <div style="padding: 5px 0;">${course.title}</div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
-                        <span class="semester-badge">${offeredInCurrentSemester ? 'Current Semester' : 'Not offered this semester'}</span>
+                        <span class="semester-badge">${offeredString}</span>
                         <span class="status-badge ${hasPrerequisites ? 'bg-warning' : 'bg-success'}">
                             ${hasPrerequisites ? 'Prerequisites pending' : 'No prerequisites'}
                         </span>
@@ -211,11 +210,17 @@ $(document).ready(function() {
         
         // Filter courses without limiting the results
         filteredCourses = allCourses.filter(course => {
-            // Search term filter
+            // Create search-friendly versions of course codes
+            const spacedCode = `${course.department.code} ${course.courseNumber}`.toLowerCase();
+            const compactCode = `${course.department.code}${course.courseNumber}`.toLowerCase();
+            const hyphenCode = `${course.department.code}-${course.courseNumber}`.toLowerCase();
+            
+            // Search term filter - matches any version of the course code
             const matchesSearch = !searchTerm || 
                 course.title.toLowerCase().includes(searchTerm) || 
-                course.courseCode.toLowerCase().includes(searchTerm) ||
-                `${course.department.code}${course.courseNumber}`.toLowerCase().includes(searchTerm);
+                spacedCode.includes(searchTerm) ||
+                compactCode.includes(searchTerm) ||
+                hyphenCode.includes(searchTerm);
             
             // Faculty filter
             const matchesFaculty = !faculty || 
