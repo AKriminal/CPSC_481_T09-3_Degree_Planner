@@ -22,6 +22,11 @@ $(document).ready(function() {
             displayCourses();
             updatePagination();
             setupEventListeners();
+            
+            // Initialize the popup system
+            if (typeof initializeCoursePopup === 'function') {
+                initializeCoursePopup();
+            }
         } catch (error) {
             console.error('Error initializing page:', error);
             // Fallback to default courses
@@ -30,6 +35,11 @@ $(document).ready(function() {
             displayCourses();
             updatePagination();
             setupEventListeners();
+            
+            // Initialize the popup system
+            if (typeof initializeCoursePopup === 'function') {
+                initializeCoursePopup();
+            }
         }
     }
 
@@ -43,8 +53,26 @@ $(document).ready(function() {
                 "title": "Introduction to Computer Science for Multidisciplinary Studies I",
                 "credits": 3,
                 "level": 200,
+                "description": "Introduction to problem solving, analysis and design of small-scale computational systems and implementation using a procedural programming language. For students wishing to combine studies in computer science with studies in other disciplines.",
                 "prerequisites": null,
-                "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                "antirequisites": {
+                    "and": [
+                        "CPSC-217",
+                        {
+                            "or": [
+                                "CPSC-215",
+                                "CPSC-231",
+                                "CPSC-235",
+                                "DATA-211",
+                                "ENCM-339",
+                                "ENG-233",
+                                "ENDG-233"
+                            ]
+                        }
+                    ]
+                },
+                "notes": "See the statements at the beginning of the Computer Science entry.",
+                "offeredIn": {"Fall": true, "Winter": false, "Spring": true, "Summer": false},
                 "uniqueId": 1
             },
             {
@@ -55,8 +83,32 @@ $(document).ready(function() {
                 "title": "Introduction to Computer Science for Computer Science Majors I",
                 "credits": 3,
                 "level": 200,
-                "prerequisites": {"or": ["Admission to CPSC"]},
-                "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
+                "description": "Introduction to problem solving, the analysis and design of small-scale computational systems, and implementation using a procedural programming language. For computer science majors.",
+                "prerequisites": {
+                    "or": [
+                        "Admission to CPSC",
+                        "Bioinformatics",
+                        "Natural Science with a primary concentration in CPSC"
+                    ]
+                },
+                "antirequisites": {
+                    "and": [
+                        "CPSC-231",
+                        {
+                            "or": [
+                                "CPSC-215",
+                                "CPSC-217",
+                                "CPSC-235",
+                                "DATA-211",
+                                "ENCM-339",
+                                "ENG-233",
+                                "ENDG-233"
+                            ]
+                        }
+                    ]
+                },
+                "notes": "See the statements at the beginning of the Computer Science entry.",
+                "offeredIn": {"Fall": true, "Winter": false, "Spring": true, "Summer": false},
                 "uniqueId": 2
             },
             {
@@ -67,7 +119,21 @@ $(document).ready(function() {
                 "title": "Linear Methods I",
                 "credits": 3,
                 "level": 200,
-                "prerequisites": null,
+                "description": "An introduction to systems of linear equations, vectors in Euclidean space and matrix algebra. Additional topics include linear transformations, determinants, complex numbers, eigenvalues, and applications.",
+                "prerequisites": {
+                    "or": [
+                        "MATH-30-1",
+                        "MATH-212",
+                        "MATH-2"
+                    ]
+                },
+                "antirequisites": {
+                    "and": [
+                        "MATH-211",
+                        "MATH-213"
+                    ]
+                },
+                "notes": "",
                 "offeredIn": {"Fall": true, "Winter": true, "Spring": true, "Summer": false},
                 "uniqueId": 3
             },
@@ -79,7 +145,10 @@ $(document).ready(function() {
                 "title": "Logic I",
                 "credits": 3,
                 "level": 200,
+                "description": "An introduction to formal logic, including propositional and predicate logic, truth tables, natural deduction, and basic set theory.",
                 "prerequisites": null,
+                "antirequisites": null,
+                "notes": "",
                 "offeredIn": {"Fall": true, "Winter": true, "Spring": false, "Summer": false},
                 "uniqueId": 4
             }
@@ -132,10 +201,10 @@ $(document).ready(function() {
             $('#search-courses-container').append(`
                 <div class="course-item" data-course-id="${course.uniqueId}">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div style="font-weight: bold; color: #0064A4;">${course.department.code} ${course.courseNumber}</div>
+                        <div style="font-weight: bold; color: #0064A4;" class="course-code">${course.department.code} ${course.courseNumber}</div>
                         <span class="course-credits">${course.credits} credits</span>
                     </div>
-                    <div style="padding: 5px 0;">${course.title}</div>
+                    <div style="padding: 5px 0;" class="course-title">${course.title}</div>
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 5px;">
                         <span class="semester-badge">${offeredString}</span>
                         <span class="status-badge ${hasPrerequisites ? 'bg-warning' : 'bg-success'}">
@@ -145,6 +214,26 @@ $(document).ready(function() {
                 </div>
             `);
         }
+        
+        // Add click handlers for course codes and titles
+        $('.course-code, .course-title').on('click', function(e) {
+            e.stopPropagation();
+            const courseItem = $(this).closest('.course-item');
+            const courseId = courseItem.data('course-id');
+            const course = filteredCourses.find(c => c.uniqueId === courseId);
+            
+            if (course && typeof window.showCoursePopup === 'function') {
+                window.showCoursePopup(course.courseCode);
+            }
+        });
+        
+        // Keep the selection functionality for the whole item
+        $('.course-item').on('click', function(e) {
+            // Don't trigger if clicking on course code or title (they have their own handlers)
+            if (!$(e.target).hasClass('course-code') && !$(e.target).hasClass('course-title')) {
+                $(this).toggleClass('active').siblings().removeClass('active');
+            }
+        });
     }
 
     function updatePagination() {
@@ -197,6 +286,7 @@ $(document).ready(function() {
             $(this).toggleClass('active').siblings().removeClass('active');
         });
     }
+
     window.applyFilters = applyFilters;
     // Apply all filters to the course list
     function applyFilters() {
