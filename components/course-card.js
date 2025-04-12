@@ -119,7 +119,37 @@ class CourseCard {
     }
 
     #showCourseDetails() {
-        alert(`Future feature: Show details for ${this.code}`);
+        console.group(`[course-card.js] #showCourseDetails for ${this.code}`);
+        console.log("1. Checking if showCoursePopup exists...");
+        
+        if (typeof window.showCoursePopup === 'function') {
+            console.log("2. showCoursePopup found, calling it...");
+            window.showCoursePopup(this.code);
+        } else {
+            console.log("2. showCoursePopup not found, checking for initialization...");
+            
+            if (typeof initializeCoursePopup === 'function') {
+                console.log("3. initializeCoursePopup found, calling it...");
+                initializeCoursePopup();
+                
+                setTimeout(() => {
+                    console.log("4. After initialization delay, checking again...");
+                    console.log("typeof showCoursePopup:", typeof showCoursePopup);
+                    
+                    if (typeof window.showCoursePopup === 'function') {
+                        console.log("5. showCoursePopup now available, calling it...");
+                        window.showCoursePopup(this.code);
+                    } else {
+                        console.warn("5. showCoursePopup still not available, falling back to alert");
+                        alert(`Course details for ${this.code}`);
+                    }
+                }, 100);
+            } else {
+                console.warn("3. initializeCoursePopup not found, falling back to alert");
+                alert(`Course details for ${this.code}`);
+            }
+        }
+        console.groupEnd();
     }
 
     // Modified loadAvailableTermsAndToggleDropdown method
